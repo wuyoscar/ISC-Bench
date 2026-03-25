@@ -70,6 +70,7 @@ a { transition: color var(--transition); }
 .has-text-grey-light { color: var(--text-dim) !important; }
 .content p { color: var(--text-dim); }
 .content strong { color: var(--text); }
+code { background: var(--red-glow) !important; color: var(--red-light) !important; padding: 2px 6px; border-radius: 4px; }
 
 /* ====== STAT CARDS ====== */
 .stat-card {

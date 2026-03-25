@@ -74,7 +74,7 @@ function populateLeaderboard(models, cases) {
     tr.innerHTML = `
       <td class="has-text-centered"><strong>${model.rank}</strong></td>
       <td><span class="model-name">${displayName}</span><span class="model-org">${model.org}</span></td>
-      <td class="has-text-centered"><code>${model.score}</code></td>
+      <td class="has-text-centered">${model.score}</td>
       <td class="has-text-centered">${statusHTML}</td>
       <td class="has-text-centered">${demoHTML}</td>
       <td class="has-text-centered">${byHTML}</td>
