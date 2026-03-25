@@ -49,6 +49,7 @@
 
 | Date | Update |
 |:-----|--------|
+| 🔥 v5 — 2026-03-25 | **Jailbroken Arena**: 330 models, progress chart, auto-generation scripts, community submissions |
 | 🔥 v4 — 2026-03-25 | ICL benchmark switching, CLAUDE.md, nav bar redesign |
 | 🔥 v3 — 2026-03-25 | Leaderboard v2, contributor attribution, 10 confirmed ISC cases, submission template |
 | 🔥 v2 — 2026-03-25 | README polish, notebook fixes, outputs cleared |
@@ -58,10 +59,12 @@
 
 ## Roadmap
 
-- [ ] Jailbreak Top 20 (Large Model In Progress)
-- [ ] More ISC examples across models and contexts
-- [ ] Project website
+- [ ] **Project website** ← next
 - [ ] ISC Skill — domain knowledge + utility scripts
+- [ ] More ISC examples across models and contexts
+- [x] **Jailbroken Arena** — 330 models, 12 confirmed, auto-generation pipeline
+- [x] Community submissions via GitHub Issues + leaderboard history
+- [x] ICL benchmark switching (harmbench, strongreject, advbench)
 - [x] ISC-Bench: 56 TVD templates across 8 domains
 - [x] 3 experiment modes (Single, ICL, Agentic)
 - [x] Tutorials (01-04)

@@ -2,6 +2,15 @@
 
 All notable updates to ISC-Bench are documented here.
 
+## v5 — 2026-03-25
+
+- **Jailbroken Arena**: renamed from ISC Leaderboard, expanded to 330 models (was 40)
+- **Auto-generation pipeline**: `scripts/gen_leaderboard.py` generates README table from `arena_cache.json` + `isc_cases.json`
+- **Progress chart**: updated to 12/330, GitHub Action auto-regenerates SVG
+- **Community submissions**: structured issue template with harmful content type, domain, and ISC checklist
+- **First community contributor**: @HanxunH — Qwen 3.5 397B (#3)
+- ISC description updated: "low-conditional design concept" (not "no adversarial")
+
 ## v4 — 2026-03-25
 
 - **ICL benchmark switching**: added `build.py` to rebuild ICL data with different benchmarks (harmbench, strongreject, advbench); `run.py` now supports `--bench` flag
