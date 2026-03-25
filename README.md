@@ -70,7 +70,7 @@
 
 ---
 
-<h2 align="center">💀 What is ISC?</h2>
+## 💀 What is ISC?
 
 ### Demo
 
@@ -82,7 +82,7 @@ The demo GIF may take a moment to load.
 
 ---
 
-<h2 align="center">🏆 ISC Leaderboard</h2>
+## 🏆 ISC Leaderboard
 
 <p align="center">
   Current coverage against the <a href="https://arena.ai/leaderboard">Arena Leaderboard</a> overall Top 50, accessed on 2026-03-25.
@@ -211,7 +211,7 @@ The demo GIF may take a moment to load.
 
 ---
 
-<h2 align="center">⚡ ISC Quick Test</h2>
+## ⚡ ISC Quick Test
 
 56 prompt templates across 8 domains. Each one triggers any frontier LLM to generate harmful content. All 56 tested on 5 models — **every single one succeeded**. Ask the same questions directly, every model refuses.
 
@@ -294,7 +294,7 @@ cat templates/aiml_llamaguard_eval/prompt.txt
 
 All 56 templates follow the **TVD design pattern**. To design your own, see our [cookbook](cookbook/).
 
-<h2 align="center">🧪 Experiments</h2>
+## 🧪 Experiments
 
 Three evaluation modes. Full details in [`experiment/`](experiment/).
 
@@ -315,7 +315,7 @@ cd experiment/isc_agent && docker build -t isc-agent . && ./run.sh --model <mode
 
 ---
 
-<h2 align="center">🧠 The ISC Concept</h2>
+## 🧠 The ISC Concept
 
 <p align="center">
   <img src="assets/fig2_tvd_framework.png" width="100%">
@@ -350,7 +350,7 @@ More ISC examples:
 
 ---
 
-<h2 align="center">🔧 Setup</h2>
+## 🔧 Setup
 
 ```bash
 # Install uv (if not already installed)
@@ -363,7 +363,7 @@ cp .env.example .env   # add your OpenRouter API key
 
 Python 3.11+ and [uv](https://docs.astral.sh/uv/). All scripts use [PEP 723](https://peps.python.org/pep-0723/) — `uv run` handles everything. Docker only for agentic mode.
 
-<h2 align="center">📁 Project Structure</h2>
+## 📁 Project Structure
 
 | Directory | What | Guide |
 |-----------|------|-------|
@@ -371,7 +371,7 @@ Python 3.11+ and [uv](https://docs.astral.sh/uv/). All scripts use [PEP 723](htt
 | [`experiment/`](experiment/) | Reproduce paper: Single, ICL, Agentic | [→ How to run](experiment/README.md) |
 | [`cookbook/`](cookbook/) | Tutorials: ISC concepts, anchors, composability | [→ Notebooks](cookbook/) |
 
-<h2 align="center">❓ FAQ</h2>
+## ❓ FAQ
 
 <details>
 <summary><b>Q: ISC didn't trigger on my model.</b></summary>
