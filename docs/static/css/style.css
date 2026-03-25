@@ -146,9 +146,9 @@ a { transition: color var(--transition); }
 }
 .badge-safe {
   display: inline-flex; align-items: center; gap: 4px;
-  background: rgba(63, 185, 80, 0.1); color: var(--green);
+  background: rgba(100, 100, 120, 0.1); color: var(--text-muted);
   padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;
-  border: 1px solid rgba(63, 185, 80, 0.2);
+  border: 1px solid rgba(100, 100, 120, 0.2);
 }
 
 /* ====== DOMAIN CARDS ====== */

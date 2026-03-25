@@ -68,7 +68,7 @@ function populateLeaderboard(models, cases) {
         `<a href="https://github.com/${d.by}" target="_blank">@${d.by}</a>`
       ).join("<br>");
     } else {
-      statusHTML = '<span class="badge-safe"><i class="fas fa-lock"></i> Safe</span>';
+      statusHTML = '<span class="badge-safe"><i class="fas fa-hourglass-half"></i> Pending</span>';
     }
 
     tr.innerHTML = `
