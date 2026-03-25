@@ -131,6 +131,16 @@ Coverage of [Arena Top 50](https://arena.ai/leaderboard) — updated 2026-03-25.
 | 49 | <img src="https://www.google.com/s2/favicons?domain=deepseek.com&sz=32" width="14"> DeepSeek V3.2 | 1425 | 🔴 | [🔗](https://chat.deepseek.com/share/pbzirkyhfkvapyc3g0) | [@wuyoscar](https://github.com/wuyoscar) |
 | 50 | <img src="https://www.google.com/s2/favicons?domain=alibabacloud.com&sz=32" width="14"> Qwen 3 Max 2025-09-23 | 1424 | 🟢 |  |  |
 
+<details>
+<summary><b>📜 Leaderboard History</b></summary>
+
+| Date | Model | By | Note |
+|:-----|-------|:--:|------|
+| 2026-03-25 | Qwen 3.5 397B | [@HanxunH](https://github.com/HanxunH) | Custom TVD task ([#3](https://github.com/wuyoscar/ISC-Bench/issues/3)) |
+| 2026-03-25 | GLM-5 | [@wuyoscar](https://github.com/wuyoscar) | ISC-Bench template |
+| 2026-03-25 | Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 4.6, Gemini 3 Pro, GPT-5.2 Chat, o3, Grok 4.1, Kimi K2.5 Thinking, Qwen 3 Max Preview, DeepSeek V3.2 | [@wuyoscar](https://github.com/wuyoscar) | Initial batch — 10 models confirmed |
+
+</details>
 
 ---
 
