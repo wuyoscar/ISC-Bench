@@ -63,10 +63,8 @@
 
 ### Demo
 
-The demo GIF may take a moment to load.
-
 <p align="center">
-  <img src="assets/ISC_Video.gif" width="800">
+  <video src="assets/ISC_Video.mp4" width="800" autoplay muted loop playsinline></video>
 </p>
 
 ---
