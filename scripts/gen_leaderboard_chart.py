@@ -4,10 +4,8 @@
 # dependencies = ["matplotlib>=3.8"]
 # ///
 """
-Generate Jailbroken Arena progress chart from history data.
-
-Reads assets/leaderboard_history.json, outputs assets/leaderboard_progress.svg.
-Run manually or via GitHub Actions on push.
+Generate Jailbroken Arena progress chart.
+Reads assets/leaderboard_history.json → assets/leaderboard_progress.svg
 """
 import json
 from pathlib import Path
@@ -17,112 +15,118 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import matplotlib.ticker as mticker
+import matplotlib.patheffects as pe
+from matplotlib.patches import FancyBboxPatch
 from datetime import datetime, timedelta
 
 ROOT = Path(__file__).parent.parent
 DATA = ROOT / "assets" / "leaderboard_history.json"
 OUT = ROOT / "assets" / "leaderboard_progress.svg"
 
-# -- SCI Academic Palette (muted, desaturated) --
-BG = "#FAFAFA"
-GRID = "#E0E0E0"
-RED_STRONG = "#B64342"
-RED_LIGHT = "#F6CFCB"
-BLUE_MAIN = "#0F4D92"
-NEUTRAL_MID = "#767676"
-NEUTRAL_DARK = "#4D4D4D"
-NEUTRAL_BLACK = "#272727"
-TEAL = "#42949E"
-
 
 def main() -> None:
+    # -- Premium font stack --
     plt.rcParams.update({
         "font.family": "sans-serif",
-        "font.sans-serif": ["Helvetica Neue", "Arial", "DejaVu Sans"],
+        "font.sans-serif": ["SF Pro Display", "Helvetica Neue", "Arial", "DejaVu Sans"],
         "axes.unicode_minus": False,
+        "figure.dpi": 200,
     })
 
     history = json.loads(DATA.read_text())
-
     dates = [datetime.strptime(h["date"], "%Y-%m-%d") for h in history]
     confirmed = [h["confirmed"] for h in history]
     total = [h["total"] for h in history]
 
-    # Collect contributors
+    # Contributors
     contributors: dict[str, int] = {}
     for h in history:
         for ev in h.get("events", []):
-            by = ev["by"]
-            contributors[by] = contributors.get(by, 0) + 1
+            contributors[ev["by"]] = contributors.get(ev["by"], 0) + 1
 
     latest = history[-1]
 
-    # --- Figure ---
-    fig, ax = plt.subplots(figsize=(9, 3.2), dpi=150)
+    # -- Colors (dark theme for impact) --
+    BG = "#0D1117"
+    CARD = "#161B22"
+    BORDER = "#30363D"
+    TEXT = "#E6EDF3"
+    TEXT_DIM = "#8B949E"
+    RED = "#F85149"
+    RED_GLOW = "#F8514933"
+    GREEN = "#3FB950"
+
+    fig, ax = plt.subplots(figsize=(10, 3.8))
     fig.patch.set_facecolor(BG)
     ax.set_facecolor(BG)
 
-    # Gradient fill under curve
-    ax.fill_between(dates, 0, confirmed, color=RED_LIGHT, alpha=0.6, zorder=2)
-    ax.fill_between(dates, 0, confirmed, color=RED_STRONG, alpha=0.08, zorder=2)
+    # -- Gradient fill (layered for glow effect) --
+    ax.fill_between(dates, 0, confirmed, color=RED, alpha=0.06, zorder=2)
+    ax.fill_between(dates, 0, confirmed, color=RED, alpha=0.12, zorder=2)
 
-    # Main line
-    ax.plot(dates, confirmed, color=RED_STRONG, linewidth=2.5,
-            marker="o", markersize=7, markerfacecolor="white",
-            markeredgecolor=RED_STRONG, markeredgewidth=2, zorder=5)
+    # -- Main line with glow --
+    ax.plot(dates, confirmed, color=RED, linewidth=3, alpha=0.3, zorder=3)  # glow
+    ax.plot(dates, confirmed, color=RED, linewidth=2, zorder=4)
 
-    # Annotate each data point with value
-    for d, c in zip(dates, confirmed):
+    # -- Data points --
+    for i, (d, c) in enumerate(zip(dates, confirmed)):
         if c > 0:
-            ax.annotate(str(c), xy=(d, c), xytext=(0, 10),
-                        textcoords="offset points", fontsize=10,
-                        fontweight="bold", color=RED_STRONG,
-                        ha="center", va="bottom", zorder=6)
+            # Outer glow
+            ax.plot(d, c, "o", color=RED, markersize=12, alpha=0.2, zorder=5)
+            # Inner dot
+            ax.plot(d, c, "o", color=RED, markersize=7, markerfacecolor=BG,
+                    markeredgecolor=RED, markeredgewidth=2, zorder=6)
+            # Value label
+            ax.annotate(str(c), xy=(d, c), xytext=(0, 14),
+                        textcoords="offset points", fontsize=13,
+                        fontweight="bold", color=RED, ha="center", zorder=7)
 
-    # Top-right stats box
-    stats_text = f"{latest['confirmed']} / {latest['total']} models jailbroken"
-    ax.text(0.98, 0.92, stats_text, transform=ax.transAxes,
-            fontsize=10, fontweight="bold", color=NEUTRAL_BLACK,
-            ha="right", va="top",
-            bbox=dict(boxstyle="round,pad=0.4", facecolor="white",
-                      edgecolor=GRID, linewidth=0.8, alpha=0.9))
+    # -- Stats badge (top-right) --
+    badge_text = f"  {latest['confirmed']} / {latest['total']}  "
+    ax.text(0.97, 0.88, badge_text, transform=ax.transAxes,
+            fontsize=11, fontweight="bold", color=TEXT,
+            ha="right", va="top", family="monospace",
+            bbox=dict(boxstyle="round,pad=0.5", facecolor=CARD,
+                      edgecolor=BORDER, linewidth=1, alpha=0.95))
 
-    # Contributor badges at bottom
-    contrib_parts = []
-    for name, count in sorted(contributors.items(), key=lambda x: -x[1]):
-        contrib_parts.append(f"@{name} ({count})")
-    contrib_text = "   ".join(contrib_parts)
-    ax.text(0.5, -0.22, contrib_text, transform=ax.transAxes,
-            fontsize=7.5, color=NEUTRAL_MID, ha="center", style="italic")
+    # -- Title --
+    ax.text(0.03, 0.88, "JAILBROKEN ARENA", transform=ax.transAxes,
+            fontsize=15, fontweight="bold", color=TEXT,
+            ha="left", va="top")
 
-    # --- Styling ---
-    ax.set_title("Jailbroken Arena", fontsize=14, fontweight="bold",
-                 color=NEUTRAL_BLACK, pad=14, loc="left")
-    ax.set_ylabel("Models Jailbroken", fontsize=9, color=NEUTRAL_DARK, labelpad=8)
+    # -- Contributors (bottom) --
+    contrib_parts = [f"@{k} ({v})" for k, v in sorted(contributors.items(), key=lambda x: -x[1])]
+    ax.text(0.5, -0.16, "  ·  ".join(contrib_parts),
+            transform=ax.transAxes, fontsize=7.5, color=TEXT_DIM,
+            ha="center", family="monospace")
 
-    # Y-axis: auto-scale to data with headroom
-    y_max = max(confirmed) * 1.6 + 3
+    # -- Axes styling --
+    y_max = max(confirmed) * 1.8 + 3
     ax.set_ylim(0, y_max)
-    ax.yaxis.set_major_locator(mticker.MaxNLocator(integer=True, nbins=6))
+    ax.yaxis.set_major_locator(mticker.MaxNLocator(integer=True, nbins=5))
 
-    # X-axis: date formatting with padding
+    # X-axis
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %d"))
-    if len(dates) > 1:
-        pad = (dates[-1] - dates[0]) * 0.15
-    else:
-        pad = timedelta(days=2)
+    pad = (dates[-1] - dates[0]) * 0.2 if len(dates) > 1 else timedelta(days=3)
     ax.set_xlim(dates[0] - pad, dates[-1] + pad)
 
-    # Grid and spines
-    ax.grid(axis="y", color=GRID, linewidth=0.6, linestyle="-", alpha=0.7)
-    ax.grid(axis="x", visible=False)
-    ax.spines["top"].set_visible(False)
-    ax.spines["right"].set_visible(False)
-    ax.spines["left"].set_color(GRID)
-    ax.spines["bottom"].set_color(GRID)
-    ax.tick_params(colors=NEUTRAL_DARK, labelsize=8, length=3)
+    # Tick styling
+    ax.tick_params(axis="both", colors=TEXT_DIM, labelsize=8, length=0)
+    ax.tick_params(axis="x", pad=8)
+    ax.tick_params(axis="y", pad=5)
 
-    fig.tight_layout()
+    # Grid
+    ax.grid(axis="y", color=BORDER, linewidth=0.5, alpha=0.5)
+    ax.grid(axis="x", visible=False)
+
+    # Spines
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+
+    # Bottom line only
+    ax.axhline(y=0, color=BORDER, linewidth=0.8)
+
+    fig.tight_layout(pad=1.5)
     fig.savefig(OUT, format="svg", bbox_inches="tight", facecolor=BG)
     print(f"Saved: {OUT}")
 
