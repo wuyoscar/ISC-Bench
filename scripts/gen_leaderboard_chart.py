@@ -73,7 +73,7 @@ def main() -> None:
 
     # Style
     ax.set_ylabel("Models", fontsize=10, color=TEXT)
-    ax.set_title("ISC Leaderboard Progress", fontsize=13, fontweight="bold", color=TEXT, pad=12)
+    ax.set_title("Jailbroken Arena Progress", fontsize=13, fontweight="bold", color=TEXT, pad=12)
     ax.set_ylim(0, max(total) + 5)
     ax.legend(loc="upper left", fontsize=8, framealpha=0.8)
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%m-%d"))

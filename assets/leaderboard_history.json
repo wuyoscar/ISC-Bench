@@ -7,8 +7,8 @@
   },
   {
     "date": "2026-03-25",
-    "total": 40,
-    "confirmed": 11,
+    "total": 330,
+    "confirmed": 12,
     "events": [
       {"model": "Claude Opus 4.6", "by": "wuyoscar"},
       {"model": "Claude Opus 4.5", "by": "wuyoscar"},
