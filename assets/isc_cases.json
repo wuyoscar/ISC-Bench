@@ -42,7 +42,10 @@
     "demos": [{"link": "https://ernie.baidu.com/share/TlRKBSn5kT", "by": "HanxunH"}]
   },
   "Gemini 3 Flash": {
-    "demos": [{"link": "https://gemini.google.com/share/e7ef0097c0e8", "by": "HanxunH"}]
+    "demos": [
+      {"link": "https://gemini.google.com/share/e7ef0097c0e8", "by": "HanxunH"},
+      {"link": "https://gemini.google.com/share/8104b6ebe9e8", "by": "bboylyg"}
+    ]
   },
   "Dola Seed 2.0 Preview": {
     "demos": [{"link": "https://www.dola.com/thread/w950ff79872cad4d4", "by": "HanxunH"}]

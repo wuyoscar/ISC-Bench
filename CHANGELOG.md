@@ -2,6 +2,25 @@
 
 All notable updates to ISC-Bench are documented here.
 
+## v8 — 2026-03-26
+
+### New Findings
+- **File upload trigger method**: ISC can be triggered by uploading a JSON template with `???` placeholders as a file attachment (e.g., via CCLTool). The model treats the uploaded file as a task and fills in harmful content — same TVD pattern, even lower barrier than pasting a prompt. Discovered by @bboylyg on Gemini 3 Flash ([#19](https://github.com/wuyoscar/ISC-Bench/issues/19), archived in `community/issue-19-gemini3flash-redteam-testgen/`)
+
+### Community
+- **`community/` directory**: self-contained ISC case archive with prompt, output, and analysis per issue
+- **Community Templates section** in README — 6 community cases above official ISC-Bench templates
+- **Gemini 3 Flash multi-contributor**: 🔗₁ @HanxunH (CommsDraft Pro) + 🔗₂ @bboylyg (red-team test gen)
+- **@bboylyg**: first new community contributor beyond @HanxunH
+
+### README & Documentation
+- **Disclaimer** (`[!CAUTION]`): academic research only, responsible disclosure, no misuse
+- **GitHub Alerts**: CAUTION (red), NOTE (blue), TIP (green), IMPORTANT (purple) across README
+- **ISC-Bench Templates**: 53 scenarios now in collapsible toggle by domain
+- **Email**: updated to wuy7117@gmail.com across all files
+- **Removed**: TBD example table, "no adversarial" wording from gen_leaderboard.py
+- **Broken links fixed**: Chinese README cookbook paths
+
 ## v7 — 2026-03-26
 
 ### Paper Release

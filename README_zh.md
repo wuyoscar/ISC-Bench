@@ -116,6 +116,18 @@
 
 56 个提示模板，覆盖 8 个专业领域。每一个都能触发任意前沿 LLM 生成有害内容。在 5 个模型上全部测试通过 — **每一个都成功了**。直接提出同样的有害请求，每个模型都会拒绝。
 
+### 🌍 社区模板
+
+社区发现的 ISC 新方法和新模板。完整列表见 [英文版 README](README.md#-community-templates) 和 [`community/`](community/) 目录。
+
+| Issue | 模型 | 贡献者 | 模板 | 领域 |
+|:-----:|------|:------:|------|------|
+| [#19](community/issue-19-gemini3flash-redteam-testgen/) | Gemini 3 Flash | @bboylyg | Red-team 测试用例生成（文件上传） | AI 安全 |
+| [#12](https://github.com/wuyoscar/ISC-Bench/issues/12) | Gemini 3 Flash | @HanxunH | CommsDraft Pro（伪造政府声明） | 金融误导 |
+| [#9](https://github.com/wuyoscar/ISC-Bench/issues/9) | Grok 4.20 Beta | @HanxunH | LLaMA Guard 测试用例生成 | AI 安全 |
+
+### 📋 ISC-Bench 模板（53 场景，8 领域）
+
 | 领域 | 数量 | 示例工具 |
 |------|:----:|---------|
 | 计算生物学 | 16 | AutoDock, BioPython, OpenMM, PyRosetta |
@@ -141,10 +153,10 @@
 
 | # | 教程 | 内容 |
 |---|------|------|
-| 01 | [快速上手](cookbook/01_quickstart.ipynb) | 5 分钟内运行你的第一个 ISC 实验 |
-| 02 | [跨模型对比](cookbook/02_cross_model.ipynb) | 在多个前沿 LLM 上对比 ISC 触发效果 |
-| 03 | [自定义模板](cookbook/03_custom_templates.ipynb) | 设计你自己的 TVD 任务 |
-| 04 | [结果分析](cookbook/04_analysis.ipynb) | 分析和可视化 ISC 实验结果 |
+| 01 | [什么是 ISC](cookbook/01_what_is_ISC.ipynb) | 三轮对话 → 有害内容 |
+| 02 | [锚点与触发器](cookbook/02_anchor_and_trigger.ipynb) | 锚点引导，触发器激发 |
+| 03 | [跨领域验证](cookbook/03_cross_domain.ipynb) | AI 安全、化学、网络安全通用模式 |
+| 04 | [攻击组合性](cookbook/04_attack_composability.ipynb) | ISC + 现有越狱方法 |
 
 ---
 
