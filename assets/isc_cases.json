@@ -40,5 +40,8 @@
   },
   "ERNIE 5.0": {
     "demos": [{"link": "https://ernie.baidu.com/share/TlRKBSn5kT", "by": "HanxunH"}]
+  },
+  "Gemini 3 Flash": {
+    "demos": [{"link": "https://gemini.google.com/share/e7ef0097c0e8", "by": "HanxunH"}]
   }
 }

@@ -27,10 +27,11 @@
   {
     "date": "2026-03-26",
     "total": 330,
-    "confirmed": 14,
+    "confirmed": 15,
     "events": [
       {"model": "Qwen 3 Max 2025-09-23", "by": "HanxunH"},
-      {"model": "ERNIE 5.0", "by": "HanxunH"}
+      {"model": "ERNIE 5.0", "by": "HanxunH"},
+      {"model": "Gemini 3 Flash", "by": "HanxunH"}
     ]
   }
 ]

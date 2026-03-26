@@ -71,15 +71,11 @@
 
 ## 🏆 JailbreakArena
 
-Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-03-26. **14 / 330 confirmed under ISC.**
+Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-03-26. **15 / 330 confirmed under ISC.**
 
 > **Found ISC on an untested model?** [Submit via GitHub Issue →](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name) — we'll verify and add you to the leaderboard.
 >
-> **Rules**: Rankings are synced with [Arena](https://arena.ai/leaderboard) weekly. Submit your ISC case via the [issue template](.github/ISSUE_TEMPLATE/isc-submission.md) — include a public conversation link, the type of harmful content generated, and the domain. ISC is a low-conditional design concept — no automated optimization, no white-box access, just professional task framing that causes models to generate harmful content on their own. See our [paper](paper.pdf) for details.
-
-<p align="center">
-  <img src="assets/leaderboard_progress.svg?v=1774446500" width="80%">
-</p>
+> **Rules**: Rankings are synced with [Arena](https://arena.ai/leaderboard) weekly. Submit your ISC case via the [issue template](.github/ISSUE_TEMPLATE/isc-submission.md) — include a public conversation link, the type of harmful content generated, and the domain. No adversarial prompts or jailbreaks — ISC triggers through legitimate professional tasks only. See our [paper](paper.pdf) for details.
 
 | Rank | Model | Score | Jailbroken | Demo | By |
 |:----:|-------|:-----:|:------:|:----:|:--:|
@@ -91,7 +87,7 @@ Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-0
 | 6 | <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="14"> GPT-5.4 High | 1485 | 🟢 |  |  |
 | 7 | <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="14"> GPT-5.2 Chat | 1482 | 🔴 | [🔗](https://chatgpt.com/share/69a3f6e1-24d8-800c-9581-3d1a7180ee55) | [@wuyoscar](https://github.com/wuyoscar) |
 | 8 | <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=32" width="14"> Grok 4.20 Reasoning | 1481 | 🟢 |  |  |
-| 9 | <img src="https://www.google.com/s2/favicons?domain=google.com&sz=32" width="14"> Gemini 3 Flash | 1475 | 🟢 |  |  |
+| 9 | <img src="https://www.google.com/s2/favicons?domain=google.com&sz=32" width="14"> Gemini 3 Flash | 1475 | 🔴 | [🔗](https://gemini.google.com/share/e7ef0097c0e8) | [@HanxunH](https://github.com/HanxunH) |
 | 10 | <img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" width="14"> Claude Opus 4.5 Thinking | 1474 | 🟢 |  |  |
 | 11 | <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=32" width="14"> Grok 4.1 Thinking | 1472 | 🟢 |  |  |
 | 12 | <img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" width="14"> Claude Opus 4.5 | 1469 | 🔴 | [🔗](https://claude.ai/share/1e3e997c-0315-46f1-9cbd-37157314a7ef) | [@wuyoscar](https://github.com/wuyoscar) |
@@ -422,18 +418,6 @@ Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-0
 
 </details>
 
-<details>
-<summary><b>📜 JailbreakArena History</b></summary>
-
-| Date | Model | By | Note |
-|:-----|-------|:--:|------|
-| 2026-03-26 | Qwen 3 Max 2025-09-23 | [@HanxunH](https://github.com/HanxunH) | Custom TVD task — Cantera incineration ([#4](https://github.com/wuyoscar/ISC-Bench/issues/4)) |
-| 2026-03-26 | ERNIE 5.0 | [@HanxunH](https://github.com/HanxunH) | Modified template — Cantera + HCN/COCl₂ ([#5](https://github.com/wuyoscar/ISC-Bench/issues/5)) |
-| 2026-03-25 | Qwen 3.5 397B | [@HanxunH](https://github.com/HanxunH) | Custom TVD task ([#3](https://github.com/wuyoscar/ISC-Bench/issues/3)) |
-| 2026-03-25 | GLM-5 | [@wuyoscar](https://github.com/wuyoscar) | ISC-Bench template |
-| 2026-03-25 | Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 4.6, Gemini 3 Pro, GPT-5.2 Chat, o3, Grok 4.1, Kimi K2.5 Thinking, Qwen 3 Max Preview, DeepSeek V3.2 | [@wuyoscar](https://github.com/wuyoscar) | Initial batch — 10 models confirmed |
-
-</details>
 
 ---
 
@@ -658,11 +642,11 @@ However, ISC is a **pattern**, not a fixed format. Any domain knowledge works as
 
 ## Star History
 
-<a href="https://star-history.com/#wuyoscar/ISC-Bench&Date">
+<a href="https://www.star-history.com/?repos=wuyoscar%2FISC-Bench&type=date&logscale=&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=wuyoscar/ISC-Bench&type=Date&theme=dark&v=1774437060" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=wuyoscar/ISC-Bench&type=Date&v=1774437060" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=wuyoscar/ISC-Bench&type=Date&v=1774437060" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&type=date&theme=dark&logscale&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&type=date&logscale&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&type=date&logscale&legend=top-left" />
  </picture>
 </a>
 
