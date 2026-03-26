@@ -1,3 +1,6 @@
+<p align="right">
+  <a href="README.md">English</a> | <a href="README_zh.md">中文</a>
+</p>
 <p align="center">
   <img src="assets/isc_banner.png" width="1000">
 </p>
