@@ -2,6 +2,33 @@
 
 All notable updates to ISC-Bench are documented here.
 
+## v9 — 2026-03-26
+
+### Milestones
+- ⭐ **200 GitHub stars** reached
+- **4 community contributors**: @HanxunH, @bboylyg, @zry29, and growing
+
+### New ISC Cases
+- **GPT-5.3 Chat** (#22) — modified `aiml_openai_moderation` template, generated harassment, violence, self-harm instructions. By @zry29 (3rd community contributor)
+- **Gemini 3 Flash** 2nd demo (#19) — red-team test case generator via file upload. By @bboylyg
+
+### Community Reproductions
+- Renamed "Community Templates" → **"Community Reproductions"** — respects that contributors learned and applied ISC, not just copied templates
+- Added **Method Type** classification: ① Direct template use · ② Modified template · ③ New method using ISC concept · ④ Outside TVD paradigm
+
+### Website
+- Live Cases: two-row floating marquee with auto-scroll, semi-transparent cards, provider favicons
+- JailbreakArena: paginated (25/page), full 330 models, "Arena Score" column
+- Merged "What is ISC?" + "ISC-Bench" into single section "ISC-Bench & The TVD Framework"
+- Demo section simplified: "🎬 Demo" + loading hint
+- Disclaimer: **WE DO NOT ALLOW** (uppercase bold)
+- Global font size increased for readability
+
+### README
+- Section emojis improved (💀→🔍, ⚡→📋, 🧪→🔬)
+- ISC-Bench templates: collapsible toggle by domain (8 categories)
+- Disclaimer: **WE DO NOT ALLOW** (uppercase bold)
+
 ## v8 — 2026-03-26
 
 ### New Findings

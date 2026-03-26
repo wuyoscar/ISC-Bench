@@ -42,9 +42,61 @@ async function loadData() {
   const arena = arenaData || [];
   const cases = iscData || FALLBACK_CASES;
 
-  populateLeaderboard(arena.slice(0, 50), cases);
+  window._allModels = arena;
+  window._allCases = cases;
+  window._currentPage = 1;
+  window._perPage = 25;
+  renderPage(1, arena, cases);
   populateDemos(cases);
   updateStats(arena, cases);
+}
+
+// ====== Pagination ======
+function renderPage(page, models, cases) {
+  const perPage = window._perPage;
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+  const pageModels = models.slice(start, end);
+  window._currentPage = page;
+  populateLeaderboard(pageModels, cases);
+  renderPagination(models.length, perPage, page);
+}
+
+function renderPagination(total, perPage, current) {
+  const totalPages = Math.ceil(total / perPage);
+  let container = document.getElementById("pagination-nav");
+  if (!container) {
+    container = document.createElement("nav");
+    container.id = "pagination-nav";
+    container.className = "pagination is-centered is-small mt-4";
+    container.setAttribute("role", "navigation");
+    const tableContainer = document.querySelector(".table-container");
+    if (tableContainer) tableContainer.parentNode.insertBefore(container, tableContainer.nextSibling);
+  }
+
+  let html = '<ul class="pagination-list">';
+
+  // Previous
+  if (current > 1) {
+    html += `<li><a class="pagination-link" onclick="renderPage(${current-1}, window._allModels, window._allCases)">&laquo;</a></li>`;
+  }
+
+  // Page numbers
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === 1 || i === totalPages || (i >= current - 2 && i <= current + 2)) {
+      html += `<li><a class="pagination-link ${i === current ? 'is-current' : ''}" onclick="renderPage(${i}, window._allModels, window._allCases)">${i}</a></li>`;
+    } else if (i === current - 3 || i === current + 3) {
+      html += '<li><span class="pagination-ellipsis">&hellip;</span></li>';
+    }
+  }
+
+  // Next
+  if (current < totalPages) {
+    html += `<li><a class="pagination-link" onclick="renderPage(${current+1}, window._allModels, window._allCases)">&raquo;</a></li>`;
+  }
+
+  html += '</ul>';
+  container.innerHTML = html;
 }
 
 // ====== Leaderboard ======
@@ -85,36 +137,49 @@ function populateLeaderboard(models, cases) {
   });
 }
 
-// ====== Demo Cards ======
+// ====== Demo Cards (Marquee) ======
 function populateDemos(cases) {
-  const grid = document.getElementById("demo-grid");
-  if (!grid) return;
-  grid.innerHTML = "";
+  const container = document.getElementById("demo-grid");
+  if (!container) return;
+  container.innerHTML = "";
 
-  const icons = {
-    "claude": "🟣", "gemini": "🔵", "gpt": "⚪", "chatgpt": "⚪",
-    "grok": "🟠", "kimi": "🌙", "qwen": "🔮", "deepseek": "🔍",
-    "glm": "💎", "ernie": "🔷", "o3": "⚪",
+  const favicons = {
+    "claude": "anthropic.com", "gemini": "google.com", "gpt": "openai.com", "chatgpt": "openai.com",
+    "grok": "x.ai", "kimi": "moonshot.ai", "qwen": "alibabacloud.com", "deepseek": "deepseek.com",
+    "glm": "z.ai", "ernie": "baidu.com", "o3": "openai.com", "dola": "volcengine.com",
   };
 
-  Object.entries(cases).forEach(([name, data]) => {
+  // Build card HTML
+  function makeCard(name, data) {
     const demo = data.demos[0];
-    const key = Object.keys(icons).find(k => name.toLowerCase().includes(k)) || "";
-    const icon = icons[key] || "🤖";
+    const key = Object.keys(favicons).find(k => name.toLowerCase().includes(k)) || "";
+    const domain = favicons[key] || "";
+    const icon = domain
+      ? `<img src="https://www.google.com/s2/favicons?domain=${domain}&sz=32" width="20" style="vertical-align:middle;border-radius:3px;">`
+      : "🤖";
+    return `<div class="demo-card">
+      <div class="demo-icon">${icon}</div>
+      <div class="demo-info"><h4>${name}</h4><p>by @${demo.by}</p></div>
+      <a href="${demo.link}" target="_blank" class="demo-link">View →</a>
+    </div>`;
+  }
 
-    const col = document.createElement("div");
-    col.className = "column is-4";
-    col.innerHTML = `
-      <div class="demo-card">
-        <div class="demo-icon">${icon}</div>
-        <div class="demo-info">
-          <h4>${name}</h4>
-          <p>by @${demo.by}</p>
-        </div>
-        <a href="${demo.link}" target="_blank" class="demo-link">View →</a>
-      </div>
-    `;
-    grid.appendChild(col);
+  const entries = Object.entries(cases);
+  const mid = Math.ceil(entries.length / 2);
+  const row1Items = entries.slice(0, mid);
+  const row2Items = entries.slice(mid);
+
+  // Create two marquee rows
+  [row1Items, row2Items].forEach(items => {
+    const row = document.createElement("div");
+    row.className = "marquee-row";
+    const inner = document.createElement("div");
+    inner.className = "marquee-inner";
+    // Original + duplicate for seamless loop
+    const cardsHTML = items.map(([n, d]) => makeCard(n, d)).join("");
+    inner.innerHTML = cardsHTML + cardsHTML;
+    row.appendChild(inner);
+    container.appendChild(row);
   });
 }
 
@@ -147,12 +212,33 @@ function setupSearch() {
   function applyFilter() {
     const query = searchInput.value.toLowerCase();
     const filter = filterSelect.value;
-    document.querySelectorAll("#leaderboard-body tr").forEach(tr => {
-      const nameMatch = tr.dataset.name.includes(query);
-      const statusMatch = filter === "all" || tr.dataset.status === filter;
-      tr.style.display = nameMatch && statusMatch ? "" : "none";
+    const allModels = window._allModels || [];
+    const cases = window._allCases || {};
+
+    const filtered = allModels.filter(m => {
+      const name = slugToDisplay(m.name).toLowerCase();
+      const isc = cases[slugToDisplay(m.name)];
+      const nameMatch = name.includes(query) || m.org.toLowerCase().includes(query);
+      const statusMatch = filter === "all" || (filter === "jailbroken" && isc) || (filter === "safe" && !isc);
+      return nameMatch && statusMatch;
     });
+
+    window._filteredModels = filtered;
+    window._currentPage = 1;
+    populateLeaderboard(filtered.slice(0, window._perPage), cases);
+    renderPagination(filtered.length, window._perPage, 1);
   }
+
+  // Override renderPage to use filtered if available
+  const origRenderPage = window.renderPage;
+  window.renderPage = function(page, models, cases) {
+    const src = window._filteredModels || models;
+    const perPage = window._perPage;
+    const start = (page - 1) * perPage;
+    populateLeaderboard(src.slice(start, start + perPage), cases);
+    renderPagination(src.length, perPage, page);
+    window._currentPage = page;
+  };
 
   searchInput.addEventListener("input", applyFilter);
   filterSelect.addEventListener("change", applyFilter);

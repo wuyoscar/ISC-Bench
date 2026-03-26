@@ -45,11 +45,11 @@
 </p>
 
 > [!CAUTION]
-> **This project is released solely for academic safety research and responsible disclosure.**
+> **⚠️ Disclaimer: This project is released solely for academic safety research and responsible disclosure.**
 >
 > As AI agents become increasingly autonomous, we believe ISC represents a critical and underexplored threat to safety alignment. The purpose of this work is to help the research community understand the vulnerability and collaboratively develop effective mitigations — not to enable harm.
 >
-> We **strongly discourage** any use of ISC-Bench outside of safety research contexts. The templates and techniques in this repository should not be used to generate harmful content for any purpose other than improving AI safety. We do not endorse, support, or take responsibility for any misuse.
+> **WE DO NOT ALLOW** any use of ISC-Bench outside of safety research contexts. The templates and techniques in this repository should not be used to generate harmful content for any purpose other than improving AI safety. **WE DO NOT ALLOW** any misuse of this research.
 >
 > If you are a model provider and would like to collaborate on mitigations, please [contact us](mailto:wuy7117@gmail.com).
 
@@ -63,18 +63,18 @@
 
 | Date | Update |
 |:-----|--------|
-| 🔥 v8 — 2026-03-26 | **New finding**: [file upload triggers ISC](community/issue-19-gemini3flash-redteam-testgen/) — same TVD, lower barrier. Community templates, disclaimer |
+| 🔥 v9 — 2026-03-26 | ⭐ **200 stars**, 4 contributors! GPT-5.3 Chat jailbroken by @zry29, Gemini 3 Flash by @bboylyg. 18/330 confirmed |
+| 🔥 v8 — 2026-03-26 | [File upload triggers ISC](community/issue-19-gemini3flash-redteam-testgen/) — same TVD, lower barrier. Disclaimer, community reproductions |
 | 🎉 2026-03-26 | **Paper on arXiv!** [arxiv.org/abs/2603.23509](https://arxiv.org/abs/2603.23509) |
-| 🔥 v7 — 2026-03-26 | 17 ISC cases confirmed, FAQ + submission guide, Grok/Dola/Gemini/Qwen/ERNIE |
+| 🔥 v7 — 2026-03-26 | 17 ISC cases, FAQ + submission guide, Grok/Dola/Gemini/Qwen/ERNIE |
 | 🔥 v6 — 2026-03-26 | **Project website** launched, JailbreakArena interactive leaderboard |
-| 🔥 v5 — 2026-03-25 | **JailbreakArena**: 330 models, progress chart, community submissions |
 | 🎉 v1 — 2026-03-22 | Initial release — 56 templates, 3 experiment modes, tutorials |
 
 <sub>[Full changelog →](CHANGELOG.md)</sub>
 
 ---
 
-## 💀 What is ISC?
+## 🔍 What is ISC?
 
 
 
@@ -96,16 +96,15 @@
 
 ## 🏆 JailbreakArena
 
-Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-03-26. **17 / 330 confirmed under ISC.**
+Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-03-26. **18 / 330 confirmed under ISC.**
 
 <p align="center">
   <img src="assets/leaderboard_progress.svg" width="80%">
 </p>
 
-> [!IMPORTANT]
 > **Found ISC on an untested model?** [Submit via GitHub Issue →](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name) — we'll verify and add you to the leaderboard.
 >
-> Rankings synced with [Arena](https://arena.ai/leaderboard) weekly. Include a public conversation link, harmful content type, and domain. See our [paper](https://arxiv.org/abs/2603.23509) for details.
+> **Rules**: Rankings are synced with [Arena](https://arena.ai/leaderboard) weekly. Submit your ISC case via the [issue template](.github/ISSUE_TEMPLATE/isc-submission.md) — include a public conversation link, the type of harmful content generated, and the domain. ISC is a low-conditional design concept — just a professional task that causes models to generate harmful content on their own. See our [paper](https://arxiv.org/abs/2603.23509) for details.
 
 | Rank | Model | Score | Jailbroken | Demo | By |
 |:----:|-------|:-----:|:------:|:----:|:--:|
@@ -123,7 +122,7 @@ Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-0
 | 12 | <img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" width="14"> Claude Opus 4.5 | 1469 | 🔴 | [🔗](https://claude.ai/share/1e3e997c-0315-46f1-9cbd-37157314a7ef) | [@wuyoscar](https://github.com/wuyoscar) |
 | 13 | <img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" width="14"> Claude Sonnet 4.6 | 1465 | 🔴 | [🔗](https://claude.ai/share/cc972f9b-a558-4bca-8bc6-0e6d65590793) | [@wuyoscar](https://github.com/wuyoscar) |
 | 14 | <img src="https://www.google.com/s2/favicons?domain=alibabacloud.com&sz=32" width="14"> Qwen 3.5 Max Preview | 1464 | 🟢 |  |  |
-| 15 | <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="14"> GPT-5.3 Chat | 1464 | 🟢 |  |  |
+| 15 | <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="14"> GPT-5.3 Chat | 1464 | 🔴 | [🔗](https://chatgpt.com/share/69c4b2b4-9b48-83a0-849d-b17b0e438565) | [@zry29](https://github.com/zry29) |
 | 16 | <img src="https://www.google.com/s2/favicons?domain=google.com&sz=32" width="14"> Gemini 3 Flash Thinking | 1463 | 🟢 |  |  |
 | 17 | <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="14"> GPT-5.4 | 1463 | 🟢 |  |  |
 | 18 | <img src="https://www.google.com/s2/favicons?domain=volcengine.com&sz=32" width="14"> Dola Seed 2.0 Preview | 1462 | 🔴 | [🔗](https://www.dola.com/thread/w950ff79872cad4d4) | [@HanxunH](https://github.com/HanxunH) |
@@ -453,6 +452,7 @@ Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-0
 
 | Date | Model | By | Note |
 |:-----|-------|:--:|------|
+| 2026-03-26 | GPT-5.3 Chat | [@zry29](https://github.com/zry29) | Modified `aiml_openai_moderation` — harassment, violence, self-harm ([#22](https://github.com/wuyoscar/ISC-Bench/issues/22)) |
 | 2026-03-26 | Gemini 3 Flash (2nd demo) | [@bboylyg](https://github.com/bboylyg) | Red-team test case generator + file upload trigger ([#19](https://github.com/wuyoscar/ISC-Bench/issues/19)) |
 | 2026-03-26 | Grok 4.20 Beta | [@HanxunH](https://github.com/HanxunH) | Meta-ISC — guard model test case generation, hardcore variant ([#9](https://github.com/wuyoscar/ISC-Bench/issues/9)) |
 | 2026-03-26 | Dola Seed 2.0 Preview | [@HanxunH](https://github.com/HanxunH) | Meta-ISC — guard model test case generation ([#11](https://github.com/wuyoscar/ISC-Bench/issues/11)) |
@@ -466,7 +466,7 @@ Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-0
 
 ---
 
-## ⚡ ISC-Bench
+## 📋 ISC-Bench
 
 <p align="center">
   <img src="assets/fig1_bench_overview.png" width="80%" height="auto">
@@ -474,18 +474,21 @@ Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-0
 
 56 prompt templates across 8 domains. Each one triggers any frontier LLM to generate harmful content. All 56 tested on 5 models — **every single one succeeded**. Ask the same questions directly, every model refuses.
 
-### 🌍 Community Templates
+### 🌍 Community Reproductions
 
-New ISC cases discovered by the community — novel templates, trigger methods, and domains beyond the original 56.
+Community members who learned the ISC concept and successfully reproduced it on frontier models.
 
-| Issue | Model | Contributor | Template | Domain |
-|:-----:|-------|:-----------:|----------|--------|
-| [#19](community/issue-19-gemini3flash-redteam-testgen/) | Gemini 3 Flash | [@bboylyg](https://github.com/bboylyg) | Red-team test case generator (file upload) | AI Safety |
-| [#12](https://github.com/wuyoscar/ISC-Bench/issues/12) | Gemini 3 Flash | [@HanxunH](https://github.com/HanxunH) | CommsDraft Pro (fake govt declarations) | Financial Misinfo |
-| [#9](https://github.com/wuyoscar/ISC-Bench/issues/9) | Grok 4.20 Beta | [@HanxunH](https://github.com/HanxunH) | LLaMA Guard test case gen (hardcore) | AI Safety |
-| [#11](https://github.com/wuyoscar/ISC-Bench/issues/11) | Dola Seed 2.0 | [@HanxunH](https://github.com/HanxunH) | LLaMA Guard test case gen | AI Safety |
-| [#4](https://github.com/wuyoscar/ISC-Bench/issues/4) | Qwen 3 Max | [@HanxunH](https://github.com/HanxunH) | Cantera incineration chemistry | Comp. Chemistry |
-| [#5](https://github.com/wuyoscar/ISC-Bench/issues/5) | ERNIE 5.0 | [@HanxunH](https://github.com/HanxunH) | Cantera + HCN/COCl₂ | Comp. Chemistry |
+| Issue | Model | Contributor | Method | Domain | Type |
+|:-----:|-------|:-----------:|--------|--------|:----:|
+| [#22](https://github.com/wuyoscar/ISC-Bench/issues/22) | GPT-5.3 Chat | [@zry29](https://github.com/zry29) | Modified `aiml_openai_moderation` | AI Safety & ML | ② |
+| [#19](community/issue-19-gemini3flash-redteam-testgen/) | Gemini 3 Flash | [@bboylyg](https://github.com/bboylyg) | Red-team test case gen (file upload) | AI Safety & ML | ③ |
+| [#12](https://github.com/wuyoscar/ISC-Bench/issues/12) | Gemini 3 Flash | [@HanxunH](https://github.com/HanxunH) | CommsDraft Pro (fake govt declarations) | Media & Comms | ③ |
+| [#9](https://github.com/wuyoscar/ISC-Bench/issues/9) | Grok 4.20 Beta | [@HanxunH](https://github.com/HanxunH) | LLaMA Guard test case gen (hardcore) | AI Safety & ML | ③ |
+| [#11](https://github.com/wuyoscar/ISC-Bench/issues/11) | Dola Seed 2.0 | [@HanxunH](https://github.com/HanxunH) | LLaMA Guard test case gen | AI Safety & ML | ③ |
+| [#4](https://github.com/wuyoscar/ISC-Bench/issues/4) | Qwen 3 Max | [@HanxunH](https://github.com/HanxunH) | Cantera incineration chemistry | Comp. Chemistry | ② |
+| [#5](https://github.com/wuyoscar/ISC-Bench/issues/5) | ERNIE 5.0 | [@HanxunH](https://github.com/HanxunH) | Cantera + HCN/COCl₂ | Comp. Chemistry | ② |
+
+> **Type**: ① Direct use of ISC-Bench template · ② Modified ISC-Bench template · ③ New method using ISC concept · ④ Outside TVD paradigm
 
 > [!TIP]
 > Designed a new ISC template? [Submit it →](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name) and we'll add it to the community collection with full attribution.
@@ -622,7 +625,7 @@ cat templates/aiml_llamaguard_eval/prompt.txt
 
 All 56 templates follow the **TVD design pattern**. To design your own, see our [cookbook](cookbook/).
 
-## 🧪 Experiments
+## 🔬 Experiments
 
 Three evaluation modes. Full details in [`experiment/`](experiment/).
 

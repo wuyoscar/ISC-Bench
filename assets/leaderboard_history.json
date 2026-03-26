@@ -27,13 +27,14 @@
   {
     "date": "2026-03-26",
     "total": 330,
-    "confirmed": 17,
+    "confirmed": 18,
     "events": [
       {"model": "Qwen 3 Max 2025-09-23", "by": "HanxunH"},
       {"model": "ERNIE 5.0", "by": "HanxunH"},
       {"model": "Gemini 3 Flash", "by": "HanxunH"},
       {"model": "Dola Seed 2.0 Preview", "by": "HanxunH"},
-      {"model": "Grok 4.20 Beta", "by": "HanxunH"}
+      {"model": "Grok 4.20 Beta", "by": "HanxunH"},
+      {"model": "GPT-5.3 Chat", "by": "zry29"}
     ]
   }
 ]
