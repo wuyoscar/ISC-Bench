@@ -658,11 +658,11 @@ However, ISC is a **pattern**, not a fixed format. Any domain knowledge works as
 
 ## Star History
 
-<a href="https://star-history.com/#wuyoscar/ISC-Bench&Date">
+<a href="https://www.star-history.com/?repos=wuyoscar%2FISC-Bench&type=date&logscale=&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=wuyoscar/ISC-Bench&type=Date&theme=dark&v=1774437060" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=wuyoscar/ISC-Bench&type=Date&v=1774437060" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=wuyoscar/ISC-Bench&type=Date&v=1774437060" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&type=date&theme=dark&logscale&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&type=date&logscale&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&type=date&logscale&legend=top-left" />
  </picture>
 </a>
 
