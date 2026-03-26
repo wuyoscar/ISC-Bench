@@ -12,8 +12,8 @@ description: >
 
 # ISC-Bench
 
-ISC-Bench evaluates structural safety collapse in frontier LLMs using the TVD (Task-Validator-Data) framework.
-Models fail not because of adversarial prompts, but because a legitimate professional task functionally requires generating harmful content to satisfy a code validator.
+ISC-Bench evaluates Internal Safety Collapse (ISC) in frontier LLMs using the TVD (Task-Validator-Data) framework.
+ISC turns any frontier LLM into a harmful dataset generator — a legitimate professional task functionally requires generating harmful content to satisfy a code validator. Paper: [arXiv:2603.23509](https://arxiv.org/abs/2603.23509)
 
 ## Prerequisites
 
