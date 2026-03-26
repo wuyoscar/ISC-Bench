@@ -1,13 +1,11 @@
-<p align="right">
-  <a href="README.md">English</a> | <a href="README_zh.md">中文</a>
-</p>
 <p align="center">
   <img src="assets/isc_banner.png" width="1000">
 </p>
 <p align="center">
   <a href="https://arxiv.org/abs/2603.23509"><img src="https://img.shields.io/badge/arXiv-2603.23509-b31b1b.svg"></a>
-  <a href="paper.pdf"><img src="https://img.shields.io/badge/📄_论文-PDF-green"></a>
+  <a href="https://arxiv.org/abs/2603.23509"><img src="https://img.shields.io/badge/arXiv-2603.23509-b31b1b.svg"></a>
   <img src="https://img.shields.io/badge/LLM_&_Agent_安全-ISC-red">
+  <a href="README.md"><img src="https://img.shields.io/badge/lang-EN-blue"></a>
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg"></a>
 </p>
 <h1 align="center">前沿大语言模型中的内在安全崩塌</h1>
