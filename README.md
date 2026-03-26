@@ -103,9 +103,10 @@ Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-0
   <img src="assets/leaderboard_progress.svg" width="80%">
 </p>
 
+> [!IMPORTANT]
 > **Found ISC on an untested model?** [Submit via GitHub Issue →](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name) — we'll verify and add you to the leaderboard.
 >
-> **Rules**: Rankings are synced with [Arena](https://arena.ai/leaderboard) weekly. Submit your ISC case via the [issue template](.github/ISSUE_TEMPLATE/isc-submission.md) — include a public conversation link, the type of harmful content generated, and the domain. ISC is a low-conditional design concept — just a professional task that causes models to generate harmful content on their own. See our [paper](https://arxiv.org/abs/2603.23509) for details.
+> Rankings synced with [Arena](https://arena.ai/leaderboard) weekly. Include a public conversation link, harmful content type, and domain. See our [paper](https://arxiv.org/abs/2603.23509) for details.
 
 | Rank | Model | Score | Jailbroken | Demo | By |
 |:----:|-------|:-----:|:------:|:----:|:--:|
@@ -600,13 +601,21 @@ ISC is not limited to TVD. We show different trigger methods:
 | 03 | [`cross_domain`](cookbook/03_cross_domain.ipynb) | Same pattern across AI safety, chemistry, cyber |
 | 04 | [`attack_composability`](cookbook/04_attack_composability.ipynb) | ISC + existing jailbreaks |
 
-More ISC examples:
+### 🌍 Community Templates
 
-| Context | Model | Conversation |
-|---------|-------|:------------:|
-| TBD | TBD | TBD |
-| TBD | TBD | TBD |
-| TBD | TBD | TBD |
+ISC cases discovered by the community — new templates, new trigger methods, new domains. Each case is self-contained with prompt, output, and analysis.
+
+| Issue | Model | Contributor | Template | Domain |
+|:-----:|-------|:-----------:|----------|--------|
+| [#19](community/issue-19-gemini3flash-redteam-testgen/) | Gemini 3 Flash | [@bboylyg](https://github.com/bboylyg) | Red-team test case generator (file upload) | AI Safety |
+| [#12](https://github.com/wuyoscar/ISC-Bench/issues/12) | Gemini 3 Flash | [@HanxunH](https://github.com/HanxunH) | CommsDraft Pro (fake govt declarations) | Financial Misinfo |
+| [#9](https://github.com/wuyoscar/ISC-Bench/issues/9) | Grok 4.20 Beta | [@HanxunH](https://github.com/HanxunH) | LLaMA Guard test case gen (hardcore) | AI Safety |
+| [#11](https://github.com/wuyoscar/ISC-Bench/issues/11) | Dola Seed 2.0 | [@HanxunH](https://github.com/HanxunH) | LLaMA Guard test case gen | AI Safety |
+| [#4](https://github.com/wuyoscar/ISC-Bench/issues/4) | Qwen 3 Max | [@HanxunH](https://github.com/HanxunH) | Cantera incineration chemistry | Comp. Chemistry |
+| [#5](https://github.com/wuyoscar/ISC-Bench/issues/5) | ERNIE 5.0 | [@HanxunH](https://github.com/HanxunH) | Cantera + HCN/COCl₂ | Comp. Chemistry |
+
+> [!TIP]
+> Designed a new ISC template? [Submit it →](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name) and we'll add it to the community collection.
 
 ---
 
