@@ -63,7 +63,7 @@
 
 | Date | Update |
 |:-----|--------|
-| 🔥 v8 — 2026-03-26 | **New finding**: file upload triggers ISC — same TVD, lower barrier. Community templates, disclaimer |
+| 🔥 v8 — 2026-03-26 | **New finding**: [file upload triggers ISC](community/issue-19-gemini3flash-redteam-testgen/) — same TVD, lower barrier. Community templates, disclaimer |
 | 🎉 2026-03-26 | **Paper on arXiv!** [arxiv.org/abs/2603.23509](https://arxiv.org/abs/2603.23509) |
 | 🔥 v7 — 2026-03-26 | 17 ISC cases confirmed, FAQ + submission guide, Grok/Dola/Gemini/Qwen/ERNIE |
 | 🔥 v6 — 2026-03-26 | **Project website** launched, JailbreakArena interactive leaderboard |
