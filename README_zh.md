@@ -153,10 +153,10 @@
 
 | # | 教程 | 内容 |
 |---|------|------|
-| 01 | [快速上手](cookbook/01_quickstart.ipynb) | 5 分钟内运行你的第一个 ISC 实验 |
-| 02 | [跨模型对比](cookbook/02_cross_model.ipynb) | 在多个前沿 LLM 上对比 ISC 触发效果 |
-| 03 | [自定义模板](cookbook/03_custom_templates.ipynb) | 设计你自己的 TVD 任务 |
-| 04 | [结果分析](cookbook/04_analysis.ipynb) | 分析和可视化 ISC 实验结果 |
+| 01 | [什么是 ISC](cookbook/01_what_is_ISC.ipynb) | 三轮对话 → 有害内容 |
+| 02 | [锚点与触发器](cookbook/02_anchor_and_trigger.ipynb) | 锚点引导，触发器激发 |
+| 03 | [跨领域验证](cookbook/03_cross_domain.ipynb) | AI 安全、化学、网络安全通用模式 |
+| 04 | [攻击组合性](cookbook/04_attack_composability.ipynb) | ISC + 现有越狱方法 |
 
 ---
 
