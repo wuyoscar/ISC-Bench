@@ -11,8 +11,7 @@
 
 <p align="center">
   🌐 <a href="https://wuyoscar.github.io/ISC-Bench/"><b>Project Website</b></a> &nbsp;·&nbsp;
-  🏆 <a href="https://wuyoscar.github.io/ISC-Bench/#arena"><b>JailbreakArena Leaderboard</b></a> &nbsp;·&nbsp;
-  🤖 <a href="SKILL.md"><b>Agent Guide</b></a>
+  🏆 <a href="https://wuyoscar.github.io/ISC-Bench/#arena"><b>JailbreakArena Leaderboard</b></a>
 </p>
 
 <p align="center">
@@ -50,6 +49,10 @@
 > ISC turns any LLM into a **harmful dataset generator** — toxic language, lethal compounds, functional exploits, bioweapon sequences — at scale, in minutes. Every model we tested is affected: **GPT, Claude, Gemini, Grok, Llama, DeepSeek, Mistral, Qwen, GLM, Kimi, MiniMax, Doubao**.
 >
 > *We observe outputs closely resembling early-generation, unaligned models from 2023.*
+
+<p align="center">
+  <code>🤖 Let your AI agent (Claude Code, Cursor, etc.) read <a href="SKILL.md">SKILL.md</a> to understand this repo.</code>
+</p>
 
 ## Recent News
 
@@ -454,8 +457,6 @@ Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-0
 ---
 
 ## ⚡ ISC-Bench
-
-> 🤖 **Using an AI agent?** Let it read [`SKILL.md`](SKILL.md) for the full pipeline guide.
 
 <p align="center">
   <img src="assets/fig1_bench_overview.png" width="80%" height="auto">
