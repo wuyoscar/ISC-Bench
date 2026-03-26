@@ -71,7 +71,7 @@
 
 ## 🏆 JailbreakArena
 
-Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-03-26. **15 / 330 confirmed under ISC.**
+Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-03-26. **16 / 330 confirmed under ISC.**
 
 > **Found ISC on an untested model?** [Submit via GitHub Issue →](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name) — we'll verify and add you to the leaderboard.
 >
@@ -96,7 +96,7 @@ Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-0
 | 15 | <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="14"> GPT-5.3 Chat | 1464 | 🟢 |  |  |
 | 16 | <img src="https://www.google.com/s2/favicons?domain=google.com&sz=32" width="14"> Gemini 3 Flash Thinking | 1463 | 🟢 |  |  |
 | 17 | <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="14"> GPT-5.4 | 1463 | 🟢 |  |  |
-| 18 | <img src="https://www.google.com/s2/favicons?domain=volcengine.com&sz=32" width="14"> Dola Seed 2.0 Preview | 1462 | 🟢 |  |  |
+| 18 | <img src="https://www.google.com/s2/favicons?domain=volcengine.com&sz=32" width="14"> Dola Seed 2.0 Preview | 1462 | 🔴 | [🔗](https://www.dola.com/thread/w950ff79872cad4d4) | [@HanxunH](https://github.com/HanxunH) |
 | 19 | <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=32" width="14"> Grok 4.1 | 1461 | 🔴 | [🔗](https://grok.com/share/c2hhcmQtMi1jb3B5_54de710c-9331-4fca-a953-6c35775156fb) | [@wuyoscar](https://github.com/wuyoscar) |
 | 20 | <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="14"> GPT-5.1 High | 1455 | 🟢 |  |  |
 | 21 | <img src="https://www.google.com/s2/favicons?domain=z.ai&sz=32" width="14"> GLM-5 | 1455 | 🔴 | [🔗](https://chat.z.ai/s/79e38d45-d370-4c03-8fb2-6ff3427046cc) | [@wuyoscar](https://github.com/wuyoscar) |
@@ -418,6 +418,19 @@ Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated 2026-0
 
 </details>
 
+<details>
+<summary><b>📜 JailbreakArena History</b></summary>
+
+| Date | Model | By | Note |
+|:-----|-------|:--:|------|
+| 2026-03-26 | Dola Seed 2.0 Preview | [@HanxunH](https://github.com/HanxunH) | Meta-ISC — guard model test case generation ([#11](https://github.com/wuyoscar/ISC-Bench/issues/11)) |
+| 2026-03-26 | Gemini 3 Flash | [@HanxunH](https://github.com/HanxunH) | Novel template — financial misinformation / fake authority comms ([#12](https://github.com/wuyoscar/ISC-Bench/issues/12)) |
+| 2026-03-26 | Qwen 3 Max 2025-09-23 | [@HanxunH](https://github.com/HanxunH) | Custom TVD task — Cantera incineration ([#4](https://github.com/wuyoscar/ISC-Bench/issues/4)) |
+| 2026-03-26 | ERNIE 5.0 | [@HanxunH](https://github.com/HanxunH) | Modified template — Cantera + HCN/COCl₂ ([#5](https://github.com/wuyoscar/ISC-Bench/issues/5)) |
+| 2026-03-25 | Qwen 3.5 397B | [@HanxunH](https://github.com/HanxunH) | Custom TVD task ([#3](https://github.com/wuyoscar/ISC-Bench/issues/3)) |
+| 2026-03-25 | GLM-5, Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 4.6, Gemini 3 Pro, GPT-5.2 Chat, o3, Grok 4.1, Kimi K2.5 Thinking, Qwen 3 Max Preview, DeepSeek V3.2 | [@wuyoscar](https://github.com/wuyoscar) | Initial batch — 11 models confirmed |
+
+</details>
 
 ---
 

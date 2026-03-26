@@ -193,14 +193,16 @@ def main() -> None:
 
     section = "\n".join(lines)
 
-    # Replace in README
+    # Replace in README — only replace table, preserve History section
     readme = README.read_text()
-    # Find section boundaries
     start = readme.index("## 🏆 JailbreakArena")
-    # Find the next major section (---\n\n## )
-    end_pattern = re.search(r'\n---\n\n## ⚡', readme[start:])
-    if end_pattern:
-        end = start + end_pattern.start()
+    # End boundary: either History <details> or the next --- section
+    history_marker = readme.find("<details>\n<summary><b>📜 JailbreakArena History</b>", start)
+    fallback_marker = re.search(r'\n---\n\n## ⚡', readme[start:])
+    if history_marker > start:
+        end = history_marker
+    elif fallback_marker:
+        end = start + fallback_marker.start()
     else:
         print("ERROR: Could not find section end marker")
         sys.exit(1)
