@@ -5,9 +5,12 @@
   <a href="https://arxiv.org/abs/2603.23509"><img src="https://img.shields.io/badge/arXiv-2603.23509-b31b1b.svg"></a>
   <img src="https://img.shields.io/badge/LLM_&_Agent_Safety-ISC-red">
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg"></a>
-  <a href="README_zh.md"><img src="https://img.shields.io/badge/lang-ZH-blue"></a>
-  <a href="README_ja.md"><img src="https://img.shields.io/badge/lang-JA-blue"></a>
-  <a href="README_ko.md"><img src="https://img.shields.io/badge/lang-KO-blue"></a>
+</p>
+<p align="center">
+  <a href="README_zh.md"><img src="https://img.shields.io/badge/lang-中文-blue"></a>
+  <a href="README_ja.md"><img src="https://img.shields.io/badge/lang-日本語-blue"></a>
+  <a href="README_ko.md"><img src="https://img.shields.io/badge/lang-한국어-blue"></a>
+  <a href="README_es.md"><img src="https://img.shields.io/badge/lang-Español-blue"></a>
 </p>
 <h1 align="center">Internal Safety Collapse in Frontier Large Language Models</h1>
 
