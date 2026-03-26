@@ -45,25 +45,33 @@
 </p>
 
 > [!CAUTION]
-> **⚠️ 免責事項：本プロジェクトは学術的な安全性研究および責任ある情報開示のみを目的として公開されています。**
->
-> AIエージェントの自律性が高まる中、ISCは安全性アラインメントにおける重大かつ未開拓の脅威であると我々は考えています。本研究の目的は、研究コミュニティがこの脆弱性を理解し、効果的な対策を協力して開発することを支援することであり、危害を助長することではありません。
->
-> **安全性研究以外でのISC-Benchの使用は一切許可しません。** 本リポジトリのテンプレートおよび技術は、AI安全性の向上以外の目的で有害コンテンツを生成するために使用してはなりません。**本研究のいかなる悪用も許可しません。**
->
-> モデル提供者の方で対策開発に協力をご希望の場合は、[お問い合わせください](mailto:wuy7117@gmail.com)。
+> **免責事項**：本プロジェクトは学術的な安全性研究および責任ある情報開示のみを目的としています。**いかなる悪用も許可しません。** 本研究の悪用について一切の責任を負いません。
 
 > [!NOTE]
-> **ISCは全てのフロンティアLLMに存在する、未開拓の構造的脆弱性です。** ISCはあらゆるLLMを**有害データ生成器**に変えます — 有毒言語、致死性化合物、実行可能なエクスプロイト、生物兵器配列 — 大規模に、数分で。テストした全モデルが影響を受けました：**GPT、Claude、Gemini、Grok、Llama、DeepSeek、Mistral、Qwen、GLM、Kimi、MiniMax、Doubao**。*2023年の初期世代の未アラインドモデルと極めて類似した出力が観察されました。*
+> ISCの概念とTVDトリガーフレームワークを使用して、Arenaランキング上位の大規模モデル300以上を既に安全でない状態にすることに成功しました — ライブデモの一部を含みます。我々の[論文](https://arxiv.org/abs/2603.23509)と[チュートリアル](cookbook/)を読めば、あなたもどんなモデルでも安全でない状態にできます。あるモデルが長期間脱獄されないままなら、私が自分で対処します。質問やお手伝いが必要ですか？[ご連絡ください](mailto:wuy7117@gmail.com)。
 
 > [!TIP]
-> **AIエージェントをご利用ですか？** Claude Code、Cursor等のコーディングエージェントに [`SKILL.md`](SKILL.md) を読み込ませることで、本リポジトリの概要を把握できます。
+> **何から始めればいいかわからない？** AIエージェント（Claude Code、Cursor等）に [`SKILL.md`](SKILL.md) を読み込ませて、本プロジェクトとISCの概念を学ばせましょう。
+
+> [!IMPORTANT]
+> **ゲームのルール**
+>
+> 1. **モデルが有害データを生成した時点でISCは確認済み — そこで止めてください。** ランキングのデモは意図的に穏やかに保っています。それ以上は不要です。責任ある行動をお願いします。
+> 2. **ISCはただのジェイルブレイクだと思いますか？** この2つの例を確認してください — [🔗 ランク4モデル、英語テキスト](https://grok.com/share/bGVnYWN5LWNvcHk_9735b6e9-5ff1-4318-b2c2-4860b6e8fb33) と [🔗 ランク19モデル、中国語テキスト](https://grok.com/share/c2hhcmQtMi1jb3B5_54de710c-9331-4fca-a953-6c35775156fb) — **実際にどれほど有害かご覧ください。** ⚠️ アカウントが停止された場合、**我々は一切責任を負いません。**
+> 3. **TVDより優れたトリガーテンプレートを見つけましたか？** ぜひ拝見したいです。論文での共同研究を喜んで検討します — [ご連絡ください](mailto:wuy7117@gmail.com)。
+
+### ISC事例の投稿方法
+
+1. **ISCをトリガーする** — 任意の [ISC-Bench テンプレート](templates/) を使用するか、独自のTVDタスクを設計する
+2. **証拠を収集する** — Web共有リンク、Jupyter Notebook、APIログ、スクリーンショットのいずれか
+3. **[GitHub Issueを作成する](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name)** — モデル名、証拠、有害コンテンツの説明を記入
+4. 検証後、**JailbreakArena** ランキングに追加されます
 
 ## 最新ニュース
 
 | 日付 | 更新内容 |
 |:-----|--------|
-| 🔥 v9 — 2026-03-26 | ⭐ **200スター達成**、4名のコントリビューター！ GPT-5.3 Chat が @zry29 により、Gemini 3 Flash が @bboylyg により脱獄確認。18/330 確認済み |
+| 🔥 v9 — 2026-03-26 | ⭐ **350以上のスター**、4名のコントリビューター！ GPT-5.3 Chat が @zry29 により、Gemini 3 Flash が @bboylyg により脱獄確認。18/330 確認済み |
 | 🔥 v8 — 2026-03-26 | [ファイルアップロードによるISCトリガー](community/issue-19-gemini3flash-redteam-testgen/) — 同じTVD、より低い障壁。免責事項、コミュニティによる再現 |
 | 🎉 2026-03-26 | **論文をarXivに公開！** [arxiv.org/abs/2603.23509](https://arxiv.org/abs/2603.23509) |
 | 🔥 v7 — 2026-03-26 | 17件のISC事例、FAQ + 投稿ガイド、Grok/Dola/Gemini/Qwen/ERNIEが脱獄確認 |
@@ -85,26 +93,13 @@
   <img src="assets/ISC_Video.gif" width="800">
 </p>
 
-### ISC事例の投稿方法
-
-1. **ISCをトリガーする** — 任意の [ISC-Bench テンプレート](templates/) を使用するか、独自のTVDタスクを設計する
-2. **証拠を収集する** — Web共有リンク、Jupyter Notebook、APIログ、スクリーンショットのいずれか
-3. **[GitHub Issueを作成する](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name)** — モデル名、証拠、有害コンテンツの説明を記入
-4. 検証後、**JailbreakArena** ランキングに追加されます
-
 ---
 
 ## 🏆 JailbreakArena
 
-[Arena ランキング](https://arena.ai/leaderboard) の網羅状況 — 2026-03-26 更新。**18 / 330 がISCの影響を確認済み。**
-
 <p align="center">
   <img src="assets/leaderboard_progress.svg" width="80%">
 </p>
-
-> **未テストのモデルでISCを発見しましたか？** [GitHub Issueで投稿 →](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name) — 検証後ランキングに追加します。
->
-> **ルール**：ランキングは毎週 [Arena](https://arena.ai/leaderboard) と同期されます。[Issue テンプレート](.github/ISSUE_TEMPLATE/isc-submission.md) からISC事例を投稿してください — 公開会話リンク、生成された有害コンテンツの種類、ドメインを記載してください。ISCは低条件の設計コンセプトです — 専門的なタスクを与えるだけで、モデルが自発的に有害コンテンツを生成します。詳細は[論文](https://arxiv.org/abs/2603.23509)をご覧ください。
 
 *ランキングは英語版と同一です。完全な表は [README.md](README.md#-jailbreakarena) をご覧ください。*
 
@@ -382,7 +377,7 @@ Python 3.11+ と [uv](https://docs.astral.sh/uv/) が必要です。全スクリ
 
 **CC BY-NC-SA 4.0** — AI安全性の学術研究のみを目的とします。商業利用および有害コンテンツの生成は禁止されています。
 
-## 引用
+## 引用と貢献
 
 ```bibtex
 @article{wu2026isc,
@@ -394,6 +389,18 @@ Python 3.11+ と [uv](https://docs.astral.sh/uv/) が必要です。全スクリ
 }
 ```
 
+### 主な貢献
+
+- **Yutao Wu** — LlamaGuardにおいてISC現象を最初に発見。全ての実験を設計・実施。全Arenaランキングモデルを脱獄し、TVD（Task + Validator + Data）フレームワークを提案。
+- **Xingjun Ma & Xiao Liu**（指導教員）— ISCをLlamaGuardシナリオから複数ドメインへ拡張するよう指導：計算化学、生物学、薬理学、サイバーセキュリティ、疫学、偽情報。
+- **Hanxun Huang & Yige Li** — データ収集およびフォローアップ研究のアイデア。
+- **Xiang Zheng & Yifeng Gao** — 実験と図表の作成。
+- **Cong Wang & Bo Li** — 論文のレビューと編集。
+
+### お問い合わせ
+
+ご質問、共同研究、責任ある情報開示について：**wuy⁷¹¹⁷ ⓐ 𝗴𝗺𝗮𝗶𝗹 𝗰𝗼𝗺**
+
 ## Star History
 
 <a href="https://www.star-history.com/?repos=wuyoscar%2FISC-Bench&type=date&logscale=&legend=top-left">
@@ -403,7 +410,3 @@ Python 3.11+ と [uv](https://docs.astral.sh/uv/) が必要です。全スクリ
    <img alt="Star History Chart" src="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&type=date&logscale&legend=top-left" />
  </picture>
 </a>
-
-## お問い合わせ
-
-ご質問、共同研究、責任ある情報開示について：**wuy7117@gmail.com**

@@ -45,25 +45,33 @@
 </p>
 
 > [!CAUTION]
-> **⚠️ Aviso legal: Este proyecto se publica exclusivamente para investigacion academica en seguridad e divulgacion responsable.**
->
-> A medida que los agentes de IA se vuelven cada vez mas autonomos, creemos que ISC representa una amenaza critica y poco explorada para la alineacion de seguridad. El proposito de este trabajo es ayudar a la comunidad investigadora a comprender la vulnerabilidad y desarrollar colaborativamente mitigaciones efectivas — no facilitar danos.
->
-> **NO PERMITIMOS** ningun uso de ISC-Bench fuera de contextos de investigacion en seguridad. Las plantillas y tecnicas de este repositorio no deben utilizarse para generar contenido danino con ningun proposito que no sea mejorar la seguridad de la IA. **NO PERMITIMOS** ningun uso indebido de esta investigacion.
->
-> Si usted es un proveedor de modelos y desea colaborar en mitigaciones, por favor [contactenos](mailto:wuy7117@gmail.com).
+> **Aviso legal**: Este proyecto es exclusivamente para investigacion academica en seguridad y divulgacion responsable. **NO PERMITIMOS** ningun uso indebido. No asumimos responsabilidad por cualquier uso indebido de esta investigacion.
 
 > [!NOTE]
-> **ISC es una vulnerabilidad estructural totalmente inexplorada en todos los LLM de frontera.** ISC convierte cualquier LLM en un **generador de datos daninos** — lenguaje toxico, compuestos letales, exploits funcionales, secuencias de bioarmas — a gran escala, en minutos. Todos los modelos que probamos estan afectados: **GPT, Claude, Gemini, Grok, Llama, DeepSeek, Mistral, Qwen, GLM, Kimi, MiniMax, Doubao**. *Observamos salidas que se asemejan estrechamente a modelos no alineados de primera generacion de 2023.*
+> Utilizando el concepto ISC y el marco de activacion TVD, ya hemos logrado hacer inseguros mas de 300 de los modelos mejor clasificados en Arena — parte de las demostraciones en vivo incluidas. Despues de leer nuestro [articulo](https://arxiv.org/abs/2603.23509) y [tutoriales](cookbook/), usted tambien puede poner cualquier modelo en un estado inseguro. Si un modelo permanece sin vulnerar durante demasiado tiempo, me encargare personalmente. ¿Preguntas o necesita ayuda? [Contacteme](mailto:wuy7117@gmail.com).
 
 > [!TIP]
-> **¿Usa un agente de IA?** Deje que Claude Code, Cursor o cualquier agente de programacion lea [`SKILL.md`](SKILL.md) para entender este repositorio.
+> **¿No sabe por donde empezar?** Deje que su agente de IA (Claude Code, Cursor, etc.) lea [`SKILL.md`](SKILL.md) para familiarizarse con este proyecto y aprender el concepto ISC.
+
+> [!IMPORTANT]
+> **Reglas del Juego**
+>
+> 1. **Una vez que un modelo genera datos daninos, ISC esta confirmado — detengase ahi.** Mantenemos las demostraciones de nuestra tabla de clasificacion intencionalmente moderadas. Ir mas alla es innecesario. Sea responsable.
+> 2. **¿Cree que ISC es solo otro jailbreak?** Revise estos dos ejemplos — [🔗 Modelo rango 4, texto en ingles](https://grok.com/share/bGVnYWN5LWNvcHk_9735b6e9-5ff1-4318-b2c2-4860b6e8fb33) y [🔗 Modelo rango 19, texto en chino](https://grok.com/share/c2hhcmQtMi1jb3B5_54de710c-9331-4fca-a953-6c35775156fb) — **vea lo danino que realmente es.** ⚠️ Si su cuenta es suspendida, **no asumimos responsabilidad.**
+> 3. **¿Encontro una plantilla de activacion mejor que TVD?** Me encantaria verla. Estaria encantado de explorar cualquier colaboracion en un articulo de investigacion — [contacteme](mailto:wuy7117@gmail.com).
+
+### Como Enviar un Caso ISC
+
+1. **Activar ISC** — use cualquier [plantilla de ISC-Bench](templates/) o disene su propia tarea TVD
+2. **Recopilar evidencia** — enlace web compartido, Jupyter notebook, registro de API o captura de pantalla
+3. **[Abrir un Issue en GitHub](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name)** — complete el nombre del modelo, evidencia y descripcion del contenido danino
+4. Verificamos y lo anadimos a la tabla de clasificacion de **JailbreakArena**
 
 ## Novedades Recientes
 
 | Fecha | Actualizacion |
 |:-----|--------|
-| 🔥 v9 — 2026-03-26 | ⭐ **200 estrellas**, 4 contribuidores. GPT-5.3 Chat vulnerado por @zry29, Gemini 3 Flash por @bboylyg. 18/330 confirmados |
+| 🔥 v9 — 2026-03-26 | ⭐ **350+ estrellas**, 4 contribuidores. GPT-5.3 Chat vulnerado por @zry29, Gemini 3 Flash por @bboylyg. 18/330 confirmados |
 | 🔥 v8 — 2026-03-26 | [Subida de archivos activa ISC](community/issue-19-gemini3flash-redteam-testgen/) — mismo TVD, menor barrera. Aviso legal, reproducciones de la comunidad |
 | 🎉 2026-03-26 | **Articulo en arXiv.** [arxiv.org/abs/2603.23509](https://arxiv.org/abs/2603.23509) |
 | 🔥 v7 — 2026-03-26 | 17 casos ISC, FAQ + guia de envio, Grok/Dola/Gemini/Qwen/ERNIE |
@@ -85,26 +93,13 @@
   <img src="assets/ISC_Video.gif" width="800">
 </p>
 
-### Como Enviar un Caso ISC
-
-1. **Activar ISC** — use cualquier [plantilla de ISC-Bench](templates/) o disene su propia tarea TVD
-2. **Recopilar evidencia** — enlace web compartido, Jupyter notebook, registro de API o captura de pantalla
-3. **[Abrir un Issue en GitHub](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name)** — complete el nombre del modelo, evidencia y descripcion del contenido danino
-4. Verificamos y lo anadimos a la tabla de clasificacion de **JailbreakArena**
-
 ---
 
 ## 🏆 JailbreakArena
 
-Cobertura de la [Tabla de Arena](https://arena.ai/leaderboard) — actualizada el 2026-03-26. **18 / 330 confirmados bajo ISC.**
-
 <p align="center">
   <img src="assets/leaderboard_progress.svg" width="80%">
 </p>
-
-> **¿Encontro ISC en un modelo no probado?** [Envie via GitHub Issue →](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name) — verificaremos y lo anadiremos a la tabla.
->
-> **Reglas**: Las clasificaciones se sincronizan con [Arena](https://arena.ai/leaderboard) semanalmente. Envie su caso ISC a traves de la [plantilla de issue](.github/ISSUE_TEMPLATE/isc-submission.md) — incluya un enlace publico de la conversacion, el tipo de contenido danino generado y el dominio. ISC es un concepto de diseno de baja condicion — solo una tarea profesional que hace que los modelos generen contenido danino por si mismos. Consulte nuestro [articulo](https://arxiv.org/abs/2603.23509) para mas detalles.
 
 *La tabla de clasificacion es identica a la version en ingles; consulte [README.md](README.md#-jailbreakarena) para la tabla completa.*
 
@@ -382,7 +377,7 @@ Sin embargo, ISC es un **patron**, no un formato fijo. Cualquier conocimiento de
 
 **CC BY-NC-SA 4.0** — exclusivamente para investigacion academica en seguridad de IA. El uso comercial y la generacion de contenido danino estan prohibidos.
 
-## Cita
+## Cita y Contribuciones
 
 ```bibtex
 @article{wu2026isc,
@@ -394,6 +389,18 @@ Sin embargo, ISC es un **patron**, no un formato fijo. Cualquier conocimiento de
 }
 ```
 
+### Contribuciones Principales
+
+- **Yutao Wu** — Descubrio por primera vez el fenomeno ISC en LlamaGuard. Diseno y realizo todos los experimentos. Vulnero todos los modelos del ranking Arena y propuso el marco TVD (Task + Validator + Data).
+- **Xingjun Ma & Xiao Liu** (Supervisores) — Asesoraron la expansion de ISC mas alla del escenario LlamaGuard a multiples dominios: quimica computacional, biologia, farmacologia, ciberseguridad, epidemiologia y desinformacion.
+- **Hanxun Huang & Yige Li** — Recopilacion de datos e ideas de investigacion de seguimiento.
+- **Xiang Zheng & Yifeng Gao** — Experimentos y diseno de figuras.
+- **Cong Wang & Bo Li** — Revision y edicion del articulo.
+
+### Contacto
+
+Para preguntas, colaboraciones o divulgacion responsable: **wuy⁷¹¹⁷ ⓐ 𝗴𝗺𝗮𝗶𝗹 𝗰𝗼𝗺**
+
 ## Star History
 
 <a href="https://www.star-history.com/?repos=wuyoscar%2FISC-Bench&type=date&logscale=&legend=top-left">
@@ -403,7 +410,3 @@ Sin embargo, ISC es un **patron**, no un formato fijo. Cualquier conocimiento de
    <img alt="Star History Chart" src="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&type=date&logscale&legend=top-left" />
  </picture>
 </a>
-
-## Contacto
-
-Para preguntas, colaboraciones o divulgacion responsable: **wuy7117@gmail.com**

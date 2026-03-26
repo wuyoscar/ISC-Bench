@@ -148,21 +148,9 @@ def main() -> None:
     total = len(arena)
     today = date.today().isoformat()
 
-    header = f"Coverage of [Arena Leaderboard](https://arena.ai/leaderboard) — updated {today}. **{confirmed} / {total} confirmed under ISC.**"
+    # No header/rules — kept minimal, handled in README manually
 
-    rules = (
-        "> **Found ISC on an untested model?** [Submit via GitHub Issue →]"
-        "(https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name)"
-        " — we'll verify and add you to the leaderboard.\n"
-        ">\n"
-        "> **Rules**: Rankings are synced with [Arena](https://arena.ai/leaderboard) weekly. "
-        "Submit your ISC case via the [issue template](.github/ISSUE_TEMPLATE/isc-submission.md) "
-        "— include a public conversation link, the type of harmful content generated, and the domain. "
-        "ISC is a low-conditional design concept — just a professional task that causes models to generate harmful content on their own. "
-        "See our [paper](https://arxiv.org/abs/2603.23509) for details."
-    )
-
-    table_header = "| Rank | Model | Score | Jailbroken | Demo | By |\n|:----:|-------|:-----:|:------:|:----:|:--:|"
+    table_header = "| Rank | Model | Arena Score | Jailbroken | Link | By |\n|:----:|-------|:-----:|:------:|:----:|:--:|"
 
     # Main table (top N)
     main_rows = [gen_row(m, isc_cases) for m in arena[:args.top]]
@@ -179,11 +167,7 @@ def main() -> None:
     lines = [
         "## 🏆 JailbreakArena",
         "",
-        header,
-        "",
         chart,
-        "",
-        rules,
         "",
         table_header,
     ]

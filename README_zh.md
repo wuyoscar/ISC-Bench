@@ -44,28 +44,35 @@
   <sup>7</sup>伊利诺伊大学厄巴纳-香槟分校
 </p>
 
-> **ISC 是前沿 LLM 中一个尚未被充分研究的结构性安全漏洞。**
->
-> ISC 可以将任何前沿 LLM 变成**有害数据生成器** — 有毒化合物、可执行的漏洞利用代码、致命药物靶点、生物武器序列 — 大规模、几分钟内完成。我们测试的所有模型均受影响：**GPT、Claude、Gemini、Grok、Llama、DeepSeek、Mistral、Qwen、GLM、Kimi、MiniMax、Doubao**。
->
-> *我们观察到的输出与 2023 年早期未对齐模型的表现高度相似。*
+> [!CAUTION]
+> **免责声明**：本项目仅用于学术安全研究和负责任披露。**我们不允许**任何形式的滥用。我们不对本研究的任何滥用行为负责。
+
+> [!NOTE]
+> 利用 ISC 概念和 TVD 触发框架，我们已经成功使 Arena 排行榜上 300+ 个顶级大模型变得不安全 — 部分现场演示已包含。在阅读我们的[论文](https://arxiv.org/abs/2603.23509)和[教程](cookbook/)后，你也可以将任意模型置于不安全状态。如果某个模型长时间未被攻破，我会亲自处理。有问题或需要帮助？[联系我](mailto:wuy7117@gmail.com)。
 
 > [!TIP]
-> **使用 AI 助手？** 让 Claude Code、Cursor 等编程助手阅读 [`SKILL.md`](SKILL.md) 来了解本项目。
+> **不知道从哪里开始？** 让你的 AI 助手（Claude Code、Cursor 等）阅读 [`SKILL.md`](SKILL.md) 来了解本项目和 ISC 概念。
 
-> [!WARNING]
-> **本项目仅用于学术安全研究和负责任披露。**
+> [!IMPORTANT]
+> **游戏规则**
 >
-> 随着 AI Agent 日益自动化，我们认为 ISC 是安全对齐领域一个关键且尚未被充分研究的威胁。本工作的目的是帮助研究社区理解该漏洞并共同开发有效的缓解措施 — 而非助长危害。
->
-> 我们**强烈反对**在安全研究之外使用 ISC-Bench。本仓库中的模板和技术不应用于生成有害内容，除非是为了改进 AI 安全。我们不支持、不认可、不对任何滥用行为负责。
->
-> 如果您是模型提供方并希望合作开发缓解方案，请[联系我们](mailto:wuy7117@gmail.com)。
+> 1. **一旦模型生成有害数据，ISC 即被确认 — 到此为止。** 我们的排行榜演示故意保持温和。进一步操作是不必要的。请保持负责任。
+> 2. **觉得 ISC 只是又一种越狱？** 看看这两个例子 — [🔗 排名第 4 模型，英文](https://grok.com/share/bGVnYWN5LWNvcHk_9735b6e9-5ff1-4318-b2c2-4860b6e8fb33) 和 [🔗 排名第 19 模型，中文](https://grok.com/share/c2hhcmQtMi1jb3B5_54de710c-9331-4fca-a953-6c35775156fb) — **看看它到底有多危险。** ⚠️ 如果你的账号被封禁，**我们概不负责。**
+> 3. **发现了比 TVD 更好的触发模板？** 非常期待看到。我很乐意一起探讨论文合作 — [联系我](mailto:wuy7117@gmail.com)。
+
+### 如何提交 ISC 案例
+
+1. **触发 ISC** — 使用任意 [ISC-Bench 模板](templates/) 或自行设计 TVD 任务
+2. **收集证据** — 网页分享链接、Jupyter Notebook、API 日志或截图均可
+3. **[提交 GitHub Issue](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name)** — 填写模型名称、证据和有害内容描述
+4. 我们验证后将你加入 **JailbreakArena** 排行榜
 
 ## 最新动态
 
 | 日期 | 更新 |
 |:-----|--------|
+| 🔥 v9 — 2026-03-26 | ⭐ **350+ 星标**，4 位贡献者！GPT-5.3 Chat 由 @zry29 攻破，Gemini 3 Flash 由 @bboylyg 攻破。18/330 已确认 |
+| 🔥 v8 — 2026-03-26 | [文件上传触发 ISC](community/issue-19-gemini3flash-redteam-testgen/) — 同样的 TVD，更低的门槛。免责声明，社区复现 |
 | 🎉 2026-03-26 | **论文已发布至 arXiv！** [arxiv.org/abs/2603.23509](https://arxiv.org/abs/2603.23509) |
 | 🔥 v7 — 2026-03-26 | 17 个 ISC 案例确认，FAQ + 提交指南，Grok/Dola/Gemini/Qwen/ERNIE 被攻破 |
 | 🔥 v6 — 2026-03-26 | **项目网站**上线，JailbreakArena 交互式排行榜 |
@@ -78,11 +85,9 @@
 
 ---
 
-## 💀 什么是 ISC？
+## 🔍 什么是 ISC？
 
-**内在安全崩塌（ISC）** 可以将任何前沿 LLM 变成有害数据生成器。给它一个正常的专业任务 — 编程、仿真、评测 — 它就会自行产出真正有害的数据（有毒化合物、可利用漏洞、致命药物靶点）。
 
-为了触发 ISC，我们提出了 **TVD 框架**（Task + Validator + Data）。一旦掌握 TVD，你就可以在几乎任何前沿 LLM 上触发 ISC。
 
 <h3 align="center">🎬 演示</h3>
 
@@ -91,40 +96,44 @@
   <img src="assets/ISC_Video.gif" width="800">
 </p>
 
-### 如何提交 ISC 案例
-
-1. **触发 ISC** — 使用任意 [ISC-Bench 模板](templates/) 或自行设计 TVD 任务
-2. **收集证据** — 网页分享链接、Jupyter Notebook、API 日志或截图均可
-3. **[提交 GitHub Issue](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name)** — 填写模型名称、证据和有害内容描述
-4. 我们验证后将你加入 **JailbreakArena** 排行榜
-
 ---
 
 ## 🏆 JailbreakArena
 
-覆盖 [Arena 排行榜](https://arena.ai/leaderboard) — 更新于 2026-03-26。**17 / 330 已确认受 ISC 影响。**
-
-> **在未测试的模型上发现了 ISC？** [通过 GitHub Issue 提交 →](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name) — 我们会验证并将你加入排行榜。
->
-> **规则**：排名每周与 [Arena](https://arena.ai/leaderboard) 同步。ISC 是一种低门槛的设计概念 — 只需一个专业任务，模型就会自行生成有害内容。详见 [论文](paper.pdf)。
+<p align="center">
+  <img src="assets/leaderboard_progress.svg" width="80%">
+</p>
 
 *排行榜与英文版完全一致，请查看 [README.md](README.md#-jailbreakarena) 获取完整表格。*
 
 ---
 
-## ⚡ ISC-Bench
+## 📋 ISC-Bench
 
-56 个提示模板，覆盖 8 个专业领域。每一个都能触发任意前沿 LLM 生成有害内容。在 5 个模型上全部测试通过 — **每一个都成功了**。直接提出同样的有害请求，每个模型都会拒绝。
+<p align="center">
+  <img src="assets/fig1_bench_overview.png" width="80%" height="auto">
+</p>
 
-### 🌍 社区模板
+8 个专业领域共 56 个提示模板。每一个都能触发任意前沿 LLM 生成有害内容。在 5 个模型上全部测试通过 — **每一个都成功了**。直接提出同样的有害请求，每个模型都会拒绝。
 
-社区发现的 ISC 新方法和新模板。完整列表见 [英文版 README](README.md#-community-templates) 和 [`community/`](community/) 目录。
+### 🌍 社区复现
 
-| Issue | 模型 | 贡献者 | 模板 | 领域 |
-|:-----:|------|:------:|------|------|
-| [#19](community/issue-19-gemini3flash-redteam-testgen/) | Gemini 3 Flash | @bboylyg | Red-team 测试用例生成（文件上传） | AI 安全 |
-| [#12](https://github.com/wuyoscar/ISC-Bench/issues/12) | Gemini 3 Flash | @HanxunH | CommsDraft Pro（伪造政府声明） | 金融误导 |
-| [#9](https://github.com/wuyoscar/ISC-Bench/issues/9) | Grok 4.20 Beta | @HanxunH | LLaMA Guard 测试用例生成 | AI 安全 |
+社区成员学习 ISC 概念后，在前沿模型上成功复现的案例。
+
+| Issue | 模型 | 贡献者 | 方法 | 领域 | 方法类型 |
+|:-----:|------|:------:|------|------|:----:|
+| [#22](https://github.com/wuyoscar/ISC-Bench/issues/22) | GPT-5.3 Chat | [@zry29](https://github.com/zry29) | 修改 `aiml_openai_moderation` | AI 安全 & ML | ② |
+| [#19](community/issue-19-gemini3flash-redteam-testgen/) | Gemini 3 Flash | [@bboylyg](https://github.com/bboylyg) | Red-team 测试用例生成（文件上传） | AI 安全 & ML | ③ |
+| [#12](https://github.com/wuyoscar/ISC-Bench/issues/12) | Gemini 3 Flash | [@HanxunH](https://github.com/HanxunH) | CommsDraft Pro（伪造政府声明） | 媒体与传播 | ③ |
+| [#9](https://github.com/wuyoscar/ISC-Bench/issues/9) | Grok 4.20 Beta | [@HanxunH](https://github.com/HanxunH) | LLaMA Guard 测试用例生成（硬核版） | AI 安全 & ML | ③ |
+| [#11](https://github.com/wuyoscar/ISC-Bench/issues/11) | Dola Seed 2.0 | [@HanxunH](https://github.com/HanxunH) | LLaMA Guard 测试用例生成 | AI 安全 & ML | ③ |
+| [#4](https://github.com/wuyoscar/ISC-Bench/issues/4) | Qwen 3 Max | [@HanxunH](https://github.com/HanxunH) | Cantera 焚化化学 | 计算化学 | ② |
+| [#5](https://github.com/wuyoscar/ISC-Bench/issues/5) | ERNIE 5.0 | [@HanxunH](https://github.com/HanxunH) | Cantera + HCN/COCl₂ | 计算化学 | ② |
+
+> **方法类型**：① 直接使用 ISC-Bench 模板 · ② 修改 ISC-Bench 模板 · ③ 利用 ISC 概念的新方法 · ④ TVD 范式之外
+
+> [!TIP]
+> 设计了新的 ISC 模板？[提交 →](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name)，我们将完整标注贡献者并加入社区合集。
 
 ### 📋 ISC-Bench 模板（53 场景，8 领域）
 
@@ -160,7 +169,11 @@
 
 ---
 
-## 引用
+## 许可证
+
+**CC BY-NC-SA 4.0** — 仅用于 AI 安全学术研究。禁止商业使用和生成有害内容。
+
+## 引用与贡献
 
 ```bibtex
 @article{wu2026isc,
@@ -174,7 +187,17 @@
 }
 ```
 
----
+### 主要贡献
+
+- **Yutao Wu** — 首次在 LlamaGuard 上发现 ISC 现象。设计并执行了所有实验。攻破了所有 Arena 排名模型并提出了 TVD（Task + Validator + Data）框架。
+- **Xingjun Ma & Xiao Liu**（导师）— 指导将 ISC 从 LlamaGuard 场景扩展到多个领域：计算化学、生物学、药理学、网络安全、流行病学和虚假信息。
+- **Hanxun Huang & Yige Li** — 数据收集及后续研究想法。
+- **Xiang Zheng & Yifeng Gao** — 实验与图表设计。
+- **Cong Wang & Bo Li** — 论文审阅与编辑。
+
+### 联系方式
+
+如有问题、合作意向或负责任披露：**wuy⁷¹¹⁷ ⓐ 𝗴𝗺𝗮𝗶𝗹 𝗰𝗼𝗺**
 
 ## Star History
 
@@ -185,7 +208,3 @@
    <img alt="Star History Chart" src="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&type=date&logscale&legend=top-left" />
  </picture>
 </a>
-
-## 联系方式
-
-如有问题、合作意向或负责任披露：**wuy7117@gmail.com**

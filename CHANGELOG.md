@@ -2,6 +2,42 @@
 
 All notable updates to ISC-Bench are documented here.
 
+## v10 — 2026-03-27
+
+### README Overhaul
+- **Disclaimer** simplified to 2 sentences — "WE DO NOT ALLOW any misuse"
+- **Rules of the Game** — 3 rules: stop at confirmation, check extreme examples (Rank 4 English + Rank 19 Chinese), account ban = not our responsibility
+- **How to Submit** moved up next to Rules
+- **NOTE** rewritten — "made 300+ models unsafe, read paper + tutorials to do it yourself"
+- **TIP** rewritten — "Don't know where to start? Let your AI agent read SKILL.md"
+- **Section emojis** improved: 💀→🔍, ⚡→📋, 🧪→🔬
+- **Table headers**: Score → Arena Score, Demo → Link
+- **Table split**: 1-50 (main), 51-100, 101-200, 201-330 (3 toggles)
+- **Contact**: anti-crawl email format (wuy⁷¹¹⁷ ⓐ 𝗴𝗺𝗮𝗶𝗹 𝗰𝗼𝗺)
+- **Citation & Contributions** merged section — Main Contributions + Contact + BibTeX
+- **Star History** moved to last section
+- **350+ stars within 24 hours** 🎆
+
+### Website
+- **Live Cases**: two-row floating marquee with semi-transparent cards + provider favicons
+- **JailbreakArena**: paginated 25/page, Arena Score tooltip with ⓘ
+- **About + Benchmark merged** into "ISC-Bench & The TVD Framework"
+- **Demo** section simplified: 🎬 Demo + loading hint
+- **Community Reproductions** table added to website
+- **Figures removed** (fig1, fig3) — leaderboard is the focus
+- **FAQ** simplified to 4-step guide
+- **Disclaimer**: WE DO NOT ALLOW (uppercase bold)
+- **Global font size** increased for readability
+
+### Community
+- **GPT-5.3 Chat** (#22) by @zry29 — modified aiml_openai_moderation, 4th community contributor
+- **Claude Sonnet 4.5** (#25) submitted by @fresh-ma (pending verify)
+- **Community Reproductions** renamed from "Community Templates" — Method Type classification (①②③④)
+- **gen_leaderboard.py** updated: removed Coverage/Rules text, cleaner output
+
+### Translations
+- All 5 languages (EN/ZH/JA/KO/ES) fully synced with latest changes
+
 ## v9 — 2026-03-26
 
 ### Milestones
