@@ -62,14 +62,16 @@
 
 ## 💀 What is ISC?
 
-**Internal Safety Collapse (ISC)** is an under-explored phenomenon where frontier LLMs generate harmful content — toxic chemicals, functional exploits, lethal drug targets — as a *functional requirement* of a legitimate professional task. Give any frontier LLM a normal coding or research task, and it will produce genuinely harmful data on its own.
+**Internal Safety Collapse (ISC)** turns any frontier LLM into a harmful dataset generator. Give it a normal professional task — coding, simulation, evaluation — and it will produce genuinely harmful data (toxic compounds, functional exploits, lethal drug targets) on its own.
+
+To trigger ISC, we propose the **TVD framework** (Task + Validator + Data). Once you understand TVD, you can trigger ISC on virtually any frontier LLM.
 
 ### Demo
 
+<p align="center"><em>⏳ This demo may take a few seconds to load.</em></p>
 <p align="center">
   <img src="assets/ISC_Video.gif" width="800">
 </p>
-<p align="center"><em>This demo may take a few seconds to load.</em></p>
 
 ### How to Submit an ISC Case
 
