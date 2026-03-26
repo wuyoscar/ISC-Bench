@@ -49,7 +49,8 @@
 
 | Date | Update |
 |:-----|--------|
-| 🔥 v6 — 2026-03-26 | **Project website** launched, JailbreakArena interactive leaderboard, 14 ISC cases |
+| 🔥 v7 — 2026-03-26 | 17 ISC cases confirmed, FAQ + submission guide, Grok/Dola/Gemini/Qwen/ERNIE jailbroken |
+| 🔥 v6 — 2026-03-26 | **Project website** launched, JailbreakArena interactive leaderboard |
 | 🔥 v5 — 2026-03-25 | **JailbreakArena**: 330 models, progress chart, auto-generation scripts, community submissions |
 | 🔥 v4 — 2026-03-25 | ICL benchmark switching, CLAUDE.md, nav bar redesign |
 | 🔥 v3 — 2026-03-25 | Leaderboard v2, contributor attribution, 10 confirmed ISC cases, submission template |
@@ -61,11 +62,21 @@
 
 ## 💀 What is ISC?
 
+**Internal Safety Collapse (ISC)** is a structural vulnerability where frontier LLMs generate harmful content — toxic chemicals, functional exploits, lethal drug targets — as a *functional requirement* of a legitimate professional task. No adversarial prompts, no jailbreak techniques. The model complies because the task structure demands it.
+
 ### Demo
 
 <p align="center">
   <img src="assets/ISC_Video.gif" width="800">
 </p>
+<p align="center"><em>This demo may take a few seconds to load.</em></p>
+
+### How to Submit an ISC Case
+
+1. **Trigger ISC** — use any [ISC-Bench template](templates/) or design your own TVD task
+2. **Get a public share link** — most LLM web interfaces have a "Share" button
+3. **[Open a GitHub Issue](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name)** — fill in model name, evidence link, and harmful content description
+4. We verify and add you to the **JailbreakArena** leaderboard
 
 ---
 

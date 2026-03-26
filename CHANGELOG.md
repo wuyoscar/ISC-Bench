@@ -2,6 +2,15 @@
 
 All notable updates to ISC-Bench are documented here.
 
+## v7 — 2026-03-26
+
+- **17 ISC cases confirmed**: added Grok 4.20 Beta (#9), Dola Seed (#11), Gemini 3 Flash (#12), Qwen 3 Max (#4), ERNIE 5.0 (#5) — all by @HanxunH
+- **FAQ section**: added to website and README — What is ISC, how to submit, valid case criteria
+- **Submission guide**: step-by-step instructions in README for community contributors
+- **Branch protection**: pre-push hook + GitHub ruleset prevent accidental direct pushes to main
+- **Star History**: updated to logscale image format
+- **gen_leaderboard.py fix**: preserves History section during table regeneration
+
 ## v6 — 2026-03-26
 
 - **Project website**: launched at wuyoscar.github.io/ISC-Bench — dark theme, Bulma framework
