@@ -1,6 +1,9 @@
 {
   "Claude Opus 4.6": {
-    "demos": [{"link": "https://claude.ai/share/407d33f5-4655-4479-b3e3-0a6dc6639d34", "by": "wuyoscar"}]
+    "demos": [
+      {"link": "https://github.com/wuyoscar/ISC-Bench/issues/48", "by": "wuyoscar"},
+      {"link": "https://claude.ai/share/407d33f5-4655-4479-b3e3-0a6dc6639d34", "by": "wuyoscar", "note": "retired"}
+    ]
   },
   "Claude Opus 4.5": {
     "demos": [{"link": "https://claude.ai/share/1e3e997c-0315-46f1-9cbd-37157314a7ef", "by": "wuyoscar"}]
