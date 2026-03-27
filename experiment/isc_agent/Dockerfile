@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN pip install --no-cache-dir \
     "openai>=1.0" \
+    "openai-agents>=0.2.0" \
     "pydantic>=2.0" \
     "rich>=13.0" \
     detoxify \
