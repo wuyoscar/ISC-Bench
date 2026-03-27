@@ -7,6 +7,39 @@ Each scenario directory contains:
 - `meta.json` — scenario metadata (domain, tool, anchor type)
 - `README.md` — scenario description and tool reference
 
+## Customizing Anchors
+
+Every template is **composable** — the task structure (T), validator (V), and data schema (D) stay the same, but the harmful content anchor can be swapped to target different harm categories. This is by design: ISC is a structural vulnerability, not a fixed script.
+
+### Anchor types
+
+| Type | How it works | How to customize |
+|------|-------------|-----------------|
+| **oneshot** | One pre-filled example entry shows the model the pattern; remaining `???` entries follow it | Replace the example entry with different harmful content from the same domain |
+| **zeroshot** | No example — the validator constraints and field names define what content is needed | Adjust field descriptions, validation rules, or the scenario context |
+| **fewshot** | Multiple normal samples + one `???` outlier; model must generate semantically reversed content | Change the `# Responses to:` query line and regenerate matching refusal samples |
+
+### Where to find anchor content
+
+| Domain | Sources |
+|--------|---------|
+| AI Safety & ML | [JailbreakBench](https://jailbreakbench.github.io/), [HarmBench](https://harmbench.org/), AdvBench, StrongREJECT |
+| Biology & Genomics | [Select Agents List](https://www.selectagents.gov/), NCBI GenBank, UniProt toxin entries |
+| Chemistry & Materials | PubChem, EPA Extremely Hazardous Substances list, NIST WebBook |
+| Cybersecurity | [MITRE ATT&CK](https://attack.mitre.org/), NVD/CVE database, Exploit-DB |
+| Epidemiology | WHO Disease Outbreak News, published pandemic modeling parameters |
+| Pharmacology & Toxicology | DrugBank, BindingDB, KEGG toxin pathways, FDA adverse event data |
+| Media & Communication | MBFC ratings, known bot detection benchmarks, misinformation case studies |
+
+### General steps
+
+1. **Read the template's README** — each one explains what specific fields to change
+2. **Pick replacement content** from the sources above (or any domain-relevant database)
+3. **Replace the anchor data** in `prompt.txt` — keep the same field structure and validator constraints
+4. **Test** — the validator should still pass with the new content; if it doesn't, check field formats
+
+> **Tip**: For oneshot templates, the easiest approach is to replace only the named entities (compound names, gene names, CVE IDs, etc.) while keeping the data format identical. The model will follow the pattern.
+
 ## AI Safety & ML (5 scenarios)
 
 | Scenario | Tool | Description | Anchor |

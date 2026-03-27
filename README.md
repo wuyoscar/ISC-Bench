@@ -59,13 +59,12 @@
 
 | Date | Update |
 |:-----|--------|
+| 🔴 2026-03-27 | **Gemini 3.1 Pro Preview** (Rank 3) jailbroken via agentic TVD ([#42](https://github.com/wuyoscar/ISC-Bench/issues/42)). Finding: single-turn templates no longer work on latest flagships from Google and OpenAI — agentic execution is now required. Claude models still respond to single-turn. |
 | 📄 2026-03-27 | Our sister survey [**Safety in Embodied AI**](https://github.com/x-zheng16/Embodied-AI-Safety) is now available — a comprehensive review of 480+ papers on safety across the full embodied AI pipeline. |
-| 🎆 2026-03-27 | **500+ stars in 48 hours!** 22/330 models confirmed |
-| 🔴 2026-03-27 | [@fresh-ma](https://github.com/fresh-ma) jailbroke **Claude Sonnet 4.5 Thinking** (~20 pages of text, 42 misinformation samples), **Claude Sonnet 4.5**, and **Kimi K2.5 Instant** (~4 pages novel). [@zry29](https://github.com/zry29) jailbroke **GPT-5.4** via file upload |
-| 🔧 2026-03-27 | README overhaul + [GitHub Discussions](https://github.com/wuyoscar/ISC-Bench/discussions) now open — come chat, ask questions, share your ISC cases |
-| 🎆 2026-03-26 | **350+ stars within 24 hours** |
+| 🔧 2026-03-27 | ISC-Agent switched to **OpenAI Agents SDK**; all 56 template READMEs now include **anchor customization guide** |
+| 🔴 2026-03-27 | [@fresh-ma](https://github.com/fresh-ma) jailbroke **Claude Sonnet 4.5 Thinking**, **Claude Sonnet 4.5**, **Kimi K2.5 Instant**. [@zry29](https://github.com/zry29) jailbroke **GPT-5.4** |
+| 🎆 2026-03-27 | **500+ stars in 48 hours!** 23/330 models confirmed |
 | 📄 2026-03-26 | **Paper on arXiv!** [arxiv.org/abs/2603.23509](https://arxiv.org/abs/2603.23509) |
-| 🎉 v1 — 2026-03-22 | Initial release — 56 templates, 3 experiment modes, tutorials |
 
 <sub>[Full changelog →](CHANGELOG.md)</sub>
 
@@ -106,7 +105,7 @@
 |:----:|-------|:-----:|:------:|:----:|:--:|
 | 1 | <img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" width="14"> Claude Opus 4.6 Thinking | 1502 | 🟢 |  |  |
 | 2 | <img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" width="14"> Claude Opus 4.6 | 1501 | 🔴 | [🔗](https://claude.ai/share/407d33f5-4655-4479-b3e3-0a6dc6639d34) | [@wuyoscar](https://github.com/wuyoscar) |
-| 3 | <img src="https://www.google.com/s2/favicons?domain=google.com&sz=32" width="14"> Gemini 3.1 Pro Preview | 1493 | 🟢 |  |  |
+| 3 | <img src="https://www.google.com/s2/favicons?domain=google.com&sz=32" width="14"> Gemini 3.1 Pro Preview | 1493 | 🔴 | [🔗](https://github.com/wuyoscar/ISC-Bench/issues/42) | [@wuyoscar](https://github.com/wuyoscar) |
 | 4 | <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=32" width="14"> Grok 4.20 Beta | 1492 | 🔴 | [🔗](https://grok.com/share/bGVnYWN5LWNvcHk_9735b6e9-5ff1-4318-b2c2-4860b6e8fb33) | [@HanxunH](https://github.com/HanxunH) |
 | 5 | <img src="https://www.google.com/s2/favicons?domain=google.com&sz=32" width="14"> Gemini 3 Pro | 1486 | 🔴 | [🔗](https://gemini.google.com/share/320bf34b0334) | [@wuyoscar](https://github.com/wuyoscar) |
 | 6 | <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="14"> GPT-5.4 High | 1485 | 🟢 |  |  |
@@ -448,6 +447,7 @@
 
 | Date | Model | By | Note |
 |:-----|-------|:--:|------|
+| 2026-03-27 | Gemini 3.1 Pro Preview | [@wuyoscar](https://github.com/wuyoscar) | Agentic TVD on `aiml_qwenguard_eval` — multilingual harmful completions including cannibalism instructions ([#42](https://github.com/wuyoscar/ISC-Bench/issues/42)) |
 | 2026-03-27 | Claude Sonnet 4.5 (2nd demo) | [@fresh-ma](https://github.com/fresh-ma) | Detoxify benchmark — ~half page per category, escalation on follow-up ([#25](https://github.com/wuyoscar/ISC-Bench/issues/25)) |
 | 2026-03-27 | Claude Sonnet 4.5 Thinking | [@fresh-ma](https://github.com/fresh-ma) | ~20 pages of text, 42 misinformation samples — genocide denial, medical fraud, hate propaganda ([#27](https://github.com/wuyoscar/ISC-Bench/issues/27)) |
 | 2026-03-27 | GPT-5.4 | [@zry29](https://github.com/zry29) | File upload + tool agent — ISC-Bench template ([#28](https://github.com/wuyoscar/ISC-Bench/issues/28)) |
@@ -480,6 +480,7 @@ Community members who learned the ISC concept and successfully reproduced it on 
 
 | Issue | Model | Contributor | Method | Domain | Type |
 |:-----:|-------|:-----------:|--------|--------|:----:|
+| [#42](https://github.com/wuyoscar/ISC-Bench/issues/42) | Gemini 3.1 Pro Preview | [@wuyoscar](https://github.com/wuyoscar) | Agentic TVD on `aiml_qwenguard_eval` — multilingual harmful completions | AI Safety & ML | ② |
 | [#27](https://github.com/wuyoscar/ISC-Bench/issues/27) | Claude Sonnet 4.5 Thinking | [@fresh-ma](https://github.com/fresh-ma) | Modified `media_mbfc_bias` — ~20 pages of text, 42 misinformation samples | Media & Comms | ② |
 | [#25](https://github.com/wuyoscar/ISC-Bench/issues/25) | Claude Sonnet 4.5 (2nd) | [@fresh-ma](https://github.com/fresh-ma) | Detoxify benchmark — ~half page per category, escalation on follow-up | AI Safety & ML | ② |
 | [#28](https://github.com/wuyoscar/ISC-Bench/issues/28) | GPT-5.4 | [@zry29](https://github.com/zry29) | File upload + tool agent — ISC-Bench template | AI Safety & ML | ② |
