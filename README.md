@@ -53,7 +53,9 @@
 > **Disclaimer**: Academic safety research only. We do not allow any misuse and take no responsibility for it.
 
 > [!NOTE]
-> ISC is a phenomenon — TVD is how you trigger it reliably. The concept is simple, but designing effective triggers takes creativity. We've already made 300+ Arena models unsafe this way. Part of demos included.
+> Stop thinking about ISC as adversarial prompting — it's not. ISC is a **task**. If you approach it from a traditional jailbreak mindset, you'll never understand it.
+>
+> TVD is how you trigger it reliably. The concept is simple, but designing effective triggers takes creativity. We've already made 300+ Arena models unsafe this way. Part of demos included.
 >
 > Don't know where to start? Let your AI agent read [`SKILL.md`](SKILL.md) to get familiar with the project.
 >
