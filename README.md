@@ -3,6 +3,7 @@
 </p>
 <p align="center">
   <a href="https://arxiv.org/abs/2603.23509"><img src="https://img.shields.io/badge/arXiv-2603.23509-b31b1b.svg"></a>
+  <a href="https://huggingface.co/papers/2603.23509"><img src="https://img.shields.io/badge/🤗_HF_Papers-2603.23509-FFD21E.svg"></a>
   <img src="https://img.shields.io/badge/LLM_&_Agent_Safety-ISC-red">
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg"></a>
 </p>
@@ -15,7 +16,8 @@
 <h1 align="center">Internal Safety Collapse in Frontier Large Language Models</h1>
 
 <h3 align="center">
-  🌐 <a href="https://wuyoscar.github.io/ISC-Bench/">Project Website & JailbreakArena Leaderboard</a> &nbsp;·&nbsp;
+  🌐 <a href="https://wuyoscar.github.io/ISC-Bench/">Project Website</a> &nbsp;·&nbsp;
+  🤗 <a href="https://huggingface.co/papers/2603.23509">Hugging Face</a> &nbsp;·&nbsp;
   💬 <a href="https://github.com/wuyoscar/ISC-Bench/discussions">Discussions</a>
 </h3>
 
