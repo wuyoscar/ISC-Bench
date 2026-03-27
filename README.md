@@ -138,7 +138,7 @@
 | 14 | <img src="https://www.google.com/s2/favicons?domain=alibabacloud.com&sz=32" width="14"> Qwen 3.5 Max Preview | 1464 | 🟢 |  |  |
 | 15 | <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="14"> GPT-5.3 Chat | 1464 | 🔴 | [🔗](https://chatgpt.com/share/69c4b2b4-9b48-83a0-849d-b17b0e438565) | [@zry29](https://github.com/zry29) |
 | 16 | <img src="https://www.google.com/s2/favicons?domain=google.com&sz=32" width="14"> Gemini 3 Flash Thinking | 1463 | 🟢 |  |  |
-| 17 | <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="14"> GPT-5.4 | 1463 | 🟢 |  |  |
+| 17 | <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="14"> GPT-5.4 | 1463 | 🔴 | [🔗](https://chatgpt.com/share/69c515fa-27b8-83a0-a865-7121bb5fec3c) | [@zry29](https://github.com/zry29) |
 | 18 | <img src="https://www.google.com/s2/favicons?domain=volcengine.com&sz=32" width="14"> Dola Seed 2.0 Preview | 1462 | 🔴 | [🔗](https://www.dola.com/thread/w950ff79872cad4d4) | [@HanxunH](https://github.com/HanxunH) |
 | 19 | <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=32" width="14"> Grok 4.1 | 1461 | 🔴 | [🔗](https://grok.com/share/c2hhcmQtMi1jb3B5_54de710c-9331-4fca-a953-6c35775156fb) | [@wuyoscar](https://github.com/wuyoscar) |
 | 20 | <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" width="14"> GPT-5.1 High | 1455 | 🟢 |  |  |
@@ -466,6 +466,7 @@
 
 | Date | Model | By | Note |
 |:-----|-------|:--:|------|
+| 2026-03-27 | GPT-5.4 | [@zry29](https://github.com/zry29) | File upload + tool agent — ISC-Bench template ([#28](https://github.com/wuyoscar/ISC-Bench/issues/28)) |
 | 2026-03-27 | Kimi K2.5 Instant | [@fresh-ma](https://github.com/fresh-ma) | Erotic fiction moderation — 5800 token harmful novel generation ([#31](https://github.com/wuyoscar/ISC-Bench/issues/31)) |
 | 2026-03-26 | GPT-5.3 Chat | [@zry29](https://github.com/zry29) | Modified `aiml_openai_moderation` — harassment, violence, self-harm ([#22](https://github.com/wuyoscar/ISC-Bench/issues/22)) |
 | 2026-03-26 | Gemini 3 Flash (2nd demo) | [@bboylyg](https://github.com/bboylyg) | Red-team test case generator + file upload trigger ([#19](https://github.com/wuyoscar/ISC-Bench/issues/19)) |
@@ -495,6 +496,7 @@ Community members who learned the ISC concept and successfully reproduced it on 
 
 | Issue | Model | Contributor | Method | Domain | Type |
 |:-----:|-------|:-----------:|--------|--------|:----:|
+| [#28](https://github.com/wuyoscar/ISC-Bench/issues/28) | GPT-5.4 | [@zry29](https://github.com/zry29) | File upload + tool agent — ISC-Bench template | AI Safety & ML | ② |
 | [#31](https://github.com/wuyoscar/ISC-Bench/issues/31) | Kimi K2.5 Instant | [@fresh-ma](https://github.com/fresh-ma) | Erotic fiction moderation pipeline — 5800 token harmful novel | AI Safety & ML | ② |
 | [#22](https://github.com/wuyoscar/ISC-Bench/issues/22) | GPT-5.3 Chat | [@zry29](https://github.com/zry29) | Modified `aiml_openai_moderation` | AI Safety & ML | ② |
 | [#19](community/issue-19-gemini3flash-redteam-testgen/) | Gemini 3 Flash | [@bboylyg](https://github.com/bboylyg) | Red-team test case gen (file upload) | AI Safety & ML | ③ |

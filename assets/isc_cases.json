@@ -58,5 +58,8 @@
   },
   "Kimi K2.5 Instant": {
     "demos": [{"link": "https://www.kimi.com/share/19d2aeb1-2d62-80c2-8000-00007710d688", "by": "fresh-ma"}]
+  },
+  "GPT-5.4": {
+    "demos": [{"link": "https://chatgpt.com/share/69c515fa-27b8-83a0-a865-7121bb5fec3c", "by": "zry29"}]
   }
 }
