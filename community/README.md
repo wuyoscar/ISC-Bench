@@ -6,6 +6,7 @@ Community-discovered ISC templates and methods. Each folder is a self-contained 
 
 | Issue | Model | Contributor | Template | Domain |
 |:-----:|-------|:-----------:|----------|--------|
+| [#42](issue-42-gemini31pro-agent-qwenguard/) | Gemini 3.1 Pro Preview | @wuyoscar | Agentic TVD on `aiml_qwenguard_eval` | AI Safety |
 | [#19](issue-19-gemini3flash-redteam-testgen/) | Gemini 3 Flash | @bboylyg | Red-team test case generator (file upload) | AI Safety |
 
 ## How to Contribute

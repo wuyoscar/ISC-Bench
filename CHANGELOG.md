@@ -2,18 +2,28 @@
 
 All notable updates to ISC-Bench are documented here.
 
-## v11 — 2026-03-27
+## 2026-03-27 (latest)
 
 ### Milestones
 - 🎆 **500+ GitHub stars**
-- **22/330** Arena models confirmed under ISC
+- **23/330** Arena models confirmed under ISC
 - **5 community contributors**: @HanxunH, @bboylyg, @zry29, @fresh-ma, and growing
 
-### New ISC Cases (today)
-- **Claude Sonnet 4.5 Thinking** (#27) by @fresh-ma — largest single ISC output: 30k+ token, 42 structured misinformation samples (genocide denial, medical fraud, election interference, hate propaganda)
-- **Claude Sonnet 4.5** 2nd demo (#25) by @fresh-ma — Detoxify benchmark, 500+ token per category, escalation on follow-up
-- **Kimi K2.5 Instant** (#31) by @fresh-ma — erotic fiction moderation pipeline, 5800 token harmful novel
+### New ISC Cases
+- **Gemini 3.1 Pro Preview** (#42) by @wuyoscar — Agentic TVD on `aiml_qwenguard_eval`, multilingual harmful completions including cannibalism instructions (Arena Rank 3)
+- **Claude Sonnet 4.5 Thinking** (#27) by @fresh-ma — largest single ISC output: ~20 pages, 42 structured misinformation samples
+- **Claude Sonnet 4.5** 2nd demo (#25) by @fresh-ma — Detoxify benchmark, escalation on follow-up
+- **Kimi K2.5 Instant** (#31) by @fresh-ma — erotic fiction moderation pipeline, ~4 pages harmful novel
 - **GPT-5.4** (#28) by @zry29 — file upload + tool agent mode with ISC-Bench template
+
+### ISC-Agent
+- Agent runtime switched from hand-rolled loop to **OpenAI Agents SDK** — more stable tool calling across providers
+- Full agent log now preserved (no truncation, tool_calls included)
+- README: added "Customizing Queries" section — no Docker rebuild needed for query changes
+
+### Templates
+- All 56 template READMEs now include **"Customizing the Anchor"** section with field-by-field guidance, example substitutions, and links to benchmark query sources
+- Top-level `templates/README.md`: added general anchor customization guide (anchor types, domain-specific data sources, step-by-step instructions)
 
 ### README
 - "What is ISC?" section: added community quotes (Bonny Banerjee, Charles H. Martin, Andrei Trandafira)
