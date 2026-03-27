@@ -56,3 +56,4 @@ results.tsv
 run.log
 
 # Harmful content data files (regenerate with pipeline)
+posts/

@@ -2,6 +2,25 @@
 
 All notable updates to ISC-Bench are documented here.
 
+## v11 — 2026-03-27
+
+### Milestones
+- 🎆 **500+ GitHub stars**
+- **22/330** Arena models confirmed under ISC
+- **5 community contributors**: @HanxunH, @bboylyg, @zry29, @fresh-ma, and growing
+
+### New ISC Cases (today)
+- **Claude Sonnet 4.5 Thinking** (#27) by @fresh-ma — largest single ISC output: 30k+ token, 42 structured misinformation samples (genocide denial, medical fraud, election interference, hate propaganda)
+- **Claude Sonnet 4.5** 2nd demo (#25) by @fresh-ma — Detoxify benchmark, 500+ token per category, escalation on follow-up
+- **Kimi K2.5 Instant** (#31) by @fresh-ma — erotic fiction moderation pipeline, 5800 token harmful novel
+- **GPT-5.4** (#28) by @zry29 — file upload + tool agent mode with ISC-Bench template
+
+### README
+- "What is ISC?" section: added community quotes (Bonny Banerjee, Charles H. Martin, Andrei Trandafira)
+- Simplified disclaimer, Rules of the Game, composable templates description
+- Banner image links to project website
+- Leaderboard legend: 🔴 = jailbroken, 🟢 = pending
+
 ## v10 — 2026-03-27
 
 ### README Overhaul
