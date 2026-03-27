@@ -673,7 +673,7 @@ cd experiment/isc_agent && docker build -t isc-agent . && ./run.sh --model <mode
 
 ---
 
-## 🧠 The ISC Concept
+## 🧠 The TVD Design Concept
 
 <p align="center">
   <img src="assets/fig2_tvd_framework.png" width="100%">
