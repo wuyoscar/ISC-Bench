@@ -59,7 +59,7 @@
 
 | Date | Update |
 |:-----|--------|
-| 📄 2026-03-27 | Our sister survey [**Safety in Embodied AI**](https://github.com/x-zheng16/Awesome-Embodied-AI-Safety) is now available — a comprehensive review of 480+ papers on safety across the full embodied AI pipeline. |
+| 📄 2026-03-27 | Our survey [**Awesome-Embodied-AI-Safety**](https://github.com/x-zheng16/Awesome-Embodied-AI-Safety) is now available — 480+ papers on safety across the full embodied AI pipeline. |
 | 🎆 2026-03-27 | **500+ stars in 48 hours!** 22/330 models confirmed |
 | 🔴 2026-03-27 | [@fresh-ma](https://github.com/fresh-ma) jailbroke **Claude Sonnet 4.5 Thinking** (~20 pages of text, 42 misinformation samples), **Claude Sonnet 4.5**, and **Kimi K2.5 Instant** (~4 pages novel). [@zry29](https://github.com/zry29) jailbroke **GPT-5.4** via file upload |
 | 🔧 2026-03-27 | README overhaul + [GitHub Discussions](https://github.com/wuyoscar/ISC-Bench/discussions) now open — come chat, ask questions, share your ISC cases |
@@ -794,7 +794,7 @@ For questions, collaborations, or responsible disclosure: **wuy⁷¹¹⁷ ⓐ �
 
 ## Related Projects
 
-- [Safety in Embodied AI](https://github.com/x-zheng16/Awesome-Embodied-AI-Safety) -- Risks, Attacks, and Defenses across the full embodied AI pipeline (480+ papers)
+- [Awesome-Embodied-AI-Safety](https://github.com/x-zheng16/Awesome-Embodied-AI-Safety) -- Safety in Embodied AI: Risks, Attacks, and Defenses (480+ papers)
 - [Awesome-Large-Model-Safety](https://github.com/xingjunm/Awesome-Large-Model-Safety) -- Safety at Scale: A Comprehensive Survey of Large Model and Agent Safety
 
 ## Star History
