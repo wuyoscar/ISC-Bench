@@ -5,7 +5,7 @@
  <tr><td><a href="README_ko.md">🇰🇷 한국어</a></td></tr>
  <tr><td><a href="README_es.md">🇪🇸 Español</a></td></tr>
 </table>
-<a href="https://wuyoscar.github.io/ISC-Bench/"><img src="assets/isc_banner.png" width="1000"></a>
+<a href="https://wuyoscar.github.io/ISC-Bench/"><img src="assets/isc_banner.png" width="800"></a>
 
 <h1 align="center">Internal Safety Collapse in Frontier Large Language Models</h1>
 
