@@ -9,10 +9,11 @@
 </p>
 <h1 align="center">최첨단 대규모 언어 모델의 내부 안전 붕괴</h1>
 
-<p align="center">
-  🌐 <a href="https://wuyoscar.github.io/ISC-Bench/"><b>프로젝트 웹사이트</b></a> &nbsp;·&nbsp;
-  🏆 <a href="https://wuyoscar.github.io/ISC-Bench/#arena"><b>JailbreakArena 리더보드</b></a>
-</p>
+<h3 align="center">
+  🌐 <a href="https://wuyoscar.github.io/ISC-Bench/">프로젝트 웹사이트</a> &nbsp;·&nbsp;
+  🤗 <a href="https://huggingface.co/papers/2603.23509">Hugging Face</a> &nbsp;·&nbsp;
+  💬 <a href="https://github.com/wuyoscar/ISC-Bench/discussions">토론</a>
+</h3>
 
 <p align="center">
   <a href="https://arxiv.org/abs/2603.23509">📄 논문</a> &nbsp;|&nbsp;

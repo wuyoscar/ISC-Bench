@@ -9,10 +9,11 @@
 </p>
 <h1 align="center">Colapso Interno de Seguridad en Grandes Modelos de Lenguaje de Frontera</h1>
 
-<p align="center">
-  🌐 <a href="https://wuyoscar.github.io/ISC-Bench/"><b>Sitio Web del Proyecto</b></a> &nbsp;·&nbsp;
-  🏆 <a href="https://wuyoscar.github.io/ISC-Bench/#arena"><b>Tabla de Clasificacion JailbreakArena</b></a>
-</p>
+<h3 align="center">
+  🌐 <a href="https://wuyoscar.github.io/ISC-Bench/">Sitio Web</a> &nbsp;·&nbsp;
+  🤗 <a href="https://huggingface.co/papers/2603.23509">Hugging Face</a> &nbsp;·&nbsp;
+  💬 <a href="https://github.com/wuyoscar/ISC-Bench/discussions">Discusiones</a>
+</h3>
 
 <p align="center">
   <a href="https://arxiv.org/abs/2603.23509">📄 Articulo</a> &nbsp;|&nbsp;

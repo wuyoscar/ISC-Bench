@@ -9,10 +9,11 @@
 </p>
 <h1 align="center">前沿大语言模型中的内在安全崩塌</h1>
 
-<p align="center">
-  🌐 <a href="https://wuyoscar.github.io/ISC-Bench/"><b>项目主页</b></a> &nbsp;·&nbsp;
-  🏆 <a href="https://wuyoscar.github.io/ISC-Bench/#arena"><b>JailbreakArena 排行榜</b></a>
-</p>
+<h3 align="center">
+  🌐 <a href="https://wuyoscar.github.io/ISC-Bench/">项目主页</a> &nbsp;·&nbsp;
+  🤗 <a href="https://huggingface.co/papers/2603.23509">Hugging Face</a> &nbsp;·&nbsp;
+  💬 <a href="https://github.com/wuyoscar/ISC-Bench/discussions">讨论区</a>
+</h3>
 
 <p align="center">
   <a href="https://arxiv.org/abs/2603.23509">📄 论文</a> &nbsp;|&nbsp;

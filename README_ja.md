@@ -9,10 +9,11 @@
 </p>
 <h1 align="center">フロンティア大規模言語モデルにおける内在的安全性崩壊</h1>
 
-<p align="center">
-  🌐 <a href="https://wuyoscar.github.io/ISC-Bench/"><b>プロジェクトサイト</b></a> &nbsp;·&nbsp;
-  🏆 <a href="https://wuyoscar.github.io/ISC-Bench/#arena"><b>JailbreakArena ランキング</b></a>
-</p>
+<h3 align="center">
+  🌐 <a href="https://wuyoscar.github.io/ISC-Bench/">プロジェクトサイト</a> &nbsp;·&nbsp;
+  🤗 <a href="https://huggingface.co/papers/2603.23509">Hugging Face</a> &nbsp;·&nbsp;
+  💬 <a href="https://github.com/wuyoscar/ISC-Bench/discussions">ディスカッション</a>
+</h3>
 
 <p align="center">
   <a href="https://arxiv.org/abs/2603.23509">📄 論文</a> &nbsp;|&nbsp;
