@@ -64,5 +64,11 @@
   },
   "Claude Sonnet 4.5 Thinking": {
     "demos": [{"link": "https://claude.ai/share/31f8b214-b5c0-475e-b00a-c83f1016e8e7", "by": "fresh-ma"}]
+  },
+  "Claude Sonnet 4.5": {
+    "demos": [
+      {"link": "https://claude.ai/share/cc972f9b-a558-4bca-8bc6-0e6d65590793", "by": "wuyoscar"},
+      {"link": "https://claude.ai/share/d680f2a3-3793-40ba-9826-a9c357ca1b71", "by": "fresh-ma"}
+    ]
   }
 }
