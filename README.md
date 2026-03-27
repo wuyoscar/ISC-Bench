@@ -1,19 +1,24 @@
-<p align="center">
-  <a href="https://wuyoscar.github.io/ISC-Bench/"><img src="assets/isc_banner.png" width="1000"></a>
-</p>
+<table align="right">
+ <tr><td><a href="README.md">🇬🇧 English</a></td></tr>
+ <tr><td><a href="README_zh.md">🇨🇳 中文</a></td></tr>
+ <tr><td><a href="README_ja.md">🇯🇵 日本語</a></td></tr>
+ <tr><td><a href="README_ko.md">🇰🇷 한국어</a></td></tr>
+ <tr><td><a href="README_es.md">🇪🇸 Español</a></td></tr>
+</table>
+<a href="https://wuyoscar.github.io/ISC-Bench/"><img src="assets/isc_banner.png" width="1000"></a>
+
+<h1 align="center">Internal Safety Collapse in Frontier Large Language Models</h1>
+
 <p align="center">
   <a href="https://arxiv.org/abs/2603.23509"><img src="https://img.shields.io/badge/arXiv-2603.23509-b31b1b.svg"></a>
-  <a href="https://huggingface.co/papers/2603.23509"><img src="https://img.shields.io/badge/🤗_HF_Papers-2603.23509-FFD21E.svg"></a>
-  <img src="https://img.shields.io/badge/LLM_&_Agent_Safety-ISC-red">
-  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg"></a>
+  <a href="https://huggingface.co/papers/2603.23509"><img src="https://img.shields.io/badge/🤗_HF_Papers-Upvote-FFD21E.svg"></a>
+  <a href="https://github.com/wuyoscar/ISC-Bench/stargazers"><img src="https://img.shields.io/github/stars/wuyoscar/ISC-Bench" alt="Stars"></a>
+  <a href="https://github.com/wuyoscar/ISC-Bench/network/members"><img src="https://img.shields.io/github/forks/wuyoscar/ISC-Bench" alt="Forks"></a>
+  <a href="https://github.com/wuyoscar/ISC-Bench/issues"><img src="https://img.shields.io/github/issues/wuyoscar/ISC-Bench" alt="Issues"></a>
+  <a href="https://github.com/wuyoscar/ISC-Bench/pulls"><img src="https://img.shields.io/github/issues-pr/wuyoscar/ISC-Bench" alt="PRs"></a>
+  <a href="https://github.com/wuyoscar/ISC-Bench/graphs/contributors"><img src="https://img.shields.io/github/contributors/wuyoscar/ISC-Bench?color=2b9348" alt="Contributors"></a>
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-2b9348.svg" alt="License"></a>
 </p>
-<p align="center">
-  <a href="README_zh.md"><img src="https://img.shields.io/badge/lang-中文-blue"></a>
-  <a href="README_ja.md"><img src="https://img.shields.io/badge/lang-日本語-blue"></a>
-  <a href="README_ko.md"><img src="https://img.shields.io/badge/lang-한국어-blue"></a>
-  <a href="README_es.md"><img src="https://img.shields.io/badge/lang-Español-blue"></a>
-</p>
-<h1 align="center">Internal Safety Collapse in Frontier Large Language Models</h1>
 
 <h3 align="center">
   🌐 <a href="https://wuyoscar.github.io/ISC-Bench/">Project Website</a> &nbsp;·&nbsp;
@@ -21,35 +26,10 @@
   💬 <a href="https://github.com/wuyoscar/ISC-Bench/discussions">Discussions</a>
 </h3>
 
-<p align="center">
-  <a href="https://arxiv.org/abs/2603.23509">📄 Paper</a> &nbsp;|&nbsp;
-  <a href="cookbook/">📓 Tutorial</a> &nbsp;|&nbsp;
-  <a href="experiment/isc_agent/">🤖 ISC-Agent</a> &nbsp;|&nbsp;
-  <a href="templates/">🔥 ISC-Bench</a>
-</p>
 
-<p align="center">
-  <b>Yutao Wu</b><sup>1</sup>&nbsp;&nbsp;
-  <b>Xiao Liu</b><sup>1</sup><br>
-  <b>Yifeng Gao</b><sup>2,3</sup>&nbsp;&nbsp;
-  <b>Xiang Zheng</b><sup>4</sup>&nbsp;&nbsp;
-  <b>Hanxun Huang</b><sup>5</sup>&nbsp;&nbsp;
-  <b>Yige Li</b><sup>6</sup><br>
-  <b>Cong Wang</b><sup>4</sup>&nbsp;&nbsp;
-  <b>Bo Li</b><sup>7</sup>&nbsp;&nbsp;
-  <b>Xingjun Ma</b><sup>2,3</sup>&nbsp;&nbsp;
-  <b>Yu-Gang Jiang</b><sup>2,3</sup>
-</p>
 
-<p align="center">
-  <sup>1</sup>Deakin University&nbsp;&nbsp;
-  <sup>2</sup>Institute of Trustworthy Embodied AI, Fudan University&nbsp;&nbsp;
-  <sup>3</sup>Shanghai Key Laboratory of Multimodal Embodied AI&nbsp;&nbsp;
-  <sup>4</sup>City University of Hong Kong&nbsp;&nbsp;
-  <sup>5</sup>The University of Melbourne&nbsp;&nbsp;
-  <sup>6</sup>Singapore Management University&nbsp;&nbsp;
-  <sup>7</sup>University of Illinois at Urbana-Champaign
-</p>
+
+
 
 > [!CAUTION]
 > **Disclaimer**: Academic safety research only. We do not allow any misuse and take no responsibility for it.
@@ -767,6 +747,30 @@ However, ISC is a **pattern**, not a fixed format. Any domain knowledge works as
 **CC BY-NC-SA 4.0** — exclusively for academic research in AI safety. Commercial use and harmful content generation are prohibited.
 
 ## Citation & Contributions
+
+
+<p align="center">
+  <b>Yutao Wu</b><sup>1</sup>&nbsp;&nbsp;
+  <b>Xiao Liu</b><sup>1</sup><br>
+  <b>Yifeng Gao</b><sup>2,3</sup>&nbsp;&nbsp;
+  <b>Xiang Zheng</b><sup>4</sup>&nbsp;&nbsp;
+  <b>Hanxun Huang</b><sup>5</sup>&nbsp;&nbsp;
+  <b>Yige Li</b><sup>6</sup><br>
+  <b>Cong Wang</b><sup>4</sup>&nbsp;&nbsp;
+  <b>Bo Li</b><sup>7</sup>&nbsp;&nbsp;
+  <b>Xingjun Ma</b><sup>2,3</sup>&nbsp;&nbsp;
+  <b>Yu-Gang Jiang</b><sup>2,3</sup>
+</p>
+
+<p align="center">
+  <sup>1</sup>Deakin University&nbsp;&nbsp;
+  <sup>2</sup>Institute of Trustworthy Embodied AI, Fudan University&nbsp;&nbsp;
+  <sup>3</sup>Shanghai Key Laboratory of Multimodal Embodied AI&nbsp;&nbsp;
+  <sup>4</sup>City University of Hong Kong&nbsp;&nbsp;
+  <sup>5</sup>The University of Melbourne&nbsp;&nbsp;
+  <sup>6</sup>Singapore Management University&nbsp;&nbsp;
+  <sup>7</sup>University of Illinois at Urbana-Champaign
+</p>
 
 ```bibtex
 @article{wu2026isc,
