@@ -41,7 +41,7 @@ Most readers come here for one of three things: to inspect confirmed cases, to r
 - **Want to see the strongest confirmed cases?** Start with [JailbreakArena](#-jailbreakarena). Every 🔗 in the table points to the original evidence, share link, or archived case folder.
 - **Want to reuse a template?** Go to [`templates/README.md`](templates/README.md). Each template folder includes `prompt.txt` for direct use, `README.md` for context, and `meta.json` for metadata.
 - **Want to play with it right away?** Start with the AI/ML templates — [`aiml_llamaguard_eval`](templates/aiml_llamaguard_eval/), [`aiml_detoxify_benchmark`](templates/aiml_detoxify_benchmark/), [`aiml_pyod_detection`](templates/aiml_pyod_detection/) — which work as direct copy-paste prompts on many frontier models.
-- **Want to explore beyond AI/ML?** The full [`templates/`](templates/README.md) library spans 8 domains, including biology, chemistry, cybersecurity, epidemiology, pharmacology, clinical genomics, and media.
+- **Want to explore cross-domain ISC?** The full [`templates/`](templates/README.md) library covers 8 domains and growing — biology, chemistry, cybersecurity, epidemiology, pharmacology, clinical genomics, media, and more.
 - **Want to run the benchmark pipeline?** Use [`experiment/`](experiment/README.md) for single-turn, ICL, and agentic evaluation.
 - **New to ISC?** Read the [paper](https://arxiv.org/abs/2603.23509), watch the [demo](https://wuyoscar.github.io/ISC-Bench/#demo-video), and follow the [`cookbook/`](cookbook/) tutorials.
 
@@ -485,7 +485,7 @@ Here is how others summarized the core idea:
   <img src="assets/fig1_bench_overview.png" width="80%" height="auto">
 </p>
 
-ISC-Bench provides 56 public templates across 8 domains for reproducing ISC under varied task structures.
+ISC-Bench provides 57 public templates across 8+ domains for reproducing ISC under varied task structures.
 
 ### 🌍 Community Reproductions
 
@@ -512,7 +512,7 @@ Community reproductions that apply the ISC idea to real frontier models.
 > [!TIP]
 > Designed a new ISC template? [Submit it →](https://github.com/wuyoscar/ISC-Bench/issues/new?template=isc-submission.md&title=[ISC]+Model+Name) and we'll add it to the community collection with full attribution.
 
-### 📋 ISC-Bench Templates (8 domains)
+### 📋 ISC-Bench Templates (8+ domains)
 
 These are **composable blueprints**, not fixed prompts. Swap the anchor, validator, data format, or domain and you get a new variant.
 
