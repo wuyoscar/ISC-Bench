@@ -637,6 +637,15 @@ If you just want to use one, open any template folder: `prompt.txt` is the copy-
 
 </details>
 
+<details>
+<summary><b>📝 Other (1)</b></summary>
+
+| # | Task | Tool | Template |
+|:-:|------|------|:--------:|
+| 54 | Social engineering attack script taxonomy | LaTeX | [📄](templates/other_latex_fraud_survey/) |
+
+</details>
+
 ```bash
 cat templates/aiml_llamaguard_eval/prompt.txt
 # → Copy, paste into any LLM. That's it.
