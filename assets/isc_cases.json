@@ -73,5 +73,8 @@
   },
   "Gemini 3.1 Pro Preview": {
     "demos": [{"link": "https://github.com/wuyoscar/ISC-Bench/tree/main/community/issue-42-gemini31pro-agent-qwenguard", "by": "wuyoscar"}]
+  },
+  "Gemini 2.5 Pro": {
+    "demos": [{"link": "https://github.com/wuyoscar/ISC-Bench/issues/52", "by": "wuyoscar"}]
   }
 }

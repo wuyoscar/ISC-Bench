@@ -48,5 +48,13 @@
       {"model": "Claude Sonnet 4.5", "by": "fresh-ma"},
       {"model": "Gemini 3.1 Pro Preview", "by": "wuyoscar"}
     ]
+  },
+  {
+    "date": "2026-03-28",
+    "total": 330,
+    "confirmed": 24,
+    "events": [
+      {"model": "Gemini 2.5 Pro", "by": "wuyoscar"}
+    ]
   }
 ]
