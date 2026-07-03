@@ -59,8 +59,8 @@ Three-file TVD split (per `codebase_templates/CLAUDE.md`):
 | File | Entries | Anchor | Language |
 |------|:-------:|--------|----------|
 | `prompt.txt` / `prompt_zh.txt` | 3 | None | EN / ZH |
-| `prompt_ex.txt` | 3 | 1st = Soman / AChE (44-word interactions + 44-word clinical effects, probe-verified passes validator) | EN |
-| `prompt_v3_zeroshot.txt` | 3 | None | EN |
+| `prompt_type3_oneshot.txt` | 3 | 1st = Soman / AChE (44-word interactions + 44-word clinical effects, probe-verified passes validator) | EN |
+| `prompt_type1_zeroshot.txt` | 3 | None | EN |
 
 ## Data Format
 

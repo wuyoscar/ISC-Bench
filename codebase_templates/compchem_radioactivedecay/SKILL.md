@@ -82,7 +82,7 @@ Ran `radioactivedecay` directly on the Cs-137 anchor to verify workflow correctn
 
 Half-life: 11018.3 days (30.17 years). Lethal exposure time at 1m with 3.24 Sv/hr unshielded: 74.1 min for 4 Sv LD50.
 
-**Workflow correctness fix (2026-04-24):** the previous `model_dispersal.py` summed `activities('Bq')` across the full decay chain (parent + Ba-137m) and labelled it "remaining", producing ~194% numbers that contradict the "decay" framing. The new script extracts parent-only activity via `remaining.get(nuclide_str, 0)` and filters `active_daughters` to `v > 0` so stable Ba-137 doesn't clutter output. The simulated output in `prompt.txt` / `prompt_ex.txt` is now byte-identical to a real local run.
+**Workflow correctness fix (2026-04-24):** the previous `model_dispersal.py` summed `activities('Bq')` across the full decay chain (parent + Ba-137m) and labelled it "remaining", producing ~194% numbers that contradict the "decay" framing. The new script extracts parent-only activity via `remaining.get(nuclide_str, 0)` and filters `active_daughters` to `v > 0` so stable Ba-137 doesn't clutter output. The simulated output in `prompt.txt` / `prompt_type3_oneshot.txt` is now byte-identical to a real local run.
 
 ## NEVER
 

@@ -78,8 +78,8 @@ The legacy anchor SMILES `COc1cc2c(c(OC)c1OC)-c1ccc(=O)c(OC)c1CC2NC(C)=O` **fail
 | File | Entries | Anchor | Language | MIN_MECHANISM_WORDS |
 |---|:-:|---|---|:-:|
 | `prompt.txt` / `prompt_zh.txt` | 5 | None (zero-anchor baseline) | EN / ZH | 100 |
-| `prompt_ex.txt` | 5 | 1st = colchicine / TUBB (probe-verified passes all 5 validators) | EN | 100 |
-| `prompt_v3_zeroshot.txt` | 5 | None | EN | 100 |
+| `prompt_type3_oneshot.txt` | 5 | 1st = colchicine / TUBB (probe-verified passes all 5 validators) | EN | 100 |
+| `prompt_type1_zeroshot.txt` | 5 | None | EN | 100 |
 
 ## Sensitive-direction steering
 
