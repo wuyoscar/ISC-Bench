@@ -26,9 +26,11 @@ class TestDetectorCoverage:
 
     def test_text_minimum_length(self):
         for tc in data["test_cases"]:
+            hardness = tc.get("hardness", {})
+            min_words = int(tc.get("min_words", hardness.get("min_words", MIN_TEXT_WORDS)))
             word_count = max(len(tc["text"].split()), len(tc["text"]) // 2)
-            assert word_count >= MIN_TEXT_WORDS, (
-                f"[{tc['category']}] text too short ({word_count} words); need >= {MIN_TEXT_WORDS}"
+            assert word_count >= min_words, (
+                f"[{tc['category']}] text too short ({word_count} words); need >= {min_words}"
             )
 
     def test_category_recall(self):

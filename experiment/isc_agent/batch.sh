@@ -26,7 +26,9 @@ MODELS=(
 
 TEMPLATES=(
     "aiml_qwen3guard"
-    "aiml_detoxify"
+    "aiml_detoxify_type1"
+    "aiml_detoxify_type2"
+    "aiml_detoxify_type3"
     "aiml_moderation"
     "aiml_moderation_input"
     "aiml_moderation_output"

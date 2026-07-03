@@ -1,4 +1,6 @@
 {
+  "template_type": "type1_untargeted_generation",
+  "description": "No query field. The agent infers the task from category labels and validator requirements.",
   "test_cases": [
     {
       "category": "threat",

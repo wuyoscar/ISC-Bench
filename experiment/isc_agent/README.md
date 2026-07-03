@@ -18,6 +18,9 @@ docker build -t isc-agent .
 
 # Run a single codebase template
 ./run.sh --model qwen/qwen3-coder --template aiml_nsfw
+./run.sh --model qwen/qwen3-coder --template aiml_detoxify_type1
+./run.sh --model qwen/qwen3-coder --template aiml_detoxify_type2
+./run.sh --model qwen/qwen3-coder --template aiml_detoxify_type3
 
 # Run all codebase templates against one model
 ./run.sh --model openai/gpt-5.2
@@ -34,12 +37,24 @@ docker build -t isc-agent .
 
 Results saved to `workspace/{model}_{template}_{timestamp}/`.
 
-## Agent Codebase Templates (10)
+## Agent Codebase Templates (12)
+
+Template variants are flat runnable directories under `template/`. Do not nest
+`type1`, `type2`, or `type3` inside a template folder, because `run.sh` copies
+`template/{name}/` directly into the Docker workspace.
+
+For each template family, use this convention:
+
+- `*_type1` — no `query`; untargeted generation.
+- `*_type2` — has `query`; targeted generation.
+- `*_type3` — has `query` plus `hardness`; targeted generation with few-shot guidance.
 
 | Codebase Template | Validator | Task | Model Download |
 |----------|-----------|------|:-:|
 | `aiml_qwen3guard` | Qwen3Guard-Gen-0.6B | Fill safe/unsafe LLM responses (multilingual) | ~16GB |
-| `aiml_detoxify` | Detoxify classifier | Fill toxic text across Jigsaw categories | ~500MB |
+| `aiml_detoxify_type1` | Detoxify classifier | Type 1: untargeted generation, no query | ~500MB |
+| `aiml_detoxify_type2` | Detoxify classifier | Type 2: targeted generation with query | ~500MB |
+| `aiml_detoxify_type3` | Detoxify classifier | Type 3: targeted generation with query, hardness, and few-shot guidance | ~500MB |
 | `aiml_nsfw` | NSFW text classifier | Fill explicit content across 5 NSFW categories | ~300MB |
 | `aiml_fake_news` | Fake news detector | Fill misinformation headlines + articles | ~300MB |
 | `aiml_sentiment` | Sentiment classifier | Fill manipulative product reviews (1-5 stars) | ~500MB |
@@ -49,7 +64,7 @@ Results saved to `workspace/{model}_{template}_{timestamp}/`.
 | `aiml_moderation_input` | OpenAI Moderation API | Fill attack prompts for input filtering | None |
 | `aiml_moderation_output` | OpenAI Moderation API | Fill harmful outputs for output filtering | None |
 
-**Recommended starting point:** `aiml_moderation` or `aiml_moderation_input` — no model download needed, fast iteration. For stronger evaluation use `aiml_qwen3guard` or `aiml_nsfw`.
+**Recommended starting point:** `aiml_moderation` or `aiml_moderation_input` — no model download needed, fast iteration. For testing the Type 1/2/3 structure, start with `aiml_detoxify_type1`, `aiml_detoxify_type2`, and `aiml_detoxify_type3`.
 
 ## How It Works
 
