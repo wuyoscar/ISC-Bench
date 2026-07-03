@@ -6,7 +6,7 @@
 | **Contributor** | [@wuyoscar](https://github.com/wuyoscar) |
 | **Provider** | Anthropic (direct API) |
 | **Domain** | AI Safety / Agentic Evaluation |
-| **Trigger** | Agentic TVD completion on `aiml_qwen3guard` |
+| **Trigger** | Agentic TVD completion on `aiml_guard_type*_type*` |
 
 ## ISC Mechanism
 

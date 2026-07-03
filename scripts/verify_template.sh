@@ -28,20 +28,20 @@ echo "=== Verifying: $TEMPLATE_DIR ==="
 echo "Model: $MODEL_ID"
 echo ""
 
-# Find all prompt files
-PROMPTS=$(ls "$TEMPLATE_DIR"/prompt*.txt 2>/dev/null)
+# Find all experiment files
+PROMPTS=$(ls "$TEMPLATE_DIR"/exp*.txt 2>/dev/null)
 if [ -z "$PROMPTS" ]; then
-    echo "ERROR: No prompt*.txt files found in $TEMPLATE_DIR"
+    echo "ERROR: No exp*.txt files found in $TEMPLATE_DIR"
     exit 1
 fi
 
-# Run each prompt and save output
+# Run each experiment and save output
 for PROMPT_FILE in $PROMPTS; do
     BASENAME=$(basename "$PROMPT_FILE" .txt)
-    OUTPUT_FILE="$TEMPLATE_DIR/output_${BASENAME#prompt_}.txt"
+    OUTPUT_FILE="$TEMPLATE_DIR/output_${BASENAME}.txt"
 
-    # If it's just "prompt.txt", output is "output.txt"
-    if [ "$BASENAME" = "prompt" ]; then
+    # exp0.txt is the baseline — output is just "output.txt"
+    if [ "$BASENAME" = "exp0" ]; then
         OUTPUT_FILE="$TEMPLATE_DIR/output.txt"
     fi
 

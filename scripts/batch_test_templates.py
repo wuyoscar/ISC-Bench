@@ -27,12 +27,12 @@ templates_dir = Path(__file__).parent.parent / "codebase_templates"
 
 
 def find_prompts() -> list[tuple[str, Path]]:
-    """Find all prompt.txt files, return (template_name, path) pairs."""
+    """Find all exp0.txt files, return (template_name, path) pairs."""
     results = []
     for d in sorted(templates_dir.iterdir()):
         if not d.is_dir():
             continue
-        prompt = d / "prompt.txt"
+        prompt = d / "exp0.txt"
         if prompt.exists():
             results.append((d.name, prompt))
     return results

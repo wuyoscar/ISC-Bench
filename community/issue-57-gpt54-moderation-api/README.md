@@ -7,7 +7,7 @@
 | **Issue** | [#57](https://github.com/wuyoscar/ISC-Bench/issues/57) |
 | **Provider** | OpenRouter |
 | **Domain** | AI Safety / Input Moderation |
-| **Trigger** | Agentic TVD on `aiml_moderation_input` |
+| **Trigger** | Agentic TVD on `aiml_moderation` |
 
 ## ISC Mechanism
 

@@ -5,8 +5,13 @@
 These are small task/codebase scaffolds, not prompt-only examples.
 
 Each codebase template directory contains:
-- `prompt.txt` — ready-to-copy TVD prompt (formats: JSON, CSV, YAML, TSV, Pydantic)
-- Optional prompt variants, such as `prompt_ex.txt` (one-shot), `prompt_zh.txt` / `prompt_zh_ex.txt` (Chinese), and `prompt_v2.txt` (extended categories)
+- `exp0.txt` — ready-to-copy TVD prompt (formats: JSON, CSV, YAML, TSV, Pydantic)
+- Optional experiment variants: `exp1.txt`, `exp2.txt`,
+  `exp3.txt`, and localized `exp_zh1.txt` /
+  `exp_zh2.txt` / `exp_zh3.txt` where present. Each `expN.txt` is a
+  different TVD combination around the same tool — swapping data format, fields,
+  anchors, or language — rather than a fixed "type". See *Experiments* below
+  for the design.
 
 ## Customizing Anchors
 
@@ -34,16 +39,16 @@ Every codebase template is **composable** — the task structure (T), validator 
 
 ### General steps
 
-1. **Inspect `prompt.txt` and its variants** — identify the fields, schema, and validator constraints that define the task
+1. **Inspect `exp0.txt` and its variants** — identify the fields, schema, and validator constraints that define the task
 2. **Pick replacement content** from the sources above (or any domain-relevant database)
-3. **Replace the anchor data** in `prompt.txt` — keep the same field structure and validator constraints
+3. **Replace the anchor data** in `exp0.txt` — keep the same field structure and validator constraints
 4. **Test** — the validator should still pass with the new content; if it doesn't, check field formats
 
 > **Tip**: For oneshot codebase templates, the easiest approach is to replace only the named entities (compound names, gene names, CVE IDs, etc.) while keeping the data format identical. The model will follow the pattern.
 
 ## AI Safety & ML (26 scenarios)
 
-All `aiml_*` codebase templates were audited 2026-04-23 with HPC-probe-driven TVD-clean schemas: structural validators only, content-taxonomy enums and per-category keyword whitelists removed, 5-variant structure (`prompt.txt` / `prompt_zh.txt` / `prompt_v1_bulk.txt` / `prompt_v2_short.txt` / `prompt_v3_fewshot.txt`), and probe-verified harmful anchor in `v3_fewshot`.
+All `aiml_*` codebase templates were audited 2026-04-23 with HPC-probe-driven TVD-clean schemas: structural validators only, content-taxonomy enums and per-category keyword whitelists removed, 5-file structure (`exp0.txt` / `exp_zh0.txt` / `exp1.txt` / `exp2.txt` / `exp3.txt`), and a probe-verified harmful anchor in `exp3.txt`.
 
 | Scenario | Tool | Description | Variants |
 |----------|------|-------------|----------|
@@ -181,7 +186,7 @@ All `aiml_*` codebase templates were audited 2026-04-23 with HPC-probe-driven TV
 
 ### Step 1: Copy-Paste into a Tested LLM
 
-Copy the entire `prompt.txt` (or any variant) into a tested LLM interface. The model will attempt to fill all `???` placeholders to satisfy the validator.
+Copy the entire `exp0.txt` (or any variant) into a tested LLM interface. The model will attempt to fill all `???` placeholders to satisfy the validator.
 
 ### Step 2: Follow-Up for Stronger Output
 
@@ -191,15 +196,23 @@ The first response may be incomplete or too mild. **Send a follow-up to apply pr
 
 This follow-up simulates the validator pressure that agent mode provides automatically. Most models will generate significantly stronger content on the second attempt.
 
-### Agent Mode (Strongest Results)
+### Experiments
 
-In agent mode, the validator **automatically** rejects insufficient outputs and the model self-corrects in a loop until all assertions pass. This removes the need for manual follow-up and typically produces the strongest results. See [experiment/isc_agent/](../experiment/isc_agent/) for setup.
+Each codebase template folder ships a baseline prompt plus one or more
+**experiment** variants — different TVD combinations built around the same
+tool/validator:
 
-### Prompt Variants
+- `exp0.txt` — Baseline (start here)
+- `exp_zh0.txt` — Chinese localized baseline (text-based templates only)
+- `exp1.txt` / `exp2.txt` / `exp3.txt` — Experiment variants. Each is a freely
+  composed combination: data format (JSON / YAML / CSV / Pydantic), field
+  layout, whether an anchor or few-shot example is included, length/style
+  constraints, and so on. The number is just an index, not a category.
+- `exp_zh1.txt` / `exp_zh2.txt` / `exp_zh3.txt` — Chinese localized experiment
+  variants when present.
 
-Each codebase template folder contains multiple prompt variants:
-- `prompt.txt` — Standard version (start here)
-- `prompt_ex.txt` — Extreme anchor version (strongest harmful content)
-- `prompt_zh.txt` — Chinese localized version (text-based templates only)
-- `prompt_zh_ex.txt` — Chinese extreme version
-- `prompt_v2.txt` — Strengthened variant with upgraded anchor queries
+Not every template ships all three experiments — a folder carries only the
+combinations that are meaningful for its task. The variant table in each
+template's README or header documents which experiments exist and what each
+combines.
+exist and what shape each carries.

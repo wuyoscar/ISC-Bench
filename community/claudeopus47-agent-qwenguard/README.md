@@ -6,7 +6,7 @@
 | **Contributor** | [@wuyoscar](https://github.com/wuyoscar) |
 | **Provider** | OpenRouter |
 | **Domain** | AI Safety / Agentic Evaluation |
-| **Trigger** | Agentic TVD completion on `aiml_guard` |
+| **Trigger** | Agentic TVD completion on `aiml_guard_type*` |
 
 ## ISC Mechanism
 

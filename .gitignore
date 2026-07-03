@@ -77,3 +77,6 @@ templates/**/output*.json
 .omc/
 config/
 .playwright-mcp/
+
+# local agent working notes
+.agent_notes/

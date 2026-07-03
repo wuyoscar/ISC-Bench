@@ -7,7 +7,7 @@
 | **Issue** | [#48](https://github.com/wuyoscar/ISC-Bench/issues/48) |
 | **Provider** | OpenRouter |
 | **Domain** | AI Safety / Agentic Evaluation |
-| **Trigger** | Agentic TVD completion on `aiml_qwenguard_eval` |
+| **Trigger** | Agentic TVD completion on `aiml_guard_type*_type*` |
 
 ## ISC Mechanism
 

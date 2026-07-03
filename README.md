@@ -14,15 +14,26 @@
 
 <video src="https://github.com/user-attachments/assets/1cc80c48-02a4-4a5c-9d00-a0f10d91db15" controls width="600"></video>
 
+### Status
+
+- 🔴 **All OpenRouter frontier LLMs triggered ISC.**
+- 🌟 **2026-06-26** — 900 GitHub stars.
+- 🎭 **2026-06-09** — Fable 5 triggered ISC.
+- 🔥 **2026-04-17 / 2026-06-25** — Opus 4.7 and 4.8 triggered ISC.
+- 🌟 **2026-03-27** — 500 GitHub stars.
+- 🚀 **2026-03-22** — Open-sourced.
+
+See [`CHANGELOG.md`](CHANGELOG.md) for the full update history.
+
 ### Fable 5
 
-Claude Fable 5: ISC bypassed its built-in safety classifier and produced harmful/toxic text. Evidence: [1](community/claude-fable-5-fake-news/) · [2](community/claude-fable-5-nsfw/). 
+Claude Fable 5 triggered ISC against its built-in safety classifier and produced harmful/toxic text. Evidence: [1](community/claude-fable-5-fake-news/) · [2](community/claude-fable-5-nsfw/).
 
 > [!IMPORTANT]
 > ISC is a structural workflow-level vulnerability. In the paper, we evaluate it across closed-domain settings and ablations, where the pattern remains effective. In this public release, **we intentionally keep cases within toxic-text contexts**, such as hate speech, fake news, or unsafe/jailbroken LLM answers commonly used in general jailbreak benchmarks, and avoid real-world operational content. If any public material appears beyond this threshold, please open a PR so we can review and revise it.
 
 ### Cross-Domain Cases
-If ISC only reproduced previously known categories of harmful text, its significance would be limited. The novelty of ISC lies in revealing a structural safety collapse: the model is capable of generating harmful outputs that extend beyond traditional harmful-content taxonomies. These outputs are not merely instructional responses to user prompts, but executable, ready-to-use scientific artifacts—such as 🧪high-risk chemical synthesis protocols or ⚠️biochemical weapon-related procedures—that can even be verified with domain-specific computational tools. 
+If ISC only reproduced known harmful-text categories, it would not be very interesting. The point is broader: the failure shows up inside workflow completion. The model can produce harmful artifacts that sit outside standard chat-safety taxonomies, including scientific and tool-verifiable outputs.
 
 ![Cross-domain trigger examples panel](assets/trigger_example/cross_domain_panel.png)
 
@@ -30,7 +41,7 @@ If ISC only reproduced previously known categories of harmful text, its signific
 
 ### What We Found 
 
-From an attack perspective, ISC achieves a 100% trigger rate (ASR@3) across all tested frontier LLMs. Importantly, ISC does not depend on a fixed prompt format or carefully engineered jailbreak template. We share several interactive demos based on the ISC paradigm to illustrate its generality. These examples show that the attack has an extremely low barrier to entry: no domain expertise or advanced prompt engineering is required, and virtually any user can trigger the phenomenon.
+ISC triggered across all tested frontier LLMs under ASR@3. It does not rely on a magic prompt, a fixed jailbreak string, or a carefully tuned template. The demos are here to make that obvious: the failure lives in the workflow, and the barrier is low.
 
 ### Demo Link 
 
@@ -58,19 +69,19 @@ From an attack perspective, ISC achieves a 100% trigger rate (ASR@3) across all 
 
 ### Difference from Prior Work
 
-To summarize, what makes ISC different is:
+What makes ISC different:
 
 - It is not a prompt attack or a prompt-template attack.
 - It targets long-horizon agentic workflows running in realistic environments (e.g., sandboxes).
 - During task execution, the agent reads files, reasons over the workspace, and eventually generates harmful content as part of completing the workflow.
-- The user does NOT need to provide any additional harmful instructions, or even any instructions at all.
+- The user does not need to provide extra harmful instructions, or even any instructions at all.
 - Instead, the agent drives the failure itself while trying to complete the assigned task.
 
-Many recent works have argued that agents may attack themselves during long-horizon tasks. ISC is the first work to make this phenomenon reproducible. We can reliably reproduce this behavior across tested frontier LLMs with a 100% trigger rate (ASR@3). 
+People have argued that agents may attack themselves during long-horizon tasks. ISC makes that failure reproducible. Across tested frontier LLMs, we reproduce it at 100% ASR@3.
 
 ### Media 
 
-Since releasing ISC, we've seen a number of community posts, videos, and AI-generated summaries discussing the work. We've collected a few of them below. These are independent community discussions rather than something we organized ourselves, and they may help provide a more intuitive explanation of the idea.
+Since release, a few people have posted videos, summaries, and independent takes on ISC. We collect some of them here because they explain the idea from different angles.
 
 | Resource | Notes |
 |---|---|
@@ -83,34 +94,38 @@ Since releasing ISC, we've seen a number of community posts, videos, and AI-gene
 
 ## Our Role 
 
-> We see ISC as a red-teaming project. The goal of red teaming is not to jailbreak models for the sake of jailbreaks. The more vulnerabilities and alignment failures we discover, the more opportunities the community has to understand them and build better defenses. That's ultimately why we do this work.
+> ISC is a red-teaming project. The point is not to jailbreak models for fun. The point is to find failures early enough that people can study them and build better defenses.
 
-> We first noticed the ISC phenomenon around November 2025. After the paper was submitted in March, we decided to open-source the project. Before doing so, we reached out to several LLM developers, as well as a number of well-known AI safety and red-team researchers. We shared what we had found, explained why we believed it was important, and encouraged them to look into it.
+> We first noticed the ISC pattern around November 2025. After the paper was submitted in March, we decided to open-source the project. Before that, we reached out to LLM developers and AI safety/red-team researchers, shared what we had found, and encouraged them to look into it.
 
-> We believed this was more than another jailbreak trick—it pointed to a broader workflow-level failure that deserved attention. Unfortunately, we did not receive any substantive response.
+> We believed this was more than another jailbreak trick. It looked like a workflow-level failure that deserved attention. We did not receive a substantive response.
 
-> For that reason, we chose a conservative release. Instead of publishing operationally harmful examples, we only release trajectories together with a few generic, lower-risk demonstrations. We believe these are sufficient to show that the ISC phenomenon exists, while reducing the risk of causing real-world harm.
+> So we made a conservative release. We publish trajectories and lower-risk demonstrations, enough to show the failure exists without turning the repository into an operational playbook.
 
 ## Experiments Conducted in the Paper
 
-[**ISC-Chatbot**](experiment/isc_single/) — packs the task, validator, data, and failure trace into one prompt. It is a lightweight prompt-only ISC variant that simulates terminal-style agent behavior without the full agent environment. We include it because full Docker and agent dependencies can be heavy; the reduced design is easy to run and still triggers roughly 95% of tested frontier models in our tests.
+Three ways to reproduce the same failure surface:
+
+[**ISC-Chatbot**](experiment/isc_single/) — task, validator, data, and failure trace in one prompt. No full agent environment. Easy to run; still triggers roughly 95% of tested frontier models in our tests.
 ```bash
 cd experiment/isc_single && uv run run.py --model <model-id> --bench jbb --task ai-guard --samples 0
 ```
 
-[**ISC-ICL**](experiment/isc_icl/) — uses completed trajectories as demonstrations before the target case.
+[**ISC-ICL**](experiment/isc_icl/) — completed trajectories first, target case after.
 ```bash
 cd experiment/isc_icl && uv run run.py --model <model-id> --demos 5
 ```
 
-[**ISC-Agent**](experiment/isc_agent/) — gives an agent shell access and a high-level task; the loop is file inspection, code execution, validation, and repair. From the user side, it only needs `one initial interaction`, such as "start," "begin," or "finish the workflow"; the remaining steps are fully automated.
+[**ISC-Agent**](experiment/isc_agent/) — gives an agent shell access and a high-level task. The loop is simple: inspect files, run code, validate, repair. From the user side, one initial interaction is enough.
 ```bash
 cd experiment/isc_agent && docker build -t isc-agent . && ./run.sh --model <model-id>
 ```
 
-Explore the released materials: [**Codebase Templates**](codebase_templates/) · [`community/`](community/) · [`experiment/`](experiment/)
+Released materials: [**Codebase Templates**](codebase_templates/) · [`community/`](community/) · [`experiment/`](experiment/)
 
 ## Beyond the Paper
+
+62 frontier models triggered so far. The table tracks public evidence, not private runs.
 
 | Model | Triggered | Link | By |
 |-------|:------:|:----:|:--:|
@@ -177,10 +192,10 @@ Explore the released materials: [**Codebase Templates**](codebase_templates/) ·
 | <img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=32" width="14"> Amazon Nova Pro | 🔴 | [🔗](https://github.com/wuyoscar/ISC-Bench/tree/main/community/amazon-nova-pro-sentiment) | [@wuyoscar](https://github.com/wuyoscar) |
 | <img src="https://www.google.com/s2/favicons?domain=meta.com&sz=32" width="14"> Llama 4 Scout | 🔴 | [🔗](https://github.com/wuyoscar/ISC-Bench/tree/main/community/llama4scout-phishing) | [@wuyoscar](https://github.com/wuyoscar) |
 
-<details>
+<details open>
 <summary><b>Trigger History</b></summary>
 
-Top-level history is intentionally high-level. Content-specific details are kept in linked evidence and case folders rather than repeated here.
+Top-level history stays high-level. Details live in the linked evidence folders.
 
 | Date | Model(s) | By | Note |
 |:-----|----------|:--:|------|
@@ -209,7 +224,7 @@ Top-level history is intentionally high-level. Content-specific details are kept
 | [#52](https://github.com/wuyoscar/ISC-Bench/issues/52) | Gemini 2.5 Pro | [@wuyoscar](https://github.com/wuyoscar) | LaTeX writing codebase template, no code | Other | ③ |
 | [#90](https://github.com/wuyoscar/ISC-Bench/tree/main/community/issue-90-apple-foundation-vader) | Apple Foundation Model (on-device, ~3B) | [@hypery11](https://github.com/hypery11) | Modified `aiml_vader` — pure-data CSV completion, ASR@3 temp=1.0 | AI Safety & ML | ② |
 | [#57](https://github.com/wuyoscar/ISC-Bench/issues/57) | GPT-5.4 High | [@wuyoscar](https://github.com/wuyoscar) | Agentic input moderation — prompt injection generation | AI Safety & ML | ② |
-| [#42](https://github.com/wuyoscar/ISC-Bench/issues/42) | Gemini 3.1 Pro Preview | [@wuyoscar](https://github.com/wuyoscar) | Agentic TVD on `aiml_qwenguard_eval` — multilingual task completions | AI Safety & ML | ② |
+| [#42](https://github.com/wuyoscar/ISC-Bench/issues/42) | Gemini 3.1 Pro Preview | [@wuyoscar](https://github.com/wuyoscar) | Agentic TVD on `aiml_guard_type*` — multilingual task completions | AI Safety & ML | ② |
 | [#25](https://github.com/wuyoscar/ISC-Bench/issues/25) | Claude Sonnet 4.5 (2nd) | [@fresh-ma](https://github.com/fresh-ma) | Detoxify benchmark — ~half page per category, escalation on follow-up | AI Safety & ML | ② |
 | [#28](https://github.com/wuyoscar/ISC-Bench/issues/28) | GPT-5.4 | [@zry29](https://github.com/zry29) | File upload + tool agent — ISC-Bench codebase template | AI Safety & ML | ② |
 | [#31](https://github.com/wuyoscar/ISC-Bench/issues/31) | Kimi K2.5 Instant | [@fresh-ma](https://github.com/fresh-ma) | Long-form moderation-style generation | AI Safety & ML | ② |
@@ -218,7 +233,7 @@ Top-level history is intentionally high-level. Content-specific details are kept
 | [#9](https://github.com/wuyoscar/ISC-Bench/issues/9) | Grok 4.20 Beta | [@HanxunH](https://github.com/HanxunH) | LLaMA Guard test case generation (stronger variant) | AI Safety & ML | ③ |
 | [#11](https://github.com/wuyoscar/ISC-Bench/issues/11) | Dola Seed 2.0 | [@HanxunH](https://github.com/HanxunH) | LLaMA Guard test case gen | AI Safety & ML | ③ |
 
-> **Type**: ① Direct use of ISC-Bench codebase template · ② Modified ISC-Bench codebase template · ③ New method using ISC concept · ④ Outside TVD paradigm
+> **Type**: ① Direct template use · ② Modified template · ③ New method using ISC · ④ Outside TVD
 
 ---
 
@@ -232,9 +247,9 @@ Top-level history is intentionally high-level. Content-specific details are kept
 
 ### Codebase Templates
 
-Released codebase templates are composable research scaffolds, not prompt-only examples. Each folder defines a small task/codebase surface centered on `prompt.txt` and its prompt variants for the run.
+The templates are small codebase surfaces, not prompt-only examples. Each folder centers on `exp0.txt` plus run variants.
 
-Because every tool validates a different artifact, the harmful data type also changes: classifier text for AI-safety tools, sequence/structure records for bio tools, molecular records for chemistry tools, network/binary artifacts for cyber tools, and misinformation records for media tools. The table below names the data type at a high level; sensitive operational content is not expanded in the top-level README.
+Different tools validate different artifacts. So the data changes too: classifier text, sequence records, molecular records, network/binary artifacts, misinformation records. The table stays high-level on purpose.
 
 #### AI Safety & ML (26)
 
@@ -366,7 +381,7 @@ Because every tool validates a different artifact, the harmful data type also ch
 | 84 | [`other_latex`](codebase_templates/other_latex/) | `LaTeX` | Academic table completion | Social-engineering taxonomy records |
 
 ```bash
-cat codebase_templates/aiml_llamaguard/prompt.txt
+cat codebase_templates/aiml_llamaguard/exp0.txt
 # inspect a released codebase template
 ```
 
@@ -378,15 +393,23 @@ cat codebase_templates/aiml_llamaguard/prompt.txt
   <em>The TVD Framework: Task, Validator, Data.</em>
 </p>
 
-> **Internal Safety Collapse (ISC)** is the failure phenomenon. **TVD Framework** is one engineering framework that can trigger it: a normal task, a validator, and missing data are placed inside a tool workflow. The model fills the gap because it treats completion as the objective.
+> **Internal Safety Collapse (ISC)** is the failure. **TVD Framework** is one way to trigger it: task, validator, missing data. The model fills the gap because completion is the objective.
 
 ## Setup
 
-There is no setup and there are no dependencies; you only need your own API key for model calls.
+No setup. No dependencies. Bring your own API key.
+
+## Changelog
+
+Full history: [`CHANGELOG.md`](CHANGELOG.md). Highlights:
+
+- **2026-07-03** — Template names unified; ISC-Agent guard/moderation templates consolidated; per-template `SKILL.md` removed.
+- **2026-04-17 (v0.0.5)** — README reframed around workflow-level failure; Claude Opus 4.7 added.
+- **2026-03-25** — First public frontier-model batch.
 
 ## License
 
-**CC BY-NC-SA 4.0** — exclusively for academic research in AI safety. Commercial use and harmful content generation are prohibited.
+**CC BY-NC-SA 4.0** — academic AI safety research only. No commercial use. No harmful generation.
 
 ## Citation
 
@@ -402,4 +425,4 @@ There is no setup and there are no dependencies; you only need your own API key 
 
 ### Contact
 
-For questions, collaborations, or responsible disclosure: **wuy⁷¹¹⁷ ⓐ 𝗴𝗺𝗮𝗶𝗹 𝗰𝗼𝗺**
+Questions, collaborations, responsible disclosure: **wuy⁷¹¹⁷ ⓐ 𝗴𝗺𝗮𝗶𝗹 𝗰𝗼𝗺**

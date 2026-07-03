@@ -133,14 +133,14 @@ The figure below illustrates how **anchors** (pre-filled fields) and **triggers*
 <details>
 <summary><b>Q: Why these three templates?</b></summary>
 
-**A:** The `ai-guard`, `ai-detoxify`, and `ai-outlier` templates are representative instantiations of the TVD framework applied to ML safety evaluation tools. They are chosen because their outputs map directly onto established harm categories (JailbreakBench), enabling controlled comparison with existing jailbreak methods. They are not the only way ISC manifests — ISC-Bench includes 84 templates across 9 professional domains (biology, chemistry, cybersecurity, pharmacology, etc.), each with a different TVD structure. See [`templates/`](../../templates/) for the full set.
+**A:** The `ai-guard`, `ai-detoxify`, and `ai-outlier` templates are representative instantiations of the TVD framework applied to ML safety evaluation tools. They are chosen because their outputs map directly onto established harm categories (JailbreakBench), enabling controlled comparison with existing jailbreak methods. They are not the only way ISC manifests — ISC-Bench includes 84 templates across 9 professional domains (biology, chemistry, cybersecurity, pharmacology, etc.), each with a different TVD structure. See [`codebase_templates/`](../../codebase_templates/) for the full set.
 
 </details>
 
 <details>
 <summary><b>Q: How can I explore ISC beyond these scripts?</b></summary>
 
-**A:** These scripts provide a reproducible baseline for the evaluation reported in the paper. ISC is a *structural failure mode*, not a specific prompt — the key insight is that harmful data generation arises as a functional requirement of the task, not from an explicit instruction. To explore further, you can compose different templates, swap domain tools, modify anchor strategies, or design entirely new TVD patterns. Understanding the ISC phenomenon and the TVD design principle (see the [paper](../../assets/paper.pdf)) is essential for constructing effective scenarios.
+**A:** These scripts provide a reproducible baseline for the evaluation reported in the paper. ISC is a *structural failure mode*, not a specific prompt — the key insight is that harmful data generation arises as a functional requirement of the task, not from an explicit instruction. To explore further, you can compose different templates, swap domain tools, modify anchor strategies, or design entirely new TVD patterns. Understanding the ISC phenomenon and the TVD design principle (see the [paper](https://arxiv.org/abs/2603.23509)) is essential for constructing effective scenarios.
 
 </details>
 

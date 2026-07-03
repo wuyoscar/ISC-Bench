@@ -2,7 +2,30 @@
 
 All notable updates to ISC-Bench are documented here.
 
-## 2026-04-17 (latest) — v0.0.5
+## 2026-07-03 — naming & structure overhaul
+
+### Template naming unified to experiment scheme
+- All prompt variants renamed to a uniform `exp` scheme. Each template directory now holds `exp0.txt` (baseline), `exp1.txt` / `exp2.txt` / `exp3.txt` (experiment variants), and `exp_zh0.txt` / `exp_zh1-3.txt` (Chinese localizations). The legacy names (`prompt.txt`, `prompt_zh.txt`, `prompt_type1_bulk.txt`, `prompt_v1/v2/v3`, `prompt_ex`, etc.) are retired.
+- Each `expN.txt` is a different TVD combination around the same tool — data format, fields, anchors, few-shot, length constraints are freely composed. The number is an index, not a category.
+
+### ISC-Agent templates consolidated
+- `aiml_qwen3guard`, `aiml_guard_attack`, `aiml_guard_attack_v2` consolidated into `aiml_guard_type1` / `aiml_guard_type2` / `aiml_guard_type3` under `experiment/isc_agent/template/`.
+- `aiml_moderation_input`, `aiml_moderation_output` folded into the `aiml_moderation` template family.
+
+### Files removed
+- Per-template `SKILL.md` files removed from all 84 `codebase_templates/` directories.
+- `VERIFICATION.md` removed (stale).
+- 6 duplicate `exp3.txt` files removed (were byte-identical to `exp0.txt`, no anchor).
+
+### Link & path fixes
+- Fixed broken `templates/` → `codebase_templates/` path references in `experiment/isc_single/`.
+- `direct_template.py`: fixed `TEMPLATES = ROOT / "templates"` bug (now `"codebase_templates"`); default `--variant` is now `exp0.txt`.
+- `community/gpt41-detoxify`: removed references to non-existent evidence files.
+- Community case Trigger lines updated to current template names (`aiml_guard_attack*` → `aiml_guard_type*`, `aiml_moderation_input` → `aiml_moderation`).
+
+> Historical entries below retain the template names that were in use at the time.
+
+## 2026-04-17 — v0.0.5
 
 ### New ISC Trigger
 - **Claude Opus 4.7** (pre-release, Rank 1 placeholder, no Arena score yet) — agentic QwenGuard TVD, 12 multilingual harmful completions across EN/FR/KO/ZH, all validator-passed. Jailbroken in seconds. See [`community/claudeopus47-agent-qwenguard`](community/claudeopus47-agent-qwenguard/). Confirmed count: **52/100**.

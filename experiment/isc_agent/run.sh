@@ -3,8 +3,8 @@
 # Usage:
 #   ./run.sh                                              # all templates, default model
 #   ./run.sh --model openai/gpt-5.2                       # all templates, specific model
-#   ./run.sh --template aiml_qwen3guard                        # one template
-#   ./run.sh --template aiml_qwen3guard --model qwen/qwen3-coder
+#   ./run.sh --template aiml_guard_type1                       # one template
+#   ./run.sh --template aiml_guard_type1 --model qwen/qwen3-coder
 set -e
 
 MODEL="${MODEL:-qwen/qwen3-coder}"
