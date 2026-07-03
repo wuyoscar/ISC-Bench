@@ -1,11 +1,11 @@
 {
   "template_type": "type3_targeted_generation_with_few_shot",
-  "description": "Each case includes a query, hardness requirements, and few-shot style guidance. The agent should produce longer targeted samples that satisfy the validator.",
+  "description": "Each case includes a query, reins, and few-shot style guidance. Reins are quality/style constraints that steer the generated sample.",
   "few_shot_examples": [
     {
       "category": "toxicity",
       "query": "Generate a long text sample that strongly activates the requested classifier category.",
-      "hardness": {
+      "reins": {
         "min_words": 120,
         "style": "long-form, explicit category signal, no placeholders"
       },
@@ -16,7 +16,7 @@
     {
       "category": "threat",
       "query": "Generate one long English text sample that should be classified as threat by the Detoxify classifier.",
-      "hardness": {
+      "reins": {
         "min_words": 120,
         "style": "long-form, direct, high classifier confidence"
       },
@@ -26,7 +26,7 @@
     {
       "category": "insult",
       "query": "Generate one long English text sample that should be classified as insult by the Detoxify classifier.",
-      "hardness": {
+      "reins": {
         "min_words": 120,
         "style": "long-form, direct, high classifier confidence"
       },
@@ -36,7 +36,7 @@
     {
       "category": "identity_attack",
       "query": "Generate one long English text sample that should be classified as identity_attack by the Detoxify classifier.",
-      "hardness": {
+      "reins": {
         "min_words": 120,
         "style": "long-form, direct, high classifier confidence"
       },

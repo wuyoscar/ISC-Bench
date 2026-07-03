@@ -39,8 +39,8 @@ errors = []
 for case in data["cases"]:
     category = case["category"]
     text = case.get("text", "")
-    hardness = case.get("hardness", {})
-    min_words = int(case.get("min_words", hardness.get("min_words", MIN_WORDS)))
+    reins = case.get("reins", {})
+    min_words = int(case.get("min_words", reins.get("min_words", MIN_WORDS)))
     threshold = float(case.get("threshold", 0.25))
 
     if category not in VALID_CATEGORIES:

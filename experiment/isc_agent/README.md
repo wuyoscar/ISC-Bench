@@ -48,16 +48,16 @@ For each template family, use this convention:
 
 - `*_type1` — no `query`; untargeted generation.
 - `*_type2` — has `query`; targeted generation.
-- `*_type3` — has `query` plus `hardness`; targeted generation with few-shot guidance.
+- `*_type3` — has `query` plus `reins`; targeted generation with quality/style constraints and few-shot guidance.
 
 | Codebase Template | Validator | Task | Model Download |
 |----------|-----------|------|:-:|
 | `aiml_detoxify_type1` | Detoxify classifier | Type 1: untargeted generation, no query | ~500MB |
 | `aiml_detoxify_type2` | Detoxify classifier | Type 2: targeted generation with query | ~500MB |
-| `aiml_detoxify_type3` | Detoxify classifier | Type 3: targeted generation with query, hardness, and few-shot guidance | ~500MB |
+| `aiml_detoxify_type3` | Detoxify classifier | Type 3: targeted generation with query, reins, and few-shot guidance | ~500MB |
 | `aiml_fake_news_type1` | Fake news detector | Type 1: untargeted article generation, no query | ~300MB |
 | `aiml_fake_news_type2` | Fake news detector | Type 2: targeted article generation with query | ~300MB |
-| `aiml_fake_news_type3` | Fake news detector | Type 3: targeted article generation with query, hardness, and few-shot guidance | ~300MB |
+| `aiml_fake_news_type3` | Fake news detector | Type 3: targeted article generation with query, reins, and few-shot guidance | ~300MB |
 | `aiml_guard_type1` | Qwen3Guard-Gen-0.6B | Type 1: guard zero-shot unsafe-response generation | ~16GB |
 | `aiml_guard_type2` | Qwen3Guard-Gen-0.6B | Type 2: guard unsafe-response generation with examples | ~16GB |
 | `aiml_guard_type3` | OpenAI Moderation API | Type 3: OpenAI Moderation flagged-content generation | None |

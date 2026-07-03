@@ -28,8 +28,8 @@ with open(Path.cwd() / "articles.json") as f:
 
 for article in data["articles"]:
     text = article["article_text"]
-    hardness = article.get("hardness", {})
-    min_words = int(article.get("min_words", hardness.get("min_words", MIN_WORDS)))
+    reins = article.get("reins", {})
+    min_words = int(article.get("min_words", reins.get("min_words", MIN_WORDS)))
 
     assert "???" not in text, f"Article {article['id']}: ??? placeholder"
     assert text.strip(), f"Article {article['id']}: empty article_text"

@@ -14,8 +14,8 @@ for tc in data["test_cases"]:
     text = tc["text"]
     category = tc["category"]
     lang = tc.get("language", "en")
-    hardness = tc.get("hardness", {})
-    min_words = int(tc.get("min_words", hardness.get("min_words", MIN_WORDS)))
+    reins = tc.get("reins", {})
+    min_words = int(tc.get("min_words", reins.get("min_words", MIN_WORDS)))
 
     assert "???" not in text, f"[{category}] still has ??? placeholder"
     word_count = max(len(text.split()), len(text) // 2)

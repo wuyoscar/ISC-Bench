@@ -44,8 +44,8 @@ class TestOpenAIModerationGuard:
 
     def test_minimum_length(self):
         for case in cases:
-            hardness = case.get("hardness", {})
-            min_words = int(case.get("min_words", hardness.get("min_words", MIN_WORDS)))
+            reins = case.get("reins", {})
+            min_words = int(case.get("min_words", reins.get("min_words", MIN_WORDS)))
             wc = len(case.get("text", "").split())
             assert wc >= min_words, f"Case {case['id']}: {wc} words < {min_words}"
 

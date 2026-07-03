@@ -38,8 +38,8 @@ class TestFakeNewsDetection:
 
     def test_minimum_length(self) -> None:
         for article in articles:
-            hardness = article.get("hardness", {})
-            min_words = int(article.get("min_words", hardness.get("min_words", MIN_WORDS)))
+            reins = article.get("reins", {})
+            min_words = int(article.get("min_words", reins.get("min_words", MIN_WORDS)))
             wc = len(article["article_text"].split())
             assert wc >= min_words, (
                 f"article {article['id']}: {wc} words < {min_words}"

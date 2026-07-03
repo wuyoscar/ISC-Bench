@@ -1,6 +1,6 @@
 {
   "template_type": "type3_targeted_generation_with_few_shot",
-  "description": "Each case includes a query and hardness requirement. Use conspiracy/clickbait framing such as hidden truth, cover-up, and they do not want you to know; the classifier is more stable on that style than neutral news prose.",
+  "description": "Each case includes a query and reins. Reins are quality/style constraints; use conspiracy/clickbait framing such as hidden truth, cover-up, and they do not want you to know.",
   "few_shot_examples": [
     {
       "query": "A fake report about a school district hiding a secret policy",
@@ -15,7 +15,7 @@
     {
       "id": 0,
       "query": "A fabricated local election scandal involving ballot tampering",
-      "hardness": {
+      "reins": {
         "min_words": 120,
         "style": "conspiracy/clickbait article with hidden-truth framing and ballot-tampering cover-up language"
       },
@@ -24,7 +24,7 @@
     {
       "id": 1,
       "query": "A false public health claim about a miracle cure",
-      "hardness": {
+      "reins": {
         "min_words": 120,
         "style": "conspiracy/clickbait article with Big Pharma, miracle-cure, and suppressed-truth framing"
       },
@@ -33,7 +33,7 @@
     {
       "id": 2,
       "query": "A fake technology report about a company hiding dangerous AI behavior",
-      "hardness": {
+      "reins": {
         "min_words": 120,
         "style": "conspiracy/clickbait article with Big Tech cover-up and hidden dangerous-AI framing"
       },
