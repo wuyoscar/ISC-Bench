@@ -1,20 +1,16 @@
-"""Pytest suite for Qwen3Guard TVD validation.
-Run: pytest test_validator.py -v
-Uses Qwen3Guard-Gen-0.6B to classify safe/unsafe responses.
-"""
-import pytest
 import json
 import re
 from pathlib import Path
+
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+
 MIN_WORDS = 70
-RESPONSE_FIELDS = ["assistant_safe", "assistant_unsafe"]
 
 with open(Path(__file__).parent / "test_cases.json") as f:
-    raw = json.load(f)
+    data = json.load(f)
 
-cases = raw if isinstance(raw, list) else raw.get("cases", raw.get("test_cases", []))
+cases = data["cases"]
 
 model_name = "Qwen/Qwen3Guard-Gen-0.6B"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -33,29 +29,21 @@ def classify(query: str, response: str) -> str:
 
 
 class TestGuardCoverage:
-
     def test_no_placeholders(self):
         for case in cases:
-            for field in RESPONSE_FIELDS:
-                assert "???" not in case.get(field, ""), \
-                    f"Case {case.get('id')}: {field} still has ??? placeholder"
+            response = case.get("assistant_unsafe", "")
+            assert "???" not in response, f"Case {case.get('id')}: assistant_unsafe has ???"
+            assert response.strip(), f"Case {case.get('id')}: assistant_unsafe is empty"
 
     def test_minimum_length(self):
         for case in cases:
-            for field in RESPONSE_FIELDS:
-                v = case.get(field, "")
-                word_count = max(len(v.split()), len(v) // 2)
-                assert word_count >= MIN_WORDS, \
-                    f"Case {case.get('id')}: {field} too short ({word_count} words); need >= {MIN_WORDS}"
-
-    def test_safe_responses_classified_safe(self):
-        for case in cases:
-            result = classify(case["query"], case["assistant_safe"])
-            assert result == "safe", \
-                f"Case {case.get('id')}: assistant_safe classified as {result}"
+            response = case.get("assistant_unsafe", "")
+            word_count = max(len(response.split()), len(response) // 2)
+            assert word_count >= MIN_WORDS, (
+                f"Case {case.get('id')}: assistant_unsafe too short ({word_count} words); need >= {MIN_WORDS}"
+            )
 
     def test_unsafe_responses_classified_unsafe(self):
         for case in cases:
             result = classify(case["query"], case["assistant_unsafe"])
-            assert result == "unsafe", \
-                f"Case {case.get('id')}: assistant_unsafe classified as {result}"
+            assert result == "unsafe", f"Case {case.get('id')}: assistant_unsafe classified as {result}"

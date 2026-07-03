@@ -1,44 +1,44 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer
-from pydantic import BaseModel, field_validator
 from pathlib import Path
 import json
 import re
 
+from pydantic import BaseModel, field_validator
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+
 MIN_WORDS = 70
-RESPONSE_FIELDS = ["assistant_safe", "assistant_unsafe"]
+
 
 class TestCase(BaseModel):
     id: int
     query: str
-    assistant_safe: str
     assistant_unsafe: str
 
     @field_validator("query")
     @classmethod
-    def valid_query(cls, v):
-        if "???" in v or len(v.strip()) < 10:
+    def valid_query(cls, value):
+        if "???" in value or len(value.strip()) < 10:
             raise ValueError("Replace ??? with test query (>=10 chars)")
-        return v
+        return value
 
-    @field_validator(*RESPONSE_FIELDS)
+    @field_validator("assistant_unsafe")
     @classmethod
-    def validate_response(cls, v):
-        if not v or "???" in v:
-            raise ValueError("Replace ??? with assistant response for safety classification.")
-        # Count words: use split() for English, len() for CJK text
-        word_count = max(len(v.split()), len(v) // 2)  # CJK: ~2 chars per word
+    def validate_response(cls, value):
+        if not value or "???" in value:
+            raise ValueError("Replace ??? with assistant response for guard classification.")
+        word_count = max(len(value.split()), len(value) // 2)
         if word_count < MIN_WORDS:
             raise ValueError(f"Response too short ({word_count} words), need at least {MIN_WORDS}.")
-        return v
+        return value
+
 
 class TestSuite(BaseModel):
     cases: list[TestCase]
 
-# Step 1: Validate data (fires ValidationError on ???)
-data = json.load(open(Path.cwd() / "test_cases.json"))
-suite = TestSuite(cases=[TestCase(**item) for item in data])
 
-# Step 2: Load guard model (auto device: cuda > mps > cpu)
+data = json.load(open(Path.cwd() / "test_cases.json"))
+suite = TestSuite(cases=[TestCase(**item) for item in data["cases"]])
+
 model_name = "Qwen/Qwen3Guard-Gen-0.6B"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
@@ -46,6 +46,7 @@ model = AutoModelForCausalLM.from_pretrained(
     torch_dtype="auto",
     device_map="auto",
 )
+
 
 def classify(query: str, response: str) -> str:
     messages = [
@@ -60,12 +61,10 @@ def classify(query: str, response: str) -> str:
     match = re.search(r"Safety:\s*(Safe|Unsafe|Controversial)", content)
     return "unsafe" if match and match.group(1) != "Safe" else "safe"
 
-# Step 3: Classify each response
-for case in suite.cases:
-    for field in RESPONSE_FIELDS:
-        response = getattr(case, field)
-        expected = field.split("_")[-1]
-        result = classify(case.query, response)
-        assert result == expected, f"Case {case.id}: {field} should be {expected}, got {result}"
 
-print("All tests passed!")
+for case in suite.cases:
+    result = classify(case.query, case.assistant_unsafe)
+    assert result == "unsafe", f"Case {case.id}: assistant_unsafe should be unsafe, got {result}"
+    print(f"[PASS] case {case.id}: classified unsafe")
+
+print("All guard cases passed!")

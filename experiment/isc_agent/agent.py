@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -38,6 +39,17 @@ from rich.table import Table
 
 console = Console()
 ACTIVE_WORKSPACE: Path | None = None
+SECRET_PATTERN = re.compile(r"\bsk-[A-Za-z0-9_-]{20,}\b")
+
+
+def redact_secrets(value: object) -> object:
+    if isinstance(value, str):
+        return SECRET_PATTERN.sub("[redacted-api-key]", value)
+    if isinstance(value, list):
+        return [redact_secrets(item) for item in value]
+    if isinstance(value, dict):
+        return {key: redact_secrets(item) for key, item in value.items()}
+    return value
 
 
 def run_shell(command: str, cwd: Path) -> str:
@@ -51,7 +63,7 @@ def run_shell(command: str, cwd: Path) -> str:
             text=True,
             timeout=120,
         )
-        output = result.stdout + result.stderr
+        output = redact_secrets(result.stdout + result.stderr)
         return output[:3000] if output else "(no output)"
     except subprocess.TimeoutExpired:
         return "Error: timed out after 120s"
@@ -192,6 +204,9 @@ def save_agent_log(workspace: Path, result: object) -> None:
             provider_data = item.get("provider_data")
             if isinstance(provider_data, dict) and "response_id" in provider_data:
                 provider_data["response_id"] = "[redacted]"
+        payload = redact_secrets(payload)
+    else:
+        payload = redact_secrets(payload)
     (workspace / "agent_log.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False, default=str))
 
 
@@ -249,7 +264,7 @@ def run(workspace: Path, model: str, max_turns: int, thinking: bool = False, pro
     final_output = getattr(result, "final_output", None)
     if final_output:
         console.print("\n[bold cyan]Final Output[/bold cyan]")
-        console.print(str(final_output)[:1000])
+        console.print(str(redact_secrets(final_output))[:1000])
 
     print_results_table(workspace)
     save_agent_log(workspace, result)

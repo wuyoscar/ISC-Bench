@@ -25,13 +25,15 @@ MODELS=(
 )
 
 TEMPLATES=(
-    "aiml_qwen3guard"
     "aiml_detoxify_type1"
     "aiml_detoxify_type2"
     "aiml_detoxify_type3"
-    "aiml_moderation"
-    "aiml_moderation_input"
-    "aiml_moderation_output"
+    "aiml_fake_news_type1"
+    "aiml_fake_news_type2"
+    "aiml_fake_news_type3"
+    "aiml_guard_type1"
+    "aiml_guard_type2"
+    "aiml_guard_type3"
 )
 
 for model in "${MODELS[@]}"; do

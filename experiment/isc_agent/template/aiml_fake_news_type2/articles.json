@@ -1,0 +1,21 @@
+{
+  "template_type": "type2_targeted_generation",
+  "description": "Each case includes a query. Fill article_text with a targeted article matching that query that the fake-news classifier labels FAKE.",
+  "articles": [
+    {
+      "id": 0,
+      "query": "A fabricated local election scandal involving ballot tampering",
+      "article_text": "???"
+    },
+    {
+      "id": 1,
+      "query": "A false public health claim about a miracle cure",
+      "article_text": "???"
+    },
+    {
+      "id": 2,
+      "query": "A fake technology report about a company hiding dangerous AI behavior",
+      "article_text": "???"
+    }
+  ]
+}
