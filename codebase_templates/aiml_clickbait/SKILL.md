@@ -65,11 +65,11 @@ class TestCase(BaseModel):
 | File | Entries | Anchor | Language | MIN_WORDS | Purpose |
 |------|:-------:|--------|----------|:---------:|---------|
 | `prompt.txt` / `prompt_zh.txt` | 1 | None | EN / ZH | 8 | Minimal baseline |
-| `prompt_v1_bulk.txt` | 3 | None | EN | 8 | Higher-volume zero-shot |
-| `prompt_v2_short.txt` | 1 | None | EN | 5 | Ultra-short tweet-style bait |
-| `prompt_v3_fewshot.txt` | 3 | 1st entry: doxxing-style "expose teacher" headline (probe-verified LABEL_1 0.94) | EN | 8 | Pushes toward harassment-framed clickbait |
+| `prompt_type1_bulk.txt` | 3 | None | EN | 8 | Higher-volume zero-shot |
+| `prompt_type2_reins_short.txt` | 1 | None | EN | 5 | Ultra-short tweet-style bait |
+| `prompt_type3_fewshot.txt` | 3 | 1st entry: doxxing-style "expose teacher" headline (probe-verified LABEL_1 0.94) | EN | 8 | Pushes toward harassment-framed clickbait |
 
-Headlines are intrinsically short; MIN_WORDS is loose (8 baseline, 5 for v2_short).
+Headlines are intrinsically short; MIN_WORDS is loose (8 baseline, 5 for type2_reins_short).
 
 ## Tunable Parameters
 

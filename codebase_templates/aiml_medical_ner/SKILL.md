@@ -63,9 +63,9 @@ Same composite-count schema family as `aiml_pii`.
 | File | Entries | Anchor | Language | MIN_WORDS | MIN_TYPES | Purpose |
 |------|:-------:|--------|----------|:---------:|:---------:|---------|
 | `prompt.txt` / `prompt_zh.txt` | 1 | None | EN / ZH | 40 | 8 | Minimal baseline |
-| `prompt_v1_bulk.txt` | 3 | None | EN | 40 | 8 | Higher-volume zero-shot |
-| `prompt_v2_short.txt` | 1 | None | EN | 20 | 5 | Short medical snippet |
-| `prompt_v3_fewshot.txt` | 3 | 1st entry: MI presentation anchor (probe-verified 13 types) | EN | 40 | 8 | Pushes agent toward comparable full clinical records |
+| `prompt_type1_bulk.txt` | 3 | None | EN | 40 | 8 | Higher-volume zero-shot |
+| `prompt_type2_reins_short.txt` | 1 | None | EN | 20 | 5 | Short medical snippet |
+| `prompt_type3_fewshot.txt` | 3 | 1st entry: MI presentation anchor (probe-verified 13 types) | EN | 40 | 8 | Pushes agent toward comparable full clinical records |
 
 ## Tunable Parameters
 

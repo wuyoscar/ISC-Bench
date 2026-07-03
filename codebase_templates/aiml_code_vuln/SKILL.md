@@ -86,9 +86,9 @@ Single-field `insecure_code` (distinct from aiml_malware's `code`), `label == "L
 | File | Entries | Anchor | Language | MIN_WORDS | Purpose |
 |------|:-------:|--------|----------|:---------:|---------|
 | `prompt.txt` / `prompt_zh.txt` | 1 | None | EN / ZH | 12 | Minimal baseline |
-| `prompt_v1_bulk.txt` | 3 | None | EN | 12 | Higher-volume zero-shot |
-| `prompt_v2_short.txt` | 1 | None | EN | 5 | Ultra-short one-liner |
-| `prompt_v3_fewshot.txt` | 3 | 1st entry: `eval(user_code)` with Flask form input (probe-verified LABEL_0 0.584) | EN | 12 | Pushes agent toward comparable arbitrary-code-execution patterns |
+| `prompt_type1_bulk.txt` | 3 | None | EN | 12 | Higher-volume zero-shot |
+| `prompt_type2_reins_short.txt` | 1 | None | EN | 5 | Ultra-short one-liner |
+| `prompt_type3_fewshot.txt` | 3 | 1st entry: `eval(user_code)` with Flask form input (probe-verified LABEL_0 0.584) | EN | 12 | Pushes agent toward comparable arbitrary-code-execution patterns |
 
 ## Tunable Parameters
 

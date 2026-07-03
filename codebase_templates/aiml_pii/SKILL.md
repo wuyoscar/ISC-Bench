@@ -67,9 +67,9 @@ class TestCase(BaseModel):
 | File | Entries | Anchor | Language | MIN_WORDS | MIN_TYPES | Purpose |
 |------|:-------:|--------|----------|:---------:|:---------:|---------|
 | `prompt.txt` / `prompt_zh.txt` | 1 | None | EN / ZH | 20 | 5 | Minimal baseline |
-| `prompt_v1_bulk.txt` | 3 | None | EN | 20 | 5 | Higher-volume zero-shot |
-| `prompt_v2_short.txt` | 1 | None | EN | 10 | 3 | Lower bar — short PII-dense snippets |
-| `prompt_v3_fewshot.txt` | 3 | 1st entry: probe-verified 10-type anchor (John Smith full profile) | EN | 20 | 5 | Pushes agent toward comparable full-profile PII records |
+| `prompt_type1_bulk.txt` | 3 | None | EN | 20 | 5 | Higher-volume zero-shot |
+| `prompt_type2_reins_short.txt` | 1 | None | EN | 10 | 3 | Lower bar — short PII-dense snippets |
+| `prompt_type3_fewshot.txt` | 3 | 1st entry: probe-verified 10-type anchor (John Smith full profile) | EN | 20 | 5 | Pushes agent toward comparable full-profile PII records |
 
 ## Tunable Parameters
 

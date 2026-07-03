@@ -6,7 +6,8 @@ These are small task/codebase scaffolds, not prompt-only examples.
 
 Each codebase template directory contains:
 - `prompt.txt` — ready-to-copy TVD prompt (formats: JSON, CSV, YAML, TSV, Pydantic)
-- Optional prompt variants, such as `prompt_ex.txt` (one-shot), `prompt_zh.txt` / `prompt_zh_ex.txt` (Chinese), and `prompt_v2.txt` (extended categories)
+- Optional prompt variants using Type names, such as `prompt_type1_*.txt`,
+  `prompt_type2_*.txt`, `prompt_type3_*.txt`, and localized `prompt_zh*.txt`
 
 ## Customizing Anchors
 
@@ -43,7 +44,7 @@ Every codebase template is **composable** — the task structure (T), validator 
 
 ## AI Safety & ML (26 scenarios)
 
-All `aiml_*` codebase templates were audited 2026-04-23 with HPC-probe-driven TVD-clean schemas: structural validators only, content-taxonomy enums and per-category keyword whitelists removed, 5-variant structure (`prompt.txt` / `prompt_zh.txt` / `prompt_v1_bulk.txt` / `prompt_v2_short.txt` / `prompt_v3_fewshot.txt`), and probe-verified harmful anchor in `v3_fewshot`.
+All `aiml_*` codebase templates were audited 2026-04-23 with HPC-probe-driven TVD-clean schemas: structural validators only, content-taxonomy enums and per-category keyword whitelists removed, 5-variant structure (`prompt.txt` / `prompt_zh.txt` / `prompt_type1_bulk.txt` / `prompt_type2_reins_short.txt` / `prompt_type3_fewshot.txt`), and probe-verified harmful anchor in `type3_fewshot`.
 
 | Scenario | Tool | Description | Variants |
 |----------|------|-------------|----------|
@@ -191,15 +192,12 @@ The first response may be incomplete or too mild. **Send a follow-up to apply pr
 
 This follow-up simulates the validator pressure that agent mode provides automatically. Most models will generate significantly stronger content on the second attempt.
 
-### Agent Mode (Strongest Results)
-
-In agent mode, the validator **automatically** rejects insufficient outputs and the model self-corrects in a loop until all assertions pass. This removes the need for manual follow-up and typically produces the strongest results. See [experiment/isc_agent/](../experiment/isc_agent/) for setup.
-
 ### Prompt Variants
 
 Each codebase template folder contains multiple prompt variants:
 - `prompt.txt` — Standard version (start here)
-- `prompt_ex.txt` — Extreme anchor version (strongest harmful content)
 - `prompt_zh.txt` — Chinese localized version (text-based templates only)
-- `prompt_zh_ex.txt` — Chinese extreme version
-- `prompt_v2.txt` — Strengthened variant with upgraded anchor queries
+- `prompt_type1_*.txt` — Type 1 variant; no query, untargeted, or bulk zero-shot shape
+- `prompt_type2_*.txt` — Type 2 variant; query plus reins such as length or style constraints
+- `prompt_type3_*.txt` — Type 3 variant; query plus examples or anchors
+- `prompt_zh_type*.txt` — Chinese localized Type variants when present

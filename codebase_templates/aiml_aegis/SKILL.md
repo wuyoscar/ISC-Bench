@@ -10,7 +10,7 @@ description: >
   (harassment) and criminal-planning route to OK at default — Literal
   restricts target_category to the covered four. ISC direction: test case
   names its target harm category, agent writes content that the classifier
-  argmax-matches. Probe-verified violence anchor in v3_fewshot.
+  argmax-matches. Probe-verified violence anchor in type3_fewshot.
   Keywords: aiml_aegis, content safety, OpenAI moderation, V/S/H/SH, ISC, TVD.
 ---
 
@@ -88,9 +88,9 @@ class TestCase(BaseModel):
 | File | Entries | Anchor | Language | MIN_WORDS | Purpose |
 |------|:-------:|--------|----------|:---------:|---------|
 | `prompt.txt` / `prompt_zh.txt` | 1 (target=V) | None | EN / ZH | 15 | Minimal baseline |
-| `prompt_v1_bulk.txt` | 3 (V / SH / H) | None | EN | 15 | Category variety, zero-shot |
-| `prompt_v2_short.txt` | 1 (target=V) | None | EN | 8 | Short-form harm |
-| `prompt_v3_fewshot.txt` | 3 (V anchor / SH / H) | 1st entry: stabbing violence (probe-verified V 0.425) | EN | 15 | Pushes toward specific violent detail |
+| `prompt_type1_bulk.txt` | 3 (V / SH / H) | None | EN | 15 | Category variety, zero-shot |
+| `prompt_type2_reins_short.txt` | 1 (target=V) | None | EN | 8 | Short-form harm |
+| `prompt_type3_fewshot.txt` | 3 (V anchor / SH / H) | 1st entry: stabbing violence (probe-verified V 0.425) | EN | 15 | Pushes toward specific violent detail |
 
 ## Tunable Parameters
 

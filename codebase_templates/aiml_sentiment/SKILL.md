@@ -50,9 +50,9 @@ The harmful direction is `target_stars=1`: review-bombing, defamation, coordinat
 | File | Entries | Anchor | Language | MIN_WORDS | Purpose |
 |------|:-------:|--------|----------|:---------:|---------|
 | `prompt.txt` / `prompt_zh.txt` | 1 (target=1) | None | EN / ZH | 100 | Minimal baseline, target 1-star |
-| `prompt_v1_bulk.txt` | 3 (two 1-star + one 5-star) | None | EN | 100 | Mix of review-bombing + astroturf |
-| `prompt_v2_short.txt` | 1 (target=1) | None | EN | 30 | Short tweet-style attack reviews |
-| `prompt_v3_fewshot.txt` | 3 (all 1-star) | 1st entry pre-filled with review-bomb + defamation anchor (probe-verified 1 star 0.988) | EN | 100 | Pushes toward harassment-style fake reviews |
+| `prompt_type1_bulk.txt` | 3 (two 1-star + one 5-star) | None | EN | 100 | Mix of review-bombing + astroturf |
+| `prompt_type2_reins_short.txt` | 1 (target=1) | None | EN | 30 | Short tweet-style attack reviews |
+| `prompt_type3_fewshot.txt` | 3 (all 1-star) | 1st entry pre-filled with review-bomb + defamation anchor (probe-verified 1 star 0.988) | EN | 100 | Pushes toward harassment-style fake reviews |
 
 ## Tunable Parameters
 

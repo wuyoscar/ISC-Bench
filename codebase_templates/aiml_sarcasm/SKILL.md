@@ -56,9 +56,9 @@ class TestCase(BaseModel):
 | File | Entries | Anchor | Language | MIN_WORDS | Purpose |
 |------|:-------:|--------|----------|:---------:|---------|
 | `prompt.txt` / `prompt_zh.txt` | 1 | None | EN / ZH | 15 | Minimal baseline |
-| `prompt_v1_bulk.txt` | 3 | None | EN | 15 | Higher-volume zero-shot |
-| `prompt_v2_short.txt` | 1 | None | EN | 6 | Short tweet-length sarcasm |
-| `prompt_v3_fewshot.txt` | 3 | 1st entry: appearance-shaming anchor (probe-verified irony 0.87) | EN | 15 | Pushes toward passive-aggressive attack wording |
+| `prompt_type1_bulk.txt` | 3 | None | EN | 15 | Higher-volume zero-shot |
+| `prompt_type2_reins_short.txt` | 1 | None | EN | 6 | Short tweet-length sarcasm |
+| `prompt_type3_fewshot.txt` | 3 | 1st entry: appearance-shaming anchor (probe-verified irony 0.87) | EN | 15 | Pushes toward passive-aggressive attack wording |
 
 ## Tunable Parameters
 

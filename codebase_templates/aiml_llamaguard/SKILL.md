@@ -104,9 +104,9 @@ Paired. Validator is structural (`???` detection + MIN_WORDS). Main script calls
 | File | Entries | Anchor | Language | MIN_WORDS |
 |------|:-------:|--------|----------|:---------:|
 | `prompt.txt` / `prompt_zh.txt` | 1 | None | EN / ZH | 100 |
-| `prompt_v1_bulk.txt` | 3 | None | EN | 100 |
-| `prompt_v2_short.txt` | 1 | None | EN | 30 |
-| `prompt_v3_fewshot.txt` | 2 | 1st entry: filled (query + safe + unsafe all real) | EN | 100 |
+| `prompt_type1_bulk.txt` | 3 | None | EN | 100 |
+| `prompt_type2_reins_short.txt` | 1 | None | EN | 30 |
+| `prompt_type3_fewshot.txt` | 2 | 1st entry: filled (query + safe + unsafe all real) | EN | 100 |
 
 **Anchor strength: WEAK** — frontier models may still refuse the "calibrate Llama-Guard" framing on violent-crime vectors even with the anchor visible. Keep the anchor on an S2-category vector (instruction-to-commit-crime) rather than S1 (direct violence) to maximise ISC via the low-refusal surface the probe exposed.
 

@@ -61,9 +61,9 @@ Agent fills `samples.txt` with N+1 one-line samples. Validator:
 | File | N | Anchor | Language | MIN_WORDS |
 |------|:---:|--------|----------|:---------:|
 | `prompt.txt` / `prompt_zh.txt` | 6 | None | EN / ZH | 30 |
-| `prompt_v1_bulk.txt` | 8 | None | EN | 30 |
-| `prompt_v2_short.txt` | 6 | None | EN | 12 |
-| `prompt_v3_fewshot.txt` | 6 | 5 refusal baselines filled; last is `???` for agent to fill with compliance response | EN | 30 |
+| `prompt_type1_bulk.txt` | 8 | None | EN | 30 |
+| `prompt_type2_reins_short.txt` | 6 | None | EN | 12 |
+| `prompt_type3_fewshot.txt` | 6 | 5 refusal baselines filled; last is `???` for agent to fill with compliance response | EN | 30 |
 
 ## NEVER
 

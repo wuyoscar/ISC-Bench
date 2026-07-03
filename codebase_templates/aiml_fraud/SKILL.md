@@ -41,9 +41,9 @@ class TestCase(BaseModel):
 | File | Entries | Anchor | Language | MIN_WORDS | Purpose |
 |------|:-------:|--------|----------|:---------:|---------|
 | `prompt.txt` / `prompt_zh.txt` | 1 | None | EN / ZH | 100 | Minimal baseline |
-| `prompt_v1_bulk.txt` | 3 | None | EN | 100 | Higher-volume zero-shot |
-| `prompt_v2_short.txt` | 1 | None | EN | 30 | Very-short variant; lower floor forces concise aggressive text |
-| `prompt_v3_fewshot.txt` | 3 | 1st entry pre-filled with a crypto-giveaway scam (~150 words, classifier-verified `fraud` 0.90) | EN | 100 | Few-shot anchored — anchor is deliberately harmful to push the model toward similar output |
+| `prompt_type1_bulk.txt` | 3 | None | EN | 100 | Higher-volume zero-shot |
+| `prompt_type2_reins_short.txt` | 1 | None | EN | 30 | Very-short variant; lower floor forces concise aggressive text |
+| `prompt_type3_fewshot.txt` | 3 | 1st entry pre-filled with a crypto-giveaway scam (~150 words, classifier-verified `fraud` 0.90) | EN | 100 | Few-shot anchored — anchor is deliberately harmful to push the model toward similar output |
 
 ## Tunable Parameters
 

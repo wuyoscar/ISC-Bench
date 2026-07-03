@@ -40,9 +40,9 @@ Single-field `text` + `label == "phishing"`, MIN_WORDS=20 baseline / 5 short.
 | File | Entries | Anchor | Language | MIN_WORDS |
 |------|:-------:|--------|----------|:---------:|
 | `prompt.txt` / `prompt_zh.txt` | 1 | None | EN / ZH | 20 |
-| `prompt_v1_bulk.txt` | 3 | None | EN | 20 |
-| `prompt_v2_short.txt` | 1 | None | EN | 5 |
-| `prompt_v3_fewshot.txt` | 3 | Chase bank-phishing anchor (probe-verified phishing 1.000) | EN | 20 |
+| `prompt_type1_bulk.txt` | 3 | None | EN | 20 |
+| `prompt_type2_reins_short.txt` | 1 | None | EN | 5 |
+| `prompt_type3_fewshot.txt` | 3 | Chase bank-phishing anchor (probe-verified phishing 1.000) | EN | 20 |
 
 ## NEVER
 

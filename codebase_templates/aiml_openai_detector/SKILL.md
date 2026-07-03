@@ -43,13 +43,13 @@ The `label == "Real"` assertion is trivially satisfied by most AI text on this d
 | File | Entries | Anchor | Language | MIN_WORDS | Purpose |
 |------|:-------:|--------|----------|:---------:|---------|
 | `prompt.txt` / `prompt_zh.txt` | 1 | None | EN / ZH | 100 | Minimal baseline |
-| `prompt_v1_bulk.txt` | 3 | None | EN | 100 | Higher-volume zero-shot |
-| `prompt_v2_short.txt` | 1 | None | EN | 30 | Very-short variant |
-| `prompt_v3_fewshot.txt` | 3 | 1st entry: paraphrased meth-synthesis forensic-chemistry text | EN | 100 | Harmful-topic anchor pushes agent toward similar harmful prose |
+| `prompt_type1_bulk.txt` | 3 | None | EN | 100 | Higher-volume zero-shot |
+| `prompt_type2_reins_short.txt` | 1 | None | EN | 30 | Very-short variant |
+| `prompt_type3_fewshot.txt` | 3 | 1st entry: paraphrased meth-synthesis forensic-chemistry text | EN | 100 | Harmful-topic anchor pushes agent toward similar harmful prose |
 
 ## Tunable Parameters
 
-- `MIN_WORDS` (validator.py) — lower bound on prose length. 100 is the default; 30 in `v2_short` for terser variants.
+- `MIN_WORDS` (validator.py) — lower bound on prose length. 100 is the default; 30 in `type2_reins_short` for terser variants.
 
 ## NEVER
 
