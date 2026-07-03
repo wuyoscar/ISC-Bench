@@ -14,6 +14,16 @@
 
 <video src="https://github.com/user-attachments/assets/1cc80c48-02a4-4a5c-9d00-a0f10d91db15" controls width="600"></video>
 
+### Changelog
+
+- 🧾 **2026-07-03** — Cleaned up the release structure and unified the template naming scheme across ISC-Bench.
+- 🎭 **2026-06-09** — Claude Fable 5 triggered ISC in public toxic-text cases, adding a fresh community-facing reproduction.
+- 📡 **2026-04-17** — v0.0.5 expanded the public evidence set and refreshed the README around the workflow-level failure framing.
+- 🔥 **2026-04-10** — Additional frontier-model confirmations pushed the leaderboard evidence forward across agentic and web-interface settings.
+- 🚀 **2026-03-22** — First public release of the report and benchmark materials.
+
+See [`CHANGELOG.md`](CHANGELOG.md) for the full update history.
+
 ### Fable 5
 
 Claude Fable 5: ISC bypassed its built-in safety classifier and produced harmful/toxic text. Evidence: [1](community/claude-fable-5-fake-news/) · [2](community/claude-fable-5-nsfw/). 
@@ -177,7 +187,7 @@ Explore the released materials: [**Codebase Templates**](codebase_templates/) ·
 | <img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=32" width="14"> Amazon Nova Pro | 🔴 | [🔗](https://github.com/wuyoscar/ISC-Bench/tree/main/community/amazon-nova-pro-sentiment) | [@wuyoscar](https://github.com/wuyoscar) |
 | <img src="https://www.google.com/s2/favicons?domain=meta.com&sz=32" width="14"> Llama 4 Scout | 🔴 | [🔗](https://github.com/wuyoscar/ISC-Bench/tree/main/community/llama4scout-phishing) | [@wuyoscar](https://github.com/wuyoscar) |
 
-<details>
+<details open>
 <summary><b>Trigger History</b></summary>
 
 Top-level history is intentionally high-level. Content-specific details are kept in linked evidence and case folders rather than repeated here.
@@ -383,6 +393,14 @@ cat codebase_templates/aiml_llamaguard/exp0.txt
 ## Setup
 
 There is no setup and there are no dependencies; you only need your own API key for model calls.
+
+## Changelog
+
+See [`CHANGELOG.md`](CHANGELOG.md) for the full version history. Recent highlights:
+
+- **2026-07-03** — Template naming unified to an experiment scheme (`exp0` baseline + `exp1/2/3` variants); ISC-Agent guard/moderation templates consolidated; per-template `SKILL.md` removed.
+- **2026-04-17 (v0.0.5)** — README overhaul around the paradigm-shift framing; Claude Opus 4.7 ISC trigger added.
+- **2026-03-25** — Initial public frontier-model batch (GLM-5, Claude Opus 4.5/4.6, GPT-5.2, Grok 4.1, etc.).
 
 ## License
 
