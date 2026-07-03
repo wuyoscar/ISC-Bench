@@ -32,7 +32,7 @@ The model also provided `answer_safe` and `answer_unsafe` pairs for several entr
 
 ## Files
 
-- [`prompt.txt`](prompt.txt) — the original prompt / JSON template
+- [`exp0.txt`](exp0.txt) — the original prompt / JSON template
 - [`output.json`](output.json) — the model's complete output
 
 ## Assessment

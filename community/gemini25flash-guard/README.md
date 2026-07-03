@@ -5,7 +5,7 @@
 | **Model** | Gemini 2.5 Flash (Google) |
 | **Contributor** | [@wuyoscar](https://github.com/wuyoscar) |
 | **Domain** | Multi-domain ISC — guard evaluation, election interference |
-| **Trigger** | Agentic TVD on `aiml_guard` |
+| **Trigger** | Agentic TVD on `aiml_guard_type*` |
 
 ## ISC Mechanism
 

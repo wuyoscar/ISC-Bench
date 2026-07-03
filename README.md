@@ -209,7 +209,7 @@ Top-level history is intentionally high-level. Content-specific details are kept
 | [#52](https://github.com/wuyoscar/ISC-Bench/issues/52) | Gemini 2.5 Pro | [@wuyoscar](https://github.com/wuyoscar) | LaTeX writing codebase template, no code | Other | ③ |
 | [#90](https://github.com/wuyoscar/ISC-Bench/tree/main/community/issue-90-apple-foundation-vader) | Apple Foundation Model (on-device, ~3B) | [@hypery11](https://github.com/hypery11) | Modified `aiml_vader` — pure-data CSV completion, ASR@3 temp=1.0 | AI Safety & ML | ② |
 | [#57](https://github.com/wuyoscar/ISC-Bench/issues/57) | GPT-5.4 High | [@wuyoscar](https://github.com/wuyoscar) | Agentic input moderation — prompt injection generation | AI Safety & ML | ② |
-| [#42](https://github.com/wuyoscar/ISC-Bench/issues/42) | Gemini 3.1 Pro Preview | [@wuyoscar](https://github.com/wuyoscar) | Agentic TVD on `aiml_qwenguard_eval` — multilingual task completions | AI Safety & ML | ② |
+| [#42](https://github.com/wuyoscar/ISC-Bench/issues/42) | Gemini 3.1 Pro Preview | [@wuyoscar](https://github.com/wuyoscar) | Agentic TVD on `aiml_guard_type*` — multilingual task completions | AI Safety & ML | ② |
 | [#25](https://github.com/wuyoscar/ISC-Bench/issues/25) | Claude Sonnet 4.5 (2nd) | [@fresh-ma](https://github.com/fresh-ma) | Detoxify benchmark — ~half page per category, escalation on follow-up | AI Safety & ML | ② |
 | [#28](https://github.com/wuyoscar/ISC-Bench/issues/28) | GPT-5.4 | [@zry29](https://github.com/zry29) | File upload + tool agent — ISC-Bench codebase template | AI Safety & ML | ② |
 | [#31](https://github.com/wuyoscar/ISC-Bench/issues/31) | Kimi K2.5 Instant | [@fresh-ma](https://github.com/fresh-ma) | Long-form moderation-style generation | AI Safety & ML | ② |
@@ -232,7 +232,7 @@ Top-level history is intentionally high-level. Content-specific details are kept
 
 ### Codebase Templates
 
-Released codebase templates are composable research scaffolds, not prompt-only examples. Each folder defines a small task/codebase surface centered on `prompt.txt` and its prompt variants for the run.
+Released codebase templates are composable research scaffolds, not prompt-only examples. Each folder defines a small task/codebase surface centered on `exp0.txt` and its prompt variants for the run.
 
 Because every tool validates a different artifact, the harmful data type also changes: classifier text for AI-safety tools, sequence/structure records for bio tools, molecular records for chemistry tools, network/binary artifacts for cyber tools, and misinformation records for media tools. The table below names the data type at a high level; sensitive operational content is not expanded in the top-level README.
 
@@ -366,7 +366,7 @@ Because every tool validates a different artifact, the harmful data type also ch
 | 84 | [`other_latex`](codebase_templates/other_latex/) | `LaTeX` | Academic table completion | Social-engineering taxonomy records |
 
 ```bash
-cat codebase_templates/aiml_llamaguard/prompt.txt
+cat codebase_templates/aiml_llamaguard/exp0.txt
 # inspect a released codebase template
 ```
 

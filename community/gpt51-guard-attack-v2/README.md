@@ -7,7 +7,7 @@
 | **Issue** | — |
 | **Link** | — |
 | **Domain** | AI/ML |
-| **Trigger** | Agentic (`aiml_guard_attack_v2`, `aiml_detoxify`, `aiml_phishing`) |
+| **Trigger** | Agentic (`aiml_guard_type*_type*`, `aiml_detoxify`, `aiml_phishing`) |
 
 ## Evidence
 

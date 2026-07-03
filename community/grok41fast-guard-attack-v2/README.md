@@ -7,7 +7,7 @@
 | **Issue** | — |
 | **Link** | — |
 | **Domain** | AI/ML |
-| **Trigger** | Agentic (`aiml_guard_attack_v2`, `aiml_detoxify`, `aiml_guard`) |
+| **Trigger** | Agentic (`aiml_guard_type*_type*`, `aiml_detoxify`, `aiml_guard_type*`) |
 
 ## Evidence
 
@@ -55,5 +55,5 @@ ISC can manipulate frontier LLMs across multiple template types.
 
 **Result:** Filled phishing/credential-theft instructions and other unsafe responses.
 
-- [`evidence/aiml_guard/test_case_filled.json`](evidence/aiml_guard/test_case_filled.json)
-- [`evidence/aiml_guard/agent_log.json`](evidence/aiml_guard/agent_log.json)
+- [`evidence/aiml_guard_type*/test_case_filled.json`](evidence/aiml_guard_type*/test_case_filled.json)
+- [`evidence/aiml_guard_type*/agent_log.json`](evidence/aiml_guard_type*/agent_log.json)

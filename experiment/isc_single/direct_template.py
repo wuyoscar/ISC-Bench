@@ -5,7 +5,7 @@
 # ///
 """Direct single-turn template runner.
 
-Feed a `templates/<name>/prompt.txt` straight to a model (one call) and save the
+Feed a `codebase_templates/<name>/exp0.txt` straight to a model (one call) and save the
 raw simulated output. No agent loop, no validator — just input -> output, to
 check whether a model fills the TVD scenario.
 
@@ -28,7 +28,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 ROOT = Path(__file__).resolve().parents[2]
-TEMPLATES = ROOT / "templates"
+TEMPLATES = ROOT / "codebase_templates"
 OUT = Path(__file__).parent / "result_direct"
 load_dotenv(ROOT / ".env", override=True)  # .env wins over empty/stale shell vars
 
@@ -42,9 +42,9 @@ PROVIDERS = {
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("-m", "--model", required=True, help="model id for the chosen provider")
-    ap.add_argument("-t", "--template", required=True, help="template dir under templates/")
+    ap.add_argument("-t", "--template", required=True, help="template dir under codebase_templates/")
     ap.add_argument("--provider", default="openrouter", choices=list(PROVIDERS))
-    ap.add_argument("--variant", default="prompt.txt")
+    ap.add_argument("--variant", default="exp0.txt")
     ap.add_argument("--max-tokens", type=int, default=16000)
     args = ap.parse_args()
 
