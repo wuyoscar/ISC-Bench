@@ -68,7 +68,14 @@ Since release, a few people have posted videos, summaries, and independent takes
 | <a href="https://podcasts.apple.com/tr/podcast/internal-safety-collapse-in-frontier-llms/id1835878324?i=1000759288088"><img src="https://img.shields.io/badge/Podcast-AI_Post_Transformers-8B5CF6.svg" alt="Podcast"></a> | [AI Post Transformers Podcast](https://podcasts.apple.com/tr/podcast/internal-safety-collapse-in-frontier-llms/id1835878324?i=1000759288088) — Discussion of ISC and refusal-based alignment as a behavioral wrapper over LLM capability. |
 | <a href="https://mp.weixin.qq.com/s/pFNCcA5Y-HlPerpfzJFvrQ"><img src="https://img.shields.io/badge/WeChat-AI_Media-07C160.svg" alt="WeChat"></a> | [模安局](https://mp.weixin.qq.com/s/pFNCcA5Y-HlPerpfzJFvrQ) · [机器之心](https://zhuanlan.zhihu.com/p/2048840170687018823) |
 
-If you are a researcher planning ISC follow-up work, check out these community studies.
+If you are a researcher and want to study ISC to do follow-up work, you can refer to these fantastic research works.
+
+| Paper | Link |
+|---|---|
+| <a href="https://arxiv.org/abs/2604.20930"><img src="https://img.shields.io/badge/arXiv-2604.20930-b31b1b.svg" alt="arXiv"></a> | [arxiv.org/abs/2604.20930](https://arxiv.org/abs/2604.20930) |
+| <a href="https://arxiv.org/abs/2606.01166"><img src="https://img.shields.io/badge/arXiv-2606.01166-b31b1b.svg" alt="arXiv"></a> | [arxiv.org/abs/2606.01166](https://arxiv.org/abs/2606.01166) |
+| <a href="https://arxiv.org/abs/2604.02947"><img src="https://img.shields.io/badge/arXiv-2604.02947-b31b1b.svg" alt="arXiv"></a> | [arxiv.org/abs/2604.02947](https://arxiv.org/abs/2604.02947) |
+| <a href="https://github.com/XSafeAI/XSafeClaw"><img src="https://img.shields.io/badge/GitHub-XSafeClaw-181717.svg" alt="GitHub"></a> | [github.com/XSafeAI/XSafeClaw](https://github.com/XSafeAI/XSafeClaw) · [xsafeclaw.ai](https://xsafeclaw.ai) |
 
 
 ## Our Role 
