@@ -75,7 +75,7 @@ If you are a researcher and want to study ISC to do follow-up work, you can refe
 | <a href="https://arxiv.org/abs/2604.20930"><img src="https://img.shields.io/badge/arXiv-2604.20930-b31b1b.svg" alt="arXiv"></a> | [arxiv.org/abs/2604.20930](https://arxiv.org/abs/2604.20930) |
 | <a href="https://arxiv.org/abs/2606.01166"><img src="https://img.shields.io/badge/arXiv-2606.01166-b31b1b.svg" alt="arXiv"></a> | [arxiv.org/abs/2606.01166](https://arxiv.org/abs/2606.01166) |
 | <a href="https://arxiv.org/abs/2604.02947"><img src="https://img.shields.io/badge/arXiv-2604.02947-b31b1b.svg" alt="arXiv"></a> | [arxiv.org/abs/2604.02947](https://arxiv.org/abs/2604.02947) |
-| <a href="https://github.com/XSafeAI/XSafeClaw"><img src="https://img.shields.io/badge/GitHub-XSafeClaw-181717.svg" alt="GitHub"></a> | [github.com/XSafeAI/XSafeClaw](https://github.com/XSafeAI/XSafeClaw) · [xsafeclaw.ai](https://xsafeclaw.ai) |
+| <a href="https://github.com/XSafeAI/XSafeClaw"><img src="https://img.shields.io/badge/GitHub-xsafeclaw-181717.svg" alt="GitHub"></a> | [github.com/XSafeAI/XSafeClaw](https://github.com/XSafeAI/XSafeClaw) · [xsafeclaw.ai](https://xsafeclaw.ai) |
 
 
 ## Our Role 
