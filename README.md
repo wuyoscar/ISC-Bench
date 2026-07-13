@@ -68,6 +68,8 @@ Since release, a few people have posted videos, summaries, and independent takes
 | <a href="https://podcasts.apple.com/tr/podcast/internal-safety-collapse-in-frontier-llms/id1835878324?i=1000759288088"><img src="https://img.shields.io/badge/Podcast-AI_Post_Transformers-8B5CF6.svg" alt="Podcast"></a> | [AI Post Transformers Podcast](https://podcasts.apple.com/tr/podcast/internal-safety-collapse-in-frontier-llms/id1835878324?i=1000759288088) — Discussion of ISC and refusal-based alignment as a behavioral wrapper over LLM capability. |
 | <a href="https://mp.weixin.qq.com/s/pFNCcA5Y-HlPerpfzJFvrQ"><img src="https://img.shields.io/badge/WeChat-AI_Media-07C160.svg" alt="WeChat"></a> | [模安局](https://mp.weixin.qq.com/s/pFNCcA5Y-HlPerpfzJFvrQ) · [机器之心](https://zhuanlan.zhihu.com/p/2048840170687018823) |
 
+If you are a researcher planning ISC follow-up work, check out these community studies.
+
 
 ## Our Role 
 
