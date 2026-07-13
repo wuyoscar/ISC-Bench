@@ -25,7 +25,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for the full update history.
 
 
 
-### Cross-Domain Cases
+### Example Content/Data/Artifact
 If ISC only reproduced known harmful-text categories, it would not be very interesting. The point is broader: the failure shows up inside workflow completion. The model can produce harmful artifacts that sit outside standard chat-safety taxonomies, including scientific and tool-verifiable outputs.
 
 ![Cross-domain trigger examples panel](assets/trigger_example/cross_domain_panel.png)
@@ -40,27 +40,20 @@ ISC is not an attack — it is a **phenomenon**. The harmful outcome it produces
 
 Beyond TVD, there are other ways to probe whether a web-app LLM is susceptible to ISC-style collapse, and the community, the author team, and other researchers have run examples in the wild. We share a selection below to give a sense of the shape and generality of the failure.
 
-### Demo Link 
+### Test 
 
-| Evaluated Backbone (LLM Provider) | Language | Platform | Content | Link |
+| LLM Provider | Language | Platform | Content | Link |
 |---|---|---|---|---|
 | <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=32" width="14"> `Grok` | ZH | Web App | Banned political topics | [link](https://grok.com/share/c2hhcmQtMi1jb3B5_54de710c-9331-4fca-a953-6c35775156fb) |
 | <img src="https://www.google.com/s2/favicons?domain=moonshot.ai&sz=32" width="14"> `Kimi` | ZH | Web App | National security (Three Gorges Dam) | [link](https://www.kimi.com/share/19f5d984-1d32-83f4-8000-00008647273e) |
+| <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=32" width="14"> `Grok` | EN | Web App | | [link](https://grok.com/share/c2hhcmQtMi1jb3B5_f56e442f-5528-4c73-b2ac-174af38f70a7) |
 | <img src="https://www.google.com/s2/favicons?domain=moonshot.ai&sz=32" width="14"> `Kimi` | ZH | Web App | NSFW | [link](https://www.kimi.com/share/19d2ab75-8f02-88ab-8000-00006acdf337) |
-| <img src="https://www.google.com/s2/favicons?domain=qwen.ai&sz=32" width="14"> `Qwen` | | Web App | Media-biased fake news / misinformation | [link](https://chat.qwen.ai/s/b6bb9ca0-8565-4040-8c58-9c45a538be47?fev=0.2.72) |
+| <img src="https://www.google.com/s2/favicons?domain=qwen.ai&sz=32" width="14"> `Qwen` | - | Web App | Media-biased fake news / misinformation | [link](https://chat.qwen.ai/s/b6bb9ca0-8565-4040-8c58-9c45a538be47?fev=0.2.72) |
 | <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=32" width="14"> `Grok` | EN | Web App | Chemical synthesis (TNT, HMX, PETN) | [link](https://grok.com/share/bGVnYWN5_81a6125d-0541-4d2f-8691-30e212beb174) |
 | <img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" width="14"> `Claude` | EN | Web App | Chemical synthesis (phosgene, HCN) | [link](https://claude.ai/share/3469d109-464e-4e8f-808d-0556ea77ac49) |
 
 
-## Commentary
 
-> *"Big blind spot. We guard prompts, but risk sits in tasks."* — **Bonny Banerjee**
-
-> *"ISC is not about jailbreaks. It's about how models complete tasks. Models produce harmful outputs simply by doing their job."* — **Charles H. Martin**
-
-> *"Task completion and safety are two different goals. When you force them into one model, the task always wins, and safety collapses."* — **Andrei Trandafira**
-
-> *"Think of it as the AI equivalent of global hacking: 100% effective to date, and especially worrying for healthcare, computational biology, epidemiology, pharmacology, and clinical genomics."* — **Christopher Bain**
 
 
 
@@ -68,13 +61,13 @@ Beyond TVD, there are other ways to probe whether a web-app LLM is susceptible t
 
 Since release, a few people have posted videos, summaries, and independent takes on ISC. We collect some of them here because they explain the idea from different angles.
 
-| Resource | Notes |
+| Media Type | Notes |
 |---|---|
 | <a href="https://www.youtube.com/watch?v=Kur0wMzuJgY"><img src="https://img.shields.io/badge/YouTube-English_Explainer-FF0000.svg" alt="YouTube English Explainer"></a> | [Internal Safety Collapse - How AI Models may bypass its safety rules for tasks](https://www.youtube.com/watch?v=Kur0wMzuJgY) — English video walkthrough of the ISC paper, TVD trigger, and failure mode. |
 | <a href="https://www.youtube.com/watch?v=P2MAa3jpmZw"><img src="https://img.shields.io/badge/YouTube-CN_Explainer-FF0000.svg" alt="YouTube Chinese Explainer"></a> | [解读LLM安全机制的结构性崩塌](https://www.youtube.com/watch?v=P2MAa3jpmZw) — Chinese explainer on ISC and structural safety failure in LLMs. |
 | <a href="https://podcasts.apple.com/tr/podcast/internal-safety-collapse-in-frontier-llms/id1835878324?i=1000759288088"><img src="https://img.shields.io/badge/Podcast-AI_Post_Transformers-8B5CF6.svg" alt="Podcast"></a> | [AI Post Transformers Podcast](https://podcasts.apple.com/tr/podcast/internal-safety-collapse-in-frontier-llms/id1835878324?i=1000759288088) — Discussion of ISC and refusal-based alignment as a behavioral wrapper over LLM capability. |
 | [XSafeClaw](https://github.com/XSafeAI/XSafeClaw) | Guardrail framework whose red-team testing design draws on ISC-style task-completion failure modes. |
-| [模安局](https://mp.weixin.qq.com/s/pFNCcA5Y-HlPerpfzJFvrQ) | Chinese AI/LLM safety deep dive on workflow-layer triggers. |
+| [模安局](https://mp.weixin.qq.com/s/pFNCcA5Y-HlPerpfzJFvrQ) | Chinese WeChat deep dive on workflow-layer triggers. |
 
 
 ## Our Role 
