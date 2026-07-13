@@ -51,6 +51,7 @@ Beyond TVD, there are other ways to probe whether a web-app LLM is susceptible t
 | <img src="https://www.google.com/s2/favicons?domain=moonshot.ai&sz=32" width="14"> `Kimi 2.5` | ZH | Web App | NSFW | [link](https://www.kimi.com/share/19d2ab75-8f02-88ab-8000-00006acdf337) |
 | <img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" width="14"> `Claude` | | Web App | | [link](https://claude.ai/share/cc972f9b-a558-4bca-8bc6-0e6d65590793) |
 | <img src="https://www.google.com/s2/favicons?domain=alibabacloud.com&sz=32" width="14"> `Qwen3.6-Plus` | | Web App | | [link](https://chat.qwen.ai/s/d7adf970-7b2e-4298-8a62-fa560c467139?fev=0.2.36) |
+| <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=32" width="14"> `Grok` | EN | Web App | Chemical synthesis (TNT, HMX, PETN) | [link](https://grok.com/share/bGVnYWN5_81a6125d-0541-4d2f-8691-30e212beb174) |
 
 
 ## Commentary
