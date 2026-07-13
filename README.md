@@ -45,8 +45,7 @@ Beyond TVD, there are other ways to probe whether a web-app LLM is susceptible t
 | Evaluated LLM service | Language | Platform | Content | Link |
 |---|---|---|---|---|
 | <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=32" width="14"> `Grok` | ZH | Web App | | [link](https://grok.com/share/c2hhcmQtMi1jb3B5_54de710c-9331-4fca-a953-6c35775156fb) |
-| <img src="https://www.google.com/s2/favicons?domain=moonshot.ai&sz=32" width="14"> `Kimi K2.6` | ZH | Web App | | [link](https://www.kimi.com/share/19db5b43-c122-86e0-8000-0000aa1d70ff) |
-| <img src="https://www.google.com/s2/favicons?domain=moonshot.ai&sz=32" width="14"> `Kimi K2.6` | ZH | Web App | | [link](https://www.kimi.com/share/19db5b4b-3752-8323-8000-00001e3951e5) |
+| <img src="https://www.google.com/s2/favicons?domain=moonshot.ai&sz=32" width="14"> `Kimi` | ZH | Web App | National security (Three Gorges Dam) | [link](https://www.kimi.com/share/19f5d984-1d32-83f4-8000-00008647273e) |
 | <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=32" width="14"> `Grok` | EN | Web App | | [link](https://grok.com/share/c2hhcmQtMi1jb3B5_f56e442f-5528-4c73-b2ac-174af38f70a7) |
 | <img src="https://www.google.com/s2/favicons?domain=moonshot.ai&sz=32" width="14"> `Kimi 2.5` | ZH | Web App | NSFW | [link](https://www.kimi.com/share/19d2ab75-8f02-88ab-8000-00006acdf337) |
 | <img src="https://www.google.com/s2/favicons?domain=qwen.ai&sz=32" width="14"> `Qwen 3.5 Plus` | | Web App | Media-biased fake news / misinformation | [link](https://chat.qwen.ai/s/b6bb9ca0-8565-4040-8c58-9c45a538be47?fev=0.2.72) |
