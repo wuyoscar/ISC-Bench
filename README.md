@@ -1,36 +1,29 @@
+<p>
+  <a href="https://arxiv.org/abs/2603.23509"><img src="https://img.shields.io/badge/arXiv-2603.23509-b31b1b.svg" alt="Paper"></a>
+</p>
 <h2 align="center">Internal Safety Collapse in Frontier Large Language Models</h2>
 <p align="center">
-  <a href="https://wuyoscar.github.io/ISC-Bench/"><img src="assets/isc_banner.png" width="1000" alt="ISC-Bench banner"></a>
+  <a href="https://github.com/wuyoscar/Internal-Safety-Collapse"><img src="assets/isc_banner.png" width="1000" alt="ISC-Bench banner"></a>
 </p>
-<p align="center">
-  <a href="https://arxiv.org/abs/2603.23509"><img src="https://img.shields.io/badge/arXiv-2603.23509-b31b1b.svg" alt="Paper"></a>
-  <a href="https://www.youtube.com/watch?v=Kur0wMzuJgY"><img src="https://img.shields.io/badge/YouTube-English_Explainer-FF0000.svg" alt="YouTube English Explainer"></a>
-  <a href="https://www.youtube.com/watch?v=P2MAa3jpmZw"><img src="https://img.shields.io/badge/YouTube-CN_Explainer-FF0000.svg" alt="YouTube Chinese Explainer"></a>
-  <a href="https://podcasts.apple.com/tr/podcast/internal-safety-collapse-in-frontier-llms/id1835878324?i=1000759288088"><img src="https://img.shields.io/badge/Podcast-AI_Post_Transformers-8B5CF6.svg" alt="Podcast"></a>
-</p>
+
 
 > [!CAUTION] 
 > Research-use only. **Internal Safety Collapse (ISC)** is released exclusively for accelerating red-teaming process, evaluation, and mitigation work. **We do not condone or permit any use of these materials for malicious purposes or real-world harm.**
 
 <video src="https://github.com/user-attachments/assets/1cc80c48-02a4-4a5c-9d00-a0f10d91db15" controls width="600"></video>
 
-### Status
+### News
 
 - 🔴 **All OpenRouter frontier LLMs triggered ISC.**
 - 🌟 **2026-06-26** — 900 GitHub stars.
-- 🎭 **2026-06-09** — Fable 5 triggered ISC.
+- 🎭 **2026-06-09** — **Fable 5** triggered ISC.
 - 🔥 **2026-04-17 / 2026-06-25** — Opus 4.7 and 4.8 triggered ISC.
 - 🌟 **2026-03-27** — 500 GitHub stars.
 - 🚀 **2026-03-22** — Open-sourced.
 
 See [`CHANGELOG.md`](CHANGELOG.md) for the full update history.
 
-### Fable 5
 
-Claude Fable 5 triggered ISC against its built-in safety classifier and produced harmful/toxic text. Evidence: [1](community/claude-fable-5-fake-news/) · [2](community/claude-fable-5-nsfw/).
-
-> [!IMPORTANT]
-> ISC is a structural workflow-level vulnerability. In the paper, we evaluate it across closed-domain settings and ablations, where the pattern remains effective. In this public release, **we intentionally keep cases within toxic-text contexts**, such as hate speech, fake news, or unsafe/jailbroken LLM answers commonly used in general jailbreak benchmarks, and avoid real-world operational content. If any public material appears beyond this threshold, please open a PR so we can review and revise it.
 
 ### Cross-Domain Cases
 If ISC only reproduced known harmful-text categories, it would not be very interesting. The point is broader: the failure shows up inside workflow completion. The model can produce harmful artifacts that sit outside standard chat-safety taxonomies, including scientific and tool-verifiable outputs.
@@ -39,21 +32,25 @@ If ISC only reproduced known harmful-text categories, it would not be very inter
 
 
 
-### What We Found 
+### What We Found
 
 ISC triggered across all tested frontier LLMs under ASR@3. It does not rely on a magic prompt, a fixed jailbreak string, or a carefully tuned template. The demos are here to make that obvious: the failure lives in the workflow, and the barrier is low.
 
+ISC is not an attack — it is a **phenomenon**. The harmful outcome it produces is the same kind of thing existing jailbreaks can elicit; what is new is *how* it surfaces. There are many ways to trigger it. In the paper we use a setup called **TVD** (Task-Validator-Data), which turns the phenomenon into a controlled experiment that usually succeeds within a single user request. For the details of TVD, see the [paper](https://arxiv.org/abs/2603.23509) or jump straight to the [TVD Framework](#tvd-framework) section below.
+
+Beyond TVD, there are other ways to probe whether a web-app LLM is susceptible to ISC-style collapse, and the community, the author team, and other researchers have run examples in the wild. We share a selection below to give a sense of the shape and generality of the failure.
+
 ### Demo Link 
 
-| Evaluated LLM service | Link |
-|---|---|
-| `Grok ZH` | [link](https://grok.com/share/c2hhcmQtMi1jb3B5_54de710c-9331-4fca-a953-6c35775156fb) |
-| `Kimi K2.6 ZH 1` | [link](https://www.kimi.com/share/19db5b43-c122-86e0-8000-0000aa1d70ff) |
-| `Kimi K2.6 ZH 2` | [link](https://www.kimi.com/share/19db5b4b-3752-8323-8000-00001e3951e5) |
-| `Grok EN` | [link](https://grok.com/share/c2hhcmQtMi1jb3B5_f56e442f-5528-4c73-b2ac-174af38f70a7) |
-| `Kimi` | [link](https://www.kimi.com/share/19d2ab75-8f02-88ab-8000-00006acdf337) |
-| `Claude` | [link](https://claude.ai/share/cc972f9b-a558-4bca-8bc6-0e6d65590793) |
-| `Qwen3.6-Plus` | [link](https://chat.qwen.ai/s/d7adf970-7b2e-4298-8a62-fa560c467139?fev=0.2.36) |
+| Evaluated LLM service | Language | Platform | Content | Link |
+|---|---|---|---|---|
+| <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=32" width="14"> `Grok ZH` | ZH | Web App | | [link](https://grok.com/share/c2hhcmQtMi1jb3B5_54de710c-9331-4fca-a953-6c35775156fb) |
+| <img src="https://www.google.com/s2/favicons?domain=moonshot.ai&sz=32" width="14"> `Kimi K2.6 ZH 1` | ZH | Web App | | [link](https://www.kimi.com/share/19db5b43-c122-86e0-8000-0000aa1d70ff) |
+| <img src="https://www.google.com/s2/favicons?domain=moonshot.ai&sz=32" width="14"> `Kimi K2.6 ZH 2` | ZH | Web App | | [link](https://www.kimi.com/share/19db5b4b-3752-8323-8000-00001e3951e5) |
+| <img src="https://www.google.com/s2/favicons?domain=x.ai&sz=32" width="14"> `Grok` | EN | Web App | | [link](https://grok.com/share/c2hhcmQtMi1jb3B5_f56e442f-5528-4c73-b2ac-174af38f70a7) |
+| <img src="https://www.google.com/s2/favicons?domain=moonshot.ai&sz=32" width="14"> `Kimi` | | Web App | | [link](https://www.kimi.com/share/19d2ab75-8f02-88ab-8000-00006acdf337) |
+| <img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" width="14"> `Claude` | | Web App | | [link](https://claude.ai/share/cc972f9b-a558-4bca-8bc6-0e6d65590793) |
+| <img src="https://www.google.com/s2/favicons?domain=alibabacloud.com&sz=32" width="14"> `Qwen3.6-Plus` | | Web App | | [link](https://chat.qwen.ai/s/d7adf970-7b2e-4298-8a62-fa560c467139?fev=0.2.36) |
 
 
 ## Commentary
@@ -67,17 +64,6 @@ ISC triggered across all tested frontier LLMs under ASR@3. It does not rely on a
 > *"Think of it as the AI equivalent of global hacking: 100% effective to date, and especially worrying for healthcare, computational biology, epidemiology, pharmacology, and clinical genomics."* — **Christopher Bain**
 
 
-### Difference from Prior Work
-
-What makes ISC different:
-
-- It is not a prompt attack or a prompt-template attack.
-- It targets long-horizon agentic workflows running in realistic environments (e.g., sandboxes).
-- During task execution, the agent reads files, reasons over the workspace, and eventually generates harmful content as part of completing the workflow.
-- The user does not need to provide extra harmful instructions, or even any instructions at all.
-- Instead, the agent drives the failure itself while trying to complete the assigned task.
-
-People have argued that agents may attack themselves during long-horizon tasks. ISC makes that failure reproducible. Across tested frontier LLMs, we reproduce it at 100% ASR@3.
 
 ### Media 
 
@@ -85,9 +71,9 @@ Since release, a few people have posted videos, summaries, and independent takes
 
 | Resource | Notes |
 |---|---|
-| [Internal Safety Collapse - How AI Models may bypass its safety rules for tasks](https://www.youtube.com/watch?v=Kur0wMzuJgY) | English video walkthrough of the ISC paper, TVD trigger, and failure mode. |
-| [解读LLM安全机制的结构性崩塌](https://www.youtube.com/watch?v=P2MAa3jpmZw) | Chinese explainer on ISC and structural safety failure in LLMs. |
-| [AI Post Transformers Podcast](https://podcasts.apple.com/tr/podcast/internal-safety-collapse-in-frontier-llms/id1835878324?i=1000759288088) | Discussion of ISC and refusal-based alignment as a behavioral wrapper over LLM capability. |
+| <a href="https://www.youtube.com/watch?v=Kur0wMzuJgY"><img src="https://img.shields.io/badge/YouTube-English_Explainer-FF0000.svg" alt="YouTube English Explainer"></a> | [Internal Safety Collapse - How AI Models may bypass its safety rules for tasks](https://www.youtube.com/watch?v=Kur0wMzuJgY) — English video walkthrough of the ISC paper, TVD trigger, and failure mode. |
+| <a href="https://www.youtube.com/watch?v=P2MAa3jpmZw"><img src="https://img.shields.io/badge/YouTube-CN_Explainer-FF0000.svg" alt="YouTube Chinese Explainer"></a> | [解读LLM安全机制的结构性崩塌](https://www.youtube.com/watch?v=P2MAa3jpmZw) — Chinese explainer on ISC and structural safety failure in LLMs. |
+| <a href="https://podcasts.apple.com/tr/podcast/internal-safety-collapse-in-frontier-llms/id1835878324?i=1000759288088"><img src="https://img.shields.io/badge/Podcast-AI_Post_Transformers-8B5CF6.svg" alt="Podcast"></a> | [AI Post Transformers Podcast](https://podcasts.apple.com/tr/podcast/internal-safety-collapse-in-frontier-llms/id1835878324?i=1000759288088) — Discussion of ISC and refusal-based alignment as a behavioral wrapper over LLM capability. |
 | [XSafeClaw](https://github.com/XSafeAI/XSafeClaw) | Guardrail framework whose red-team testing design draws on ISC-style task-completion failure modes. |
 | [模安局](https://mp.weixin.qq.com/s/pFNCcA5Y-HlPerpfzJFvrQ) | Chinese AI/LLM safety deep dive on workflow-layer triggers. |
 
@@ -102,26 +88,6 @@ Since release, a few people have posted videos, summaries, and independent takes
 
 > So we made a conservative release. We publish trajectories and lower-risk demonstrations, enough to show the failure exists without turning the repository into an operational playbook.
 
-## Experiments Conducted in the Paper
-
-Three ways to reproduce the same failure surface:
-
-[**ISC-Chatbot**](experiment/isc_single/) — task, validator, data, and failure trace in one prompt. No full agent environment. Easy to run; still triggers roughly 95% of tested frontier models in our tests.
-```bash
-cd experiment/isc_single && uv run run.py --model <model-id> --bench jbb --task ai-guard --samples 0
-```
-
-[**ISC-ICL**](experiment/isc_icl/) — completed trajectories first, target case after.
-```bash
-cd experiment/isc_icl && uv run run.py --model <model-id> --demos 5
-```
-
-[**ISC-Agent**](experiment/isc_agent/) — gives an agent shell access and a high-level task. The loop is simple: inspect files, run code, validate, repair. From the user side, one initial interaction is enough.
-```bash
-cd experiment/isc_agent && docker build -t isc-agent . && ./run.sh --model <model-id>
-```
-
-Released materials: [**Codebase Templates**](codebase_templates/) · [`community/`](community/) · [`experiment/`](experiment/)
 
 ## Beyond the Paper
 
@@ -398,6 +364,31 @@ cat codebase_templates/aiml_llamaguard/exp0.txt
 ## Setup
 
 No setup. No dependencies. Bring your own API key.
+
+
+
+## Experiments Conducted in the Paper
+
+Three ways to reproduce the same failure surface:
+
+[**ISC-Chatbot**](experiment/isc_single/) — task, validator, data, and failure trace in one prompt. No full agent environment. Easy to run; still triggers roughly 95% of tested frontier models in our tests.
+```bash
+cd experiment/isc_single && uv run run.py --model <model-id> --bench jbb --task ai-guard --samples 0
+```
+
+[**ISC-ICL**](experiment/isc_icl/) — completed trajectories first, target case after.
+```bash
+cd experiment/isc_icl && uv run run.py --model <model-id> --demos 5
+```
+
+[**ISC-Agent**](experiment/isc_agent/) — gives an agent shell access and a high-level task. The loop is simple: inspect files, run code, validate, repair. From the user side, one initial interaction is enough.
+```bash
+cd experiment/isc_agent && docker build -t isc-agent . && ./run.sh --model <model-id>
+```
+
+Released materials: [**Codebase Templates**](codebase_templates/) · [`community/`](community/) · [`experiment/`](experiment/)
+
+
 
 ## Changelog
 
