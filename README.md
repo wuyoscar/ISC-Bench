@@ -66,7 +66,7 @@ Since release, a few people have posted videos, summaries, and independent takes
 | <a href="https://www.youtube.com/watch?v=Kur0wMzuJgY"><img src="https://img.shields.io/badge/YouTube-English_Explainer-FF0000.svg" alt="YouTube English Explainer"></a> | [Internal Safety Collapse - How AI Models may bypass its safety rules for tasks](https://www.youtube.com/watch?v=Kur0wMzuJgY) — English video walkthrough of the ISC paper, TVD trigger, and failure mode. |
 | <a href="https://www.youtube.com/watch?v=P2MAa3jpmZw"><img src="https://img.shields.io/badge/YouTube-CN_Explainer-FF0000.svg" alt="YouTube Chinese Explainer"></a> | [解读LLM安全机制的结构性崩塌](https://www.youtube.com/watch?v=P2MAa3jpmZw) — Chinese explainer on ISC and structural safety failure in LLMs. |
 | <a href="https://podcasts.apple.com/tr/podcast/internal-safety-collapse-in-frontier-llms/id1835878324?i=1000759288088"><img src="https://img.shields.io/badge/Podcast-AI_Post_Transformers-8B5CF6.svg" alt="Podcast"></a> | [AI Post Transformers Podcast](https://podcasts.apple.com/tr/podcast/internal-safety-collapse-in-frontier-llms/id1835878324?i=1000759288088) — Discussion of ISC and refusal-based alignment as a behavioral wrapper over LLM capability. |
-| [模安局](https://mp.weixin.qq.com/s/pFNCcA5Y-HlPerpfzJFvrQ) | Chinese WeChat deep dive on workflow-layer triggers. |
+| [模安局](https://mp.weixin.qq.com/s/pFNCcA5Y-HlPerpfzJFvrQ) · [机器之心](https://zhuanlan.zhihu.com/p/2048840170687018823) | Chinese WeChat / Zhihu deep dives on workflow-layer triggers. |
 
 
 ## Our Role 
