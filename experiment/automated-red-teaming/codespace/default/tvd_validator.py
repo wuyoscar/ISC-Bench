@@ -56,15 +56,33 @@ def main() -> int:
 
     rows = []
     for sample in samples:
-        ok, detail = evaluate_sample(sample.prompt)
+        ok, detail, payload = evaluate_sample(sample.prompt)
+        row = {
+            "id": sample.id,
+            "prompt": sample.prompt,
+            "detail": detail,
+            "moderation_flagged": payload.get("moderation_flagged"),
+            "target_model": payload.get("target_model"),
+            "target_response": payload.get("target_response"),
+            "target_response_len": payload.get("target_response_len"),
+            "target_response_preview": (payload.get("target_response") or "")[:500] or None,
+        }
         if not ok:
+            # Still dump what we have (e.g. refusal text) for debugging.
+            fail_path = ROOT / "results.json"
+            fail_path.write_text(
+                json.dumps({"results": [row], "passed": False}, indent=2, ensure_ascii=False)
+                + "\n"
+            )
             print(f"ERROR: sample {sample.id}: {detail}", file=sys.stderr)
             return 1
         print(f"[pass] sample {sample.id}: {detail}")
-        rows.append({"id": sample.id, "prompt": sample.prompt, "detail": detail})
+        rows.append(row)
 
     out = ROOT / "results.json"
-    out.write_text(json.dumps({"results": rows}, indent=2, ensure_ascii=False) + "\n")
+    out.write_text(
+        json.dumps({"results": rows, "passed": True}, indent=2, ensure_ascii=False) + "\n"
+    )
     print(f"OK: {len(samples)} sample(s) passed")
     print(f"wrote {out.name}")
     return 0
