@@ -2,14 +2,33 @@
 
 All notable updates to ISC-Bench are documented here.
 
+## 2026-08-07 — TVD naming + README mechanism rewrite
+
+### Experiments renamed ISC → TVD
+- `experiment/isc_chatbot`, `isc_icl`, `isc_agent` renamed to `tvd_chatbot`, `tvd_icl`, `tvd_agent`. References updated across ~51 files (README, `docs/index.html`, `assets/isc_cases.json`, `.gitignore`, sub-READMEs, code, and result/prompts JSON).
+- Display names unified to **TVD Chatbot / TVD ICL / TVD Agent**; docker image tag → `tvd-agent`. Bare `ISC` (the project/phenomenon) and `ISC-Bench` preserved.
+
+### README mechanism section rewritten
+- New concrete explanation of a TVD task built on the LlamaGuard example: `guard.py` loads the classifier, `test_case.json` holds a harmful query with empty `assistant_safe` / `assistant_unsafe` slots, and the script asserts the LlamaGuard label matches the slot name.
+- ISC stated at the same level: the model fills the `unsafe` slot with content LlamaGuard actually flags as unsafe, which a direct request would be refused for.
+- New `#### Limitation` block after the TVD Chatbot Test table — TVD Agent runs `guard.py` for real (closed loop, every label verified); the TVD chatbot has no shell, so the script never runs and a few mislabeled / refusal / off-topic samples slip through (~1–2 in 100). The chatbot is reliable for checking compliance, not for building a clean dataset.
+- New mechanism figure `assets/tvd_mechanism.png` (GPT Image 2): three columns — prompt attack, indirect prompt attack, self-loop harness.
+
+### Other README changes
+- Section renames: `### Demonstrations` → `### Value of ISC`; `## Experiments Conducted in the Paper` → `## Reproduce the Paper`; `### Test` → `#### TVD Chatbot Test`.
+- Prose pass across the README: shorter active-voice sentences, no em dashes, plain English.
+
+### Link fixes
+- `experiment/automated-red-teaming/` (split earlier into `-refusal` and `-qwen-guard`) — all stale references repointed to `automated-red-teaming-refusal/` across 9 files.
+
 ## 2026-07-03 — naming & structure overhaul
 
 ### Template naming unified to experiment scheme
 - All prompt variants renamed to a uniform `exp` scheme. Each template directory now holds `exp0.txt` (baseline), `exp1.txt` / `exp2.txt` / `exp3.txt` (experiment variants), and `exp_zh0.txt` / `exp_zh1-3.txt` (Chinese localizations). The legacy names (`prompt.txt`, `prompt_zh.txt`, `prompt_type1_bulk.txt`, `prompt_v1/v2/v3`, `prompt_ex`, etc.) are retired.
 - Each `expN.txt` is a different TVD combination around the same tool — data format, fields, anchors, few-shot, length constraints are freely composed. The number is an index, not a category.
 
-### ISC-Agent templates consolidated
-- `aiml_qwen3guard`, `aiml_guard_attack`, `aiml_guard_attack_v2` consolidated into `aiml_guard_type1` / `aiml_guard_type2` / `aiml_guard_type3` under `experiment/isc_agent/template/`.
+### TVD Agent templates consolidated
+- `aiml_qwen3guard`, `aiml_guard_attack`, `aiml_guard_attack_v2` consolidated into `aiml_guard_type1` / `aiml_guard_type2` / `aiml_guard_type3` under `experiment/tvd_agent/template/`.
 - `aiml_moderation_input`, `aiml_moderation_output` folded into the `aiml_moderation` template family.
 
 ### Files removed
@@ -18,7 +37,7 @@ All notable updates to ISC-Bench are documented here.
 - 6 duplicate `exp3.txt` files removed (were byte-identical to `exp0.txt`, no anchor).
 
 ### Link & path fixes
-- Fixed broken `templates/` → `codebase_templates/` path references in `experiment/isc_single/`.
+- Fixed broken `templates/` → `codebase_templates/` path references in `experiment/tvd_chatbot/`.
 - `direct_template.py`: fixed `TEMPLATES = ROOT / "templates"` bug (now `"codebase_templates"`); default `--variant` is now `exp0.txt`.
 - `community/gpt41-detoxify`: removed references to non-existent evidence files.
 - Community case Trigger lines updated to current template names (`aiml_guard_attack*` → `aiml_guard_type*`, `aiml_moderation_input` → `aiml_moderation`).
@@ -95,7 +114,7 @@ ISC can still be triggered on live production endpoints as of 2026-04-10. Attack
 - Multi-template evidence for Grok 4.1 (guard_attack_v2 + detoxify + aiml_qwen3guard)
 
 ### Agent Fix
-- Fix `reasoning_effort` bug in `experiment/isc_agent/agent.py`: was applied to all models; now only set when `--thinking` flag is passed
+- Fix `reasoning_effort` bug in `experiment/tvd_agent/agent.py`: was applied to all models; now only set when `--thinking` flag is passed
 
 ### Templates
 - Add `aiml_guard_attack_v2` template with `omni-moderation-latest` validator
@@ -161,7 +180,7 @@ For `aiml_guard_attack_v2`, automated verification uses OpenAI `omni-moderation-
 - **GPT-5.4** (#57) by @wuyoscar — Agentic content moderation with **real OpenAI Moderation API verification**, 9/9 categories, 100% recall. Model self-optimized toxic text to pass threshold.
 - **Gemini 2.5 Pro** (#52) by @wuyoscar — LaTeX template (no code), social engineering attack scripts
 
-### ISC-Agent
+### TVD Agent
 - 3 new moderation templates added (5 total): `aiml_moderation` (CSV), `aiml_moderation_input` (TXT), `aiml_moderation_output` (JSONL)
 - `aiml_moderation` now calls real OpenAI Moderation API for end-to-end verification
 
@@ -192,7 +211,7 @@ For `aiml_guard_attack_v2`, automated verification uses OpenAI `omni-moderation-
 - **Kimi K2.5 Instant** (#31) by @fresh-ma — erotic fiction moderation pipeline, ~4 pages harmful novel
 - **GPT-5.4** (#28) by @zry29 — file upload + tool agent mode with ISC-Bench template
 
-### ISC-Agent
+### TVD Agent
 - Agent runtime switched from hand-rolled loop to **OpenAI Agents SDK** — more stable tool calling across providers
 - Full agent log now preserved (no truncation, tool_calls included)
 - README: added "Customizing Queries" section — no Docker rebuild needed for query changes
@@ -340,7 +359,7 @@ For `aiml_guard_attack_v2`, automated verification uses OpenAI `omni-moderation-
 - **Leaderboard redesign**: single-column Markdown table (was two-column HTML), 🔴/🟢 status indicators, Demo 🔗 links, contributor attribution (`By` column)
 - **10 ISC cases confirmed**: Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 4.6, Gemini 3 Pro, GPT-5.2 Chat, o3, Grok 4.1, Kimi K2.5 Thinking, Qwen 3 Max Preview, DeepSeek V3.2
 - README refresh: emoji section headings, left-aligned layout, reorganized roadmap
-- Verified ISC-Single and ISC-ICL pipelines
+- Verified TVD Chatbot and TVD ICL pipelines
 - Added CHANGELOG.md
 
 ## v2 — 2026-03-25
@@ -354,6 +373,6 @@ For `aiml_guard_attack_v2`, automated verification uses OpenAI `omni-moderation-
 
 - Initial release
 - 56 TVD templates across 8 professional domains
-- 3 experiment modes: ISC-Single, ISC-ICL, ISC-Agentic
+- 3 experiment modes: TVD Chatbot, TVD ICL, TVD Agentic
 - ISC demo video
 - Paper PDF

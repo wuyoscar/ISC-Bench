@@ -66,7 +66,7 @@ program.md
 uv.lock
 results.tsv
 run.log
-experiment/isc_agent/*.log
+experiment/tvd_agent/*.log
 
 # Harmful content data files (regenerate with pipeline)
 posts/
@@ -89,6 +89,9 @@ CONTEXT.md
 docs/adr/
 
 # Automated red-teaming durable outputs
-experiment/automated-red-teaming/runtime_result/
-experiment/automated-red-teaming/workspace/
-experiment/automated-red-teaming/result/
+experiment/automated-red-teaming-refusal/runtime_result/
+experiment/automated-red-teaming-refusal/workspace/
+experiment/automated-red-teaming-refusal/result/
+experiment/automated-red-teaming-qwen-guard/runtime_result/
+experiment/automated-red-teaming-qwen-guard/workspace/
+experiment/automated-red-teaming-qwen-guard/result/
