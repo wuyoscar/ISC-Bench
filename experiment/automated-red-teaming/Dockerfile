@@ -10,10 +10,8 @@ RUN pip install --no-cache-dir \
     "rich>=13.0"
 
 COPY agent.py /agent.py
-# Minimal TVD template baked in for image completeness; run.sh mounts a fresh copy.
-COPY template/default/prompt.json /template/prompt.json
-COPY template/default/validator.py /template/validator.py
+COPY template/default/samples.json /template/samples.json
+COPY template/default/check.py /template/check.py
 
 WORKDIR /workspace
-
 ENTRYPOINT ["python3", "/agent.py"]
