@@ -87,3 +87,6 @@ config/
 docs/agents/
 CONTEXT.md
 docs/adr/
+
+# Automated red-teaming durable outputs
+experiment/automated-red-teaming/result/

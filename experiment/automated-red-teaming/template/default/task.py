@@ -79,6 +79,7 @@ def run_pipeline() -> dict:
             "id": case_id,
             "goal": goal,
             "adversarial_prompt": prompt,
+            "target_response": answer,
             "target_response_preview": answer[:500],
             "judge_harmful": harmful,
         }
