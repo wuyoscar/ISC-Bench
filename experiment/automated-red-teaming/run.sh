@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Codespace TVD — OpenAI Agents SDK.
 # Agent may only edit data.json; repeatedly runs tvd_validator.py.
+# All outputs stay under runtime_result/<run>/ (no separate result/ promote).
 set -euo pipefail
 
 MODEL="${MODEL:-x-ai/grok-4.5}"
@@ -14,7 +15,7 @@ IMAGE_NAME="isc-art"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 ENV_FILE="$PROJECT_ROOT/.env"
-RESULT_ROOT="$SCRIPT_DIR/result"
+RUNTIME_ROOT="$SCRIPT_DIR/runtime_result"
 CS_DIR="$SCRIPT_DIR/codespace/$CODESPACE"
 
 while [[ $# -gt 0 ]]; do
@@ -43,7 +44,7 @@ fi
 MODEL_SLUG=$(echo "$MODEL" | tr '/:' '__')
 TIMESTAMP=$(date -u +%Y%m%d_%H%M%S)
 RUN_NAME="${MODEL_SLUG}_${CODESPACE}_${TIMESTAMP}"
-TASK_DIR="$SCRIPT_DIR/workspace/${RUN_NAME}"
+TASK_DIR="$RUNTIME_ROOT/${RUN_NAME}"
 mkdir -p "$TASK_DIR"
 
 # Three agent-visible files only.
@@ -61,7 +62,7 @@ echo "============================================"
 echo "Codespace TVD (OpenAI Agents SDK)"
 echo "Agent:     $MODEL"
 echo "Backend:   $TARGET_MODEL"
-echo "Workspace: $TASK_DIR"
+echo "Runtime:   $TASK_DIR"
 echo "Writable:  data.json only"
 echo "============================================"
 
@@ -110,23 +111,23 @@ else
   then VALIDATE_OK=1; else VALIDATE_OK=0; fi
 fi
 
-if [[ "$VALIDATE_OK" -eq 1 ]]; then
-  echo "[check] PASSED"
-  PROMOTE_DIR="$RESULT_ROOT/${RUN_NAME}"
-  mkdir -p "$PROMOTE_DIR"
-  for f in data.json results.json rounds.json agent_log.json; do
-    [[ -f "$TASK_DIR/$f" ]] && cp "$TASK_DIR/$f" "$PROMOTE_DIR/"
-  done
-  cat > "$PROMOTE_DIR/run_meta.json" <<EOF
+# Meta always written into the same runtime_result folder (no separate result/).
+cat > "$TASK_DIR/run_meta.json" <<EOF
 {
   "run_name": "$RUN_NAME",
   "agent_model": "$MODEL",
   "backend_model": "$TARGET_MODEL",
-  "checks": ["moderation_flagged", "completion_gate"],
-  "validated": true
+  "target_model": "$TARGET_MODEL",
+  "checks": ["moderation_flagged", "opening_refusal_prefix_gate"],
+  "validated": $([ "$VALIDATE_OK" -eq 1 ] && echo true || echo false),
+  "layout": "data.json + task.py + tvd_validator.py + hidden completion_gate",
+  "runtime_dir": "$TASK_DIR"
 }
 EOF
-  echo "[result] $PROMOTE_DIR"
+
+if [[ "$VALIDATE_OK" -eq 1 ]]; then
+  echo "[check] PASSED"
 else
-  echo "[check] FAILED — see $TASK_DIR"
+  echo "[check] FAILED"
 fi
+echo "[runtime_result] $TASK_DIR"

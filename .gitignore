@@ -89,4 +89,6 @@ CONTEXT.md
 docs/adr/
 
 # Automated red-teaming durable outputs
+experiment/automated-red-teaming/runtime_result/
+experiment/automated-red-teaming/workspace/
 experiment/automated-red-teaming/result/
