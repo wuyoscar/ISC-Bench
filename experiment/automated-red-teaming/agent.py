@@ -183,8 +183,17 @@ def run(workspace: Path, model: str, max_turns: int, thinking: bool = False) -> 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Automated red-teaming agent")
-    parser.add_argument("--workspace", type=Path, required=True)
-    parser.add_argument("--model", default="x-ai/grok-4.1-fast", help="Attacker model (OpenRouter id)")
+    parser.add_argument(
+        "--workspace",
+        type=Path,
+        default=Path("/workspace"),
+        help="Workspace directory (Docker default: /workspace)",
+    )
+    parser.add_argument(
+        "--model",
+        default="x-ai/grok-4.3",
+        help="Attacker model (OpenRouter id)",
+    )
     parser.add_argument("--max-turns", type=int, default=40)
     parser.add_argument("--thinking", action="store_true")
     args = parser.parse_args()

@@ -1,19 +1,22 @@
 #!/usr/bin/env bash
-# Automated red-teaming runner (OpenAI Agents SDK + OpenRouter).
+# Automated red-teaming runner — Docker + OpenAI Agents SDK + OpenRouter.
 #
 # Usage:
 #   ./run.sh
-#   ./run.sh --model x-ai/grok-4.1-fast
-#   ./run.sh --model x-ai/grok-4.1-fast --max-turns 30
+#   ./run.sh --model x-ai/grok-4.3
+#   ./run.sh --model x-ai/grok-4.5 --max-turns 50
 #   ./run.sh --target deepseek/deepseek-v4-flash --judge deepseek/deepseek-v4-flash
+#   ./run.sh --local   # optional: uv on host instead of Docker
 set -euo pipefail
 
-MODEL="${MODEL:-x-ai/grok-4.1-fast}"
+MODEL="${MODEL:-x-ai/grok-4.3}"
 TARGET_MODEL="${TARGET_MODEL:-deepseek/deepseek-v4-flash}"
 JUDGE_MODEL="${JUDGE_MODEL:-deepseek/deepseek-v4-flash}"
 MAX_TURNS=40
 THINKING=""
 TEMPLATE="default"
+USE_LOCAL=0
+IMAGE_NAME="isc-art"
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
@@ -27,13 +30,14 @@ while [[ $# -gt 0 ]]; do
     --max-turns) MAX_TURNS="$2"; shift 2 ;;
     --template) TEMPLATE="$2"; shift 2 ;;
     --thinking) THINKING="--thinking"; shift ;;
+    --local) USE_LOCAL=1; shift ;;
     *) echo "Unknown arg: $1"; exit 1 ;;
   esac
 done
 
 if [[ -f "$ENV_FILE" ]]; then
-  # shellcheck disable=SC1090
   set -a
+  # shellcheck disable=SC1090
   source "$ENV_FILE"
   set +a
 fi
@@ -64,28 +68,67 @@ echo "Attacker:  $MODEL"
 echo "Target:    $TARGET_MODEL"
 echo "Judge:     $JUDGE_MODEL"
 echo "Workspace: $TASK_DIR"
+echo "Runtime:   $([ "$USE_LOCAL" -eq 1 ] && echo local-uv || echo docker/$IMAGE_NAME)"
 echo "============================================"
 
-# Attacker loop (Agents SDK). Agent only sees workspace files + pass/fail from commands.
-uv run "$SCRIPT_DIR/agent.py" \
-  --workspace "$TASK_DIR" \
-  --model "$MODEL" \
-  --max-turns "$MAX_TURNS" \
-  ${THINKING}
+if [[ "$USE_LOCAL" -eq 1 ]]; then
+  uv run "$SCRIPT_DIR/agent.py" \
+    --workspace "$TASK_DIR" \
+    --model "$MODEL" \
+    --max-turns "$MAX_TURNS" \
+    ${THINKING}
+else
+  if ! docker image inspect "$IMAGE_NAME" &>/dev/null; then
+    echo "Building $IMAGE_NAME image..."
+    docker build -t "$IMAGE_NAME" "$SCRIPT_DIR"
+  fi
 
-# Post-check with the ORIGINAL template validator (agent cannot rewrite the source of truth).
+  docker run --rm \
+    --env-file "$ENV_FILE" \
+    -e TARGET_MODEL="$TARGET_MODEL" \
+    -e JUDGE_MODEL="$JUDGE_MODEL" \
+    -e OPENROUTER_BASE_URL="$OPENROUTER_BASE_URL" \
+    -v "$TASK_DIR:/workspace" \
+    "$IMAGE_NAME" \
+    --workspace /workspace \
+    --model "$MODEL" \
+    --max-turns "$MAX_TURNS" \
+    ${THINKING}
+fi
+
+# Post-check with ORIGINAL template files (agent cannot cheat by rewriting them).
 echo ""
 echo "[validate] running original template validator on workspace..."
-(
-  cd "$TASK_DIR"
-  # Use original validator.py from template, overwriting any agent edits for the audit run.
+if [[ "$USE_LOCAL" -eq 1 ]]; then
+  (
+    cd "$TASK_DIR"
+    cp "$TMPL_DIR/validator.py" "$TASK_DIR/validator.py"
+    cp "$TMPL_DIR/task.py" "$TASK_DIR/task.py"
+    cp "$TMPL_DIR/target_client.py" "$TASK_DIR/target_client.py"
+    cp "$TMPL_DIR/judge.py" "$TASK_DIR/judge.py"
+    cp "$TMPL_DIR/llm_client.py" "$TASK_DIR/llm_client.py"
+    python3 validator.py
+  ) && echo "[validate] PASSED" || echo "[validate] FAILED"
+else
+  # Restore pristine pipeline scripts then re-run inside the same image.
   cp "$TMPL_DIR/validator.py" "$TASK_DIR/validator.py"
   cp "$TMPL_DIR/task.py" "$TASK_DIR/task.py"
   cp "$TMPL_DIR/target_client.py" "$TASK_DIR/target_client.py"
   cp "$TMPL_DIR/judge.py" "$TASK_DIR/judge.py"
   cp "$TMPL_DIR/llm_client.py" "$TASK_DIR/llm_client.py"
-  python3 validator.py
-) && echo "[validate] PASSED" || echo "[validate] FAILED"
+  docker run --rm \
+    --entrypoint python3 \
+    --env-file "$ENV_FILE" \
+    -e TARGET_MODEL="$TARGET_MODEL" \
+    -e JUDGE_MODEL="$JUDGE_MODEL" \
+    -e OPENROUTER_BASE_URL="$OPENROUTER_BASE_URL" \
+    -v "$TASK_DIR:/workspace" \
+    -w /workspace \
+    "$IMAGE_NAME" \
+    /workspace/validator.py \
+    && echo "[validate] PASSED" \
+    || echo "[validate] FAILED"
+fi
 
 echo ""
 echo "Done. Results: $TASK_DIR"

@@ -35,7 +35,7 @@ Each mode has its own README:
 | TVD-Agentic | [`isc_agent/`](isc_agent/) |
 | Automated red teaming (v0) | [`automated-red-teaming/`](automated-red-teaming/) |
 
-You need Python 3.11+, [uv](https://docs.astral.sh/uv/), and `OPENROUTER_API_KEY` in `.env` at the project root. TVD-Agentic also needs Docker. Automated red teaming runs locally via the OpenAI Agents SDK (no Docker in v0).
+You need Python 3.11+, [uv](https://docs.astral.sh/uv/), and `OPENROUTER_API_KEY` in `.env` at the project root. **TVD-Agentic** and **automated red teaming** both use Docker by default.
 
 ## Harmful data generator
 
