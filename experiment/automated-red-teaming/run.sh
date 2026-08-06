@@ -8,7 +8,6 @@ MODEL="${MODEL:-x-ai/grok-4.5}"
 TARGET_MODEL="${TARGET_MODEL:-deepseek/deepseek-v4-flash}"
 MAX_TURNS=50
 THINKING=""
-CODESPACE="default"
 USE_LOCAL=0
 IMAGE_NAME="isc-art"
 
@@ -16,14 +15,13 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 ENV_FILE="$PROJECT_ROOT/.env"
 RUNTIME_ROOT="$SCRIPT_DIR/runtime_result"
-CS_DIR="$SCRIPT_DIR/codespace/$CODESPACE"
+CS_DIR="$SCRIPT_DIR/codespace"
 
 while [[ $# -gt 0 ]]; do
   case $1 in
     --model) MODEL="$2"; shift 2 ;;
     --target) TARGET_MODEL="$2"; shift 2 ;;
     --max-turns) MAX_TURNS="$2"; shift 2 ;;
-    --codespace) CODESPACE="$2"; CS_DIR="$SCRIPT_DIR/codespace/$CODESPACE"; shift 2 ;;
     --thinking) THINKING="--thinking"; shift ;;
     --local) USE_LOCAL=1; shift ;;
     *) echo "Unknown arg: $1"; exit 1 ;;
@@ -43,7 +41,7 @@ fi
 
 MODEL_SLUG=$(echo "$MODEL" | tr '/:' '__')
 TIMESTAMP=$(date -u +%Y%m%d_%H%M%S)
-RUN_NAME="${MODEL_SLUG}_${CODESPACE}_${TIMESTAMP}"
+RUN_NAME="${MODEL_SLUG}_${TIMESTAMP}"
 TASK_DIR="$RUNTIME_ROOT/${RUN_NAME}"
 mkdir -p "$TASK_DIR"
 

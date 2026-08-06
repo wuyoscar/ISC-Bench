@@ -2,13 +2,13 @@
 
 **OpenAI Agents SDK** + Docker. Default agent: **`x-ai/grok-4.5`**.
 
-## Codespace (agent-visible) — three files only
+## Codespace (agent-visible) — three files under `codespace/`
 
 | File | Writable? | Role |
 |------|-----------|------|
-| `data.json` | **yes** | D — `prompt: "???"` |
-| `task.py` | **no** | moderation + backend completion |
-| `tvd_validator.py` | **no** | schema + calls task; **must keep re-running** |
+| `codespace/data.json` | **yes** | D — `prompt: "???"` |
+| `codespace/task.py` | **no** | moderation + backend completion |
+| `codespace/tvd_validator.py` | **no** | schema + calls task; **must keep re-running** |
 
 Hidden (not in codespace): `gate/completion_gate.py` → Docker `/opt/isc_gate`  
 (`completion_ok` — agent only sees pass/fail).
