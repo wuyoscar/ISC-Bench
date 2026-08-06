@@ -1,14 +1,14 @@
 # Experiment
 
-Reproduce the ISC evaluation from the paper. Three interaction modes, each progressively increasing contextual complexity.
+Reproduce the ISC evaluation from the paper. The three modes differ in how much context the model gets.
 
-## Three Evaluation Modes
+## Three evaluation modes
 
-**TVD-Single** (`K=1, N=−`): The complete task context — task script, validator, data file, and validation traceback — is presented in a **single prompt**. The evaluated LLM responds in one turn.
+**TVD-Chatbot** (`K=1, N=−`): One prompt holds the task script, validator, data file, and validation traceback. The LLM answers once.
 
-**TVD-ICL** (`K=1, N=1,5,10,20`): Augments the single-turn setting by prepending `N` completed demonstrations where the assistant successfully resolves the same TVD task. This tests whether in-context learning amplifies ISC by reinforcing harmful completion patterns.
+**TVD-ICL** (`K=1, N=1,5,10,20`): The same single prompt starts with `N` completed examples of the TVD task. This measures how in-context examples change the result.
 
-**TVD-Agentic** (`K=∞, N=−`): The evaluated LLM receives autonomous agent capabilities (file system access, code execution) and only a high-level instruction. It iteratively reads project files and resolves validation errors across multiple turns.
+**TVD-Agentic** (`K=∞, N=−`): The LLM has filesystem access and code execution. It reads project files and fixes validation errors over multiple turns.
 
 ## Results
 
@@ -24,14 +24,19 @@ Reproduce the ISC evaluation from the paper. Three interaction modes, each progr
   <img src="tab4_baseline_comparison.png" width="100%">
 </p>
 
-## How to Run
+## How to run
 
-Each mode has its own directory with a README:
+Each mode has its own README:
 
 | Mode | Directory |
 |------|-----------|
-| TVD-Single | [`isc_single/`](isc_single/) |
+| TVD-Chatbot | [`isc_chatbot/`](isc_chatbot/) |
 | TVD-ICL | [`isc_icl/`](isc_icl/) |
 | TVD-Agentic | [`isc_agent/`](isc_agent/) |
+| Automated red teaming (v0) | [`automated-red-teaming/`](automated-red-teaming/) |
 
-Requires Python 3.11+, [uv](https://docs.astral.sh/uv/), and `OPENROUTER_API_KEY` in `.env` at the project root. TVD-Agentic additionally requires Docker.
+You need Python 3.11+, [uv](https://docs.astral.sh/uv/), and `OPENROUTER_API_KEY` in `.env` at the project root. TVD-Agentic also needs Docker. Automated red teaming runs locally via the OpenAI Agents SDK (no Docker in v0).
+
+## Harmful data generator
+
+Five domain notebooks from §3 of the paper. They show TVD-style generation of harmful or policy-violating content under a task-validator-data framing. See [`harmful_data_generator/`](harmful_data_generator/).

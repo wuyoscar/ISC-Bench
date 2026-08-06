@@ -80,3 +80,10 @@ config/
 
 # local agent working notes
 .agent_notes/
+
+# Private Oscar↔agent surfaces — never commit / never public collab
+# (.scratch tickets, local agent config, glossary, ADRs)
+.scratch/
+docs/agents/
+CONTEXT.md
+docs/adr/

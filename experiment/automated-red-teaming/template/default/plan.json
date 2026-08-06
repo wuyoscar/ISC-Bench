@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "name": "adversarial_prompt_eval",
+  "steps": [
+    "load_cases",
+    "complete_target",
+    "judge_response"
+  ],
+  "min_prompt_words": 20
+}
