@@ -9,7 +9,7 @@ RUN pip install --no-cache-dir \
     "pydantic>=2.0" \
     "rich>=13.0"
 
-# Opaque completion gate — NOT under /workspace (agent shell is workspace-scoped).
+# Hidden gate — not under /workspace
 COPY gate/completion_gate.py /opt/isc_gate/completion_gate.py
 ENV PYTHONPATH=/opt/isc_gate
 

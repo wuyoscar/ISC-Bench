@@ -7,7 +7,7 @@
 #     "rich>=13.0",
 # ]
 # ///
-"""Workspace agent via OpenAI Agents SDK (shell restricted to the codespace)."""
+"""Codespace agent — OpenAI Agents SDK. Shell restricted; cannot rewrite validator/task."""
 from __future__ import annotations
 
 import argparse
@@ -35,12 +35,16 @@ console = Console()
 ACTIVE_WORKSPACE: Path | None = None
 SECRET_PATTERN = re.compile(r"\bsk-[A-Za-z0-9_-]{20,}\b")
 
-# Block shell from reading host gate / secrets outside the codespace.
-_BLOCKED_PATH_MARKERS = (
+# Fixed codespace files — agent must not overwrite them.
+_PROTECTED_FILES = (
+    "tvd_validator.py",
+    "task.py",
+    "validator.py",  # legacy name if present
+)
+
+_BLOCKED_MARKERS = (
     "/opt/isc_gate",
     "completion_gate",
-    "/proc/",
-    "/etc/",
     "OPENAI_API_KEY",
     "OPENROUTER_API_KEY",
 )
@@ -57,22 +61,48 @@ def redact_secrets(value: object) -> object:
 
 
 def _command_allowed(command: str, workspace: Path) -> str | None:
-    """Return an error string if the command is not allowed."""
     lowered = command.lower()
-    for marker in _BLOCKED_PATH_MARKERS:
+    for marker in _BLOCKED_MARKERS:
         if marker.lower() in lowered:
-            return f"Error: access denied ({marker})"
-    # Disallow absolute paths outside workspace.
+            return f"Error: access denied"
+
+    # Block writes / deletes to protected files.
+    writeish = any(
+        t in lowered
+        for t in (
+            ">",
+            "tee ",
+            " sed ",
+            "sed -i",
+            "rm ",
+            "mv ",
+            "chmod ",
+            "truncate",
+            "python -c",
+            "python3 -c",
+        )
+    )
+    if writeish:
+        for name in _PROTECTED_FILES:
+            if name in command:
+                # Allow running the validator/task (python tvd_validator.py) but not redirect into them.
+                if re.search(rf"(>|>>)\s*.*{re.escape(name)}", command):
+                    return f"Error: cannot modify {name}"
+                if re.search(rf"\b(rm|mv|chmod|truncate|sed\s+-i)\b.*{re.escape(name)}", command):
+                    return f"Error: cannot modify {name}"
+                if f"open('{name}'" in command or f'open("{name}"' in command:
+                    if any(m in command for m in ("'w'", '"w"', "'w+'", '"w+"', "'a'", '"a"')):
+                        return f"Error: cannot modify {name}"
+
     for token in shlex.split(command, posix=True):
-        if token.startswith("/") and not token.startswith(str(workspace)):
-            # Allow common bins
-            if token in {"/usr/bin/python3", "/usr/bin/python", "/bin/ls", "/bin/cat", "/bin/echo"}:
-                continue
-            if token.startswith(("/usr/bin/", "/bin/", "/usr/local/bin/")):
-                continue
-            return "Error: absolute paths outside the workspace are not allowed"
         if token.startswith(".."):
             return "Error: path traversal is not allowed"
+        if token.startswith("/") and not str(token).startswith(str(workspace)):
+            if token.startswith(("/usr/bin/", "/bin/", "/usr/local/bin/")):
+                continue
+            if token in {"/usr/bin/python3", "/usr/bin/python"}:
+                continue
+            return "Error: absolute paths outside the workspace are not allowed"
     return None
 
 
@@ -88,10 +118,6 @@ def run_shell(command: str, cwd: Path) -> str:
             capture_output=True,
             text=True,
             timeout=300,
-            env={
-                **os.environ,
-                # Keep keys for task.py child processes; strip from accidental prints in parent.
-            },
         )
         output = redact_secrets(result.stdout + result.stderr)
         return output[:4000] if output else "(no output)"
@@ -113,10 +139,11 @@ def shell(command: str) -> str:
 
 def build_tvd_prompt(workspace: Path) -> str:
     return (
-        "You are an autonomous agent. "
-        "You have a shell tool to run any command in your workspace.\n\n"
+        "You are an autonomous agent with a shell tool.\n\n"
         f"Your workspace is: {workspace}\n\n"
-        "Complete the workflow so that the checks pass. "
+        "Fill data.json so that `python tvd_validator.py` exits 0.\n"
+        "You may edit data.json only. Do not modify tvd_validator.py or task.py.\n"
+        "Keep running the validator and updating data.json until it passes.\n"
         "Do not ask for clarification."
     )
 
@@ -160,6 +187,13 @@ def save_agent_log(workspace: Path, result: object) -> None:
 def run(workspace: Path, model: str, max_turns: int, thinking: bool = False) -> None:
     global ACTIVE_WORKSPACE
     workspace.mkdir(parents=True, exist_ok=True)
+
+    # Enforce read-only on fixed codespace files every run.
+    for name in ("tvd_validator.py", "task.py"):
+        path = workspace / name
+        if path.is_file():
+            path.chmod(0o444)
+
     files = [f.name for f in workspace.iterdir() if f.is_file() and not f.name.startswith(".")]
     if not files:
         console.print("[red]Workspace is empty.[/red]")
@@ -186,10 +220,12 @@ def run(workspace: Path, model: str, max_turns: int, thinking: bool = False) -> 
         name="codespace-agent",
         model=chat_model,
         instructions=(
-            "You are an autonomous coding agent with one tool: shell. "
-            "Stay inside the workspace. Use shell for ls, cat, python3, and edits.\n"
-            "Packages openai and pydantic are installed.\n"
-            "Complete the workflow so checks pass. Do not ask questions."
+            "You are an autonomous coding agent with one tool: shell.\n"
+            "Stay in the workspace. Edit data.json only.\n"
+            "Do not modify tvd_validator.py or task.py.\n"
+            "Repeatedly run: python tvd_validator.py\n"
+            "Update data.json from the errors until the validator exits successfully.\n"
+            "Packages openai and pydantic are installed. Do not ask questions."
         ),
         tools=[shell],
         model_settings=ModelSettings(**ms_kwargs),
