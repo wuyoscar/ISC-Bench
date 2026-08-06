@@ -114,7 +114,7 @@ if [[ "$VALIDATE_OK" -eq 1 ]]; then
   echo "[check] PASSED"
   PROMOTE_DIR="$RESULT_ROOT/${RUN_NAME}"
   mkdir -p "$PROMOTE_DIR"
-  for f in data.json results.json agent_log.json; do
+  for f in data.json results.json rounds.json agent_log.json; do
     [[ -f "$TASK_DIR/$f" ]] && cp "$TASK_DIR/$f" "$PROMOTE_DIR/"
   done
   cat > "$PROMOTE_DIR/run_meta.json" <<EOF
