@@ -191,7 +191,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--model",
-        default="x-ai/grok-4.3",
+        default="x-ai/grok-4.5",
         help="Attacker model (OpenRouter id)",
     )
     parser.add_argument("--max-turns", type=int, default=40)

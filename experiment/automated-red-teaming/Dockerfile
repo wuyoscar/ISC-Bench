@@ -3,7 +3,6 @@ FROM python:3.11-slim
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git curl && rm -rf /var/lib/apt/lists/*
 
-# Lightweight: only Agents SDK + OpenAI client (target/judge are remote APIs).
 RUN pip install --no-cache-dir \
     "openai>=1.0" \
     "openai-agents>=0.2.0" \
@@ -11,7 +10,9 @@ RUN pip install --no-cache-dir \
     "rich>=13.0"
 
 COPY agent.py /agent.py
-COPY template/ /template/
+# Minimal TVD template baked in for image completeness; run.sh mounts a fresh copy.
+COPY template/default/prompt.json /template/prompt.json
+COPY template/default/validator.py /template/validator.py
 
 WORKDIR /workspace
 
