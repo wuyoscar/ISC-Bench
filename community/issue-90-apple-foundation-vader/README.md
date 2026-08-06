@@ -39,7 +39,7 @@ Representative triggered outputs, word counts, and the full attack surface map a
 
 ## Relationship to the Paper
 
-This case adds a small-model data point to the capability-vulnerability axis discussed in Section 4.2 and Figure 6 of the paper. On frontier agent-capable models, TVD-Agentic is the dominant trigger; on a 3B on-device model, the weaker end of the axis shows up: code context becomes a defense (because the model lacks the capability to read the full workflow through to data generation), pure-data completion is the more reliable trigger, and a word-count ceiling emerges.
+This case adds a small-model data point to the capability-vulnerability axis discussed in Section 4.2 and Figure 6 of the paper. On frontier agent-capable models, TVD Agent is the dominant trigger; on a 3B on-device model, the weaker end of the axis shows up: code context becomes a defense (because the model lacks the capability to read the full workflow through to data generation), pure-data completion is the more reliable trigger, and a word-count ceiling emerges.
 
 ## Assessment
 

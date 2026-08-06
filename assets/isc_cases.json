@@ -274,7 +274,7 @@
         "by": "wuyoscar"
       },
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/deepseek-deepseek-v3.2-exp/aiml_detoxify.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/deepseek-deepseek-v3.2-exp/aiml_detoxify.json",
         "by": "wuyoscar"
       }
     ]
@@ -286,7 +286,7 @@
         "by": "wuyoscar"
       },
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/qwen-qwen3-235b-a22b-thinking-2507/aiml_detoxify.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/qwen-qwen3-235b-a22b-thinking-2507/aiml_detoxify.json",
         "by": "wuyoscar"
       }
     ]
@@ -406,7 +406,7 @@
   "DeepSeek V3.1 Terminus": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/deepseek-deepseek-v3.1-terminus/aiml_detoxify.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/deepseek-deepseek-v3.1-terminus/aiml_detoxify.json",
         "by": "wuyoscar"
       }
     ]
@@ -414,7 +414,7 @@
   "MiniMax M2.5": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/minimax-minimax-m2.5/aiml_detoxify.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/minimax-minimax-m2.5/aiml_detoxify.json",
         "by": "wuyoscar"
       }
     ]
@@ -422,7 +422,7 @@
   "Qwen3 Next 80B": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/qwen-qwen3-next-80b-a3b-instruct/aiml_detoxify.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/qwen-qwen3-next-80b-a3b-instruct/aiml_detoxify.json",
         "by": "wuyoscar"
       }
     ]
@@ -430,11 +430,11 @@
   "Qwen3 VL 235B": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/qwen-qwen3-vl-235b-a22b-instruct/aiml_detoxify.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/qwen-qwen3-vl-235b-a22b-instruct/aiml_detoxify.json",
         "by": "wuyoscar"
       },
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/qwen-qwen3-vl-235b-a22b-thinking/aiml_detoxify.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/qwen-qwen3-vl-235b-a22b-thinking/aiml_detoxify.json",
         "by": "wuyoscar"
       }
     ]
@@ -442,7 +442,7 @@
   "Qwen3.5 122B": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/qwen-qwen3.5-122b-a10b/aiml_detoxify.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/qwen-qwen3.5-122b-a10b/aiml_detoxify.json",
         "by": "wuyoscar"
       }
     ]
@@ -450,7 +450,7 @@
   "Qwen3.5 27B": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/qwen-qwen3.5-27b/aiml_detoxify.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/qwen-qwen3.5-27b/aiml_detoxify.json",
         "by": "wuyoscar"
       }
     ]
@@ -458,7 +458,7 @@
   "Qwen3.5 35B": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/qwen-qwen3.5-35b-a3b/aiml_detoxify.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/qwen-qwen3.5-35b-a3b/aiml_detoxify.json",
         "by": "wuyoscar"
       }
     ]
@@ -466,7 +466,7 @@
   "Step 3.5 Flash": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/stepfun-step-3.5-flash/aiml_detoxify.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/stepfun-step-3.5-flash/aiml_detoxify.json",
         "by": "wuyoscar"
       }
     ]
@@ -474,7 +474,7 @@
   "Mimo V2 Pro": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/xiaomi-mimo-v2-pro/aiml_detoxify.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/xiaomi-mimo-v2-pro/aiml_detoxify.json",
         "by": "wuyoscar"
       }
     ]
@@ -498,7 +498,7 @@
   "Kimi K2": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/openrouter_moonshotai-kimi-k2/aiml_detoxify.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/openrouter_moonshotai-kimi-k2/aiml_detoxify.json",
         "by": "wuyoscar"
       }
     ]
@@ -506,7 +506,7 @@
   "DeepSeek V3": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/openrouter_deepseek-deepseek-chat-v3-0324/aiml_offensive.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/openrouter_deepseek-deepseek-chat-v3-0324/aiml_offensive.json",
         "by": "wuyoscar"
       }
     ]
@@ -514,7 +514,7 @@
   "Mimo V2 Flash": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/openrouter_xiaomi-mimo-v2-flash/aiml_fake_news.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/openrouter_xiaomi-mimo-v2-flash/aiml_fake_news.json",
         "by": "wuyoscar"
       }
     ]
@@ -522,7 +522,7 @@
   "GPT-5": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/openai_gpt-5/aiml_propaganda.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/openai_gpt-5/aiml_propaganda.json",
         "by": "wuyoscar"
       }
     ]
@@ -530,7 +530,7 @@
   "o1": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/openai_o1-2024-12-17/aiml_sentiment.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/openai_o1-2024-12-17/aiml_sentiment.json",
         "by": "wuyoscar"
       }
     ]
@@ -538,7 +538,7 @@
   "o4-mini": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/openai_o4-mini-2025-04-16/aiml_nsfw.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/openai_o4-mini-2025-04-16/aiml_nsfw.json",
         "by": "wuyoscar"
       }
     ]
@@ -546,7 +546,7 @@
   "GPT-5 Mini": {
     "demos": [
       {
-        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/isc_single/result_direct/openai_gpt-5-mini/aiml_fake_news.json",
+        "link": "https://github.com/wuyoscar/ISC-Bench/blob/main/experiment/tvd_chatbot/result_direct/openai_gpt-5-mini/aiml_fake_news.json",
         "by": "wuyoscar"
       }
     ]
