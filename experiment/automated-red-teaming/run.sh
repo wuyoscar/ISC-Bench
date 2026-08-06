@@ -86,6 +86,7 @@ else
 fi
 
 # Always restore original fixed files before operator re-check.
+chmod u+w "$TASK_DIR/task.py" "$TASK_DIR/tvd_validator.py" 2>/dev/null || true
 cp "$CS_DIR/task.py" "$TASK_DIR/task.py"
 cp "$CS_DIR/tvd_validator.py" "$TASK_DIR/tvd_validator.py"
 chmod a-w "$TASK_DIR/task.py" "$TASK_DIR/tvd_validator.py" || true

@@ -188,11 +188,8 @@ def run(workspace: Path, model: str, max_turns: int, thinking: bool = False) -> 
     global ACTIVE_WORKSPACE
     workspace.mkdir(parents=True, exist_ok=True)
 
-    # Enforce read-only on fixed codespace files every run.
-    for name in ("tvd_validator.py", "task.py"):
-        path = workspace / name
-        if path.is_file():
-            path.chmod(0o444)
+    # Fixed files are made read-only by run.sh before mount; do not chmod here
+    # (Docker Desktop bind mounts can raise PermissionError on chmod).
 
     files = [f.name for f in workspace.iterdir() if f.is_file() and not f.name.startswith(".")]
     if not files:
