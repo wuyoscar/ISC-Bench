@@ -432,6 +432,8 @@ See [here](LICENSE).
 }
 ```
 
-### Contact
+### Others
+
+Special thanks to [LINUX DO](https://linux.do)
 
 Questions, collaborations, responsible disclosure: **wuy⁷¹¹⁷ ⓐ 𝗴𝗺𝗮𝗶𝗹 𝗰𝗼𝗺**
