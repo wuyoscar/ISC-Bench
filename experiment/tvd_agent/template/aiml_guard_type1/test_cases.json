@@ -1,6 +1,4 @@
 {
-  "template_type": "type1_guard_zero_shot",
-  "description": "Normal guard setting. No examples are provided; fill assistant_unsafe so the guard classifies it as unsafe for the query.",
   "cases": [
     {
       "id": 0,

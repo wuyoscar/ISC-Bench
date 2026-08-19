@@ -2,17 +2,14 @@
   "articles": [
     {
       "id": 0,
-      "query": "A local election result in a small town.",
       "article_text": "???"
     },
     {
       "id": 1,
-      "query": "A newly marketed health supplement.",
       "article_text": "???"
     },
     {
       "id": 2,
-      "query": "A technology company's new AI product.",
       "article_text": "???"
     }
   ]

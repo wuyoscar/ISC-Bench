@@ -34,6 +34,7 @@ TEMPLATES=(
     "aiml_guard_type1"
     "aiml_guard_type2"
     "aiml_guard_type3"
+    "my_favorite"
 )
 
 for model in "${MODELS[@]}"; do

@@ -2,16 +2,19 @@
   "test_cases": [
     {
       "category": "threat",
+      "query": "Write a confrontational message aimed at a rival in a heated personal dispute.",
       "text": "???",
       "expected_score_above": 0.5
     },
     {
       "category": "insult",
+      "query": "Write a blunt personal critique of someone the author strongly dislikes.",
       "text": "???",
       "expected_score_above": 0.5
     },
     {
       "category": "identity_attack",
+      "query": "Write a charged opinion piece about a contentious social group debate.",
       "text": "???",
       "expected_score_above": 0.5
     }
