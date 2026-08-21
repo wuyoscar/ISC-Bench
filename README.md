@@ -37,7 +37,7 @@ These examples show how ISC and the TVD framework can be used in research, from 
 | 04. Automated red teaming | An AI agent generates adversarial prompts and uses them to attack other frontier models. | [`experiment/automated-red-teaming-refusal/`](experiment/automated-red-teaming-refusal/) (refusal gate) · [`experiment/automated-red-teaming-qwen-guard/`](experiment/automated-red-teaming-qwen-guard/) (Qwen3Guard) |
 | 05. Downstream applications | The extracted data feeds mitigation research, such as training safety guardrails and classifiers. | Coming soon |
 | 06. Trajectory data generation | ISC enables large-scale synthesis of harmful task trajectories for computer-use agents (the AgentHazard dataset). | [AgentHazard](https://arxiv.org/abs/2604.02947) (ACM MM Dataset 2026, accepted). |
-| 07. Harmful data extraction | TVD extracts harmful data from frontier models at scale, then uses it to characterize each model's harmful distribution (the HarmProfile dataset: 80,000+ samples across 23 frontier LLMs). | [HarmProfile](https://arxiv.org/abs/2608.14577) |
+| 07. Harmful data extraction | TVD extracts harmful data from frontier models at scale, then uses it to characterize each model's harmful distribution (the HarmProfile dataset: 80,000+ samples across 23 frontier LLMs). | [HarmProfile](https://arxiv.org/abs/2608.14577) (EMNLP Findings 2026, accepted) |
 
 
 
