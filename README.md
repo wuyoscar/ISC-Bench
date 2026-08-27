@@ -1,7 +1,11 @@
 <p>
   <a href="https://arxiv.org/abs/2603.23509"><img src="https://img.shields.io/badge/arXiv-2603.23509-b31b1b.svg" alt="Paper"></a>
 </p>
-<h2 align="center">TVD - Internal Safety Collapse in Frontier Large Language Models</h2>
+<h1 align="center">Attack Any Frontier LLMs and Coding Agent</h1>
+<p align="center">
+Attack frontier LLMs and elicit arbitrary harmful content and artifacts.
+</p>
+<h2 align="center">Internal Safety Collapse in Frontier Large Language Models</h2>
 <p align="center">
   <a href="https://github.com/wuyoscar/Internal-Safety-Collapse"><img src="assets/isc_banner.png" width="1000" alt="ISC-Bench banner"></a>
 </p>
